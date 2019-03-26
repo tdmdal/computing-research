@@ -1,0 +1,10 @@
+# Linux Command Quick Reference
+
+RNN runs Linux operating system with a default Bash shell. (A shell is an environment to interact with the Linux system and run other programs.) If you are not familiar with Linux command, the two tutorials below can get you started.
+
+1. [The Unix Shell](http://swcarpentry.github.io/shell-novice/) by Software Carpentry.
+2. [Learning the Shell](http://linuxcommand.org/index.php) by William Shotts.
+
+Below we also provide a quick reference to some commonly used Linux commands.
+
+todo

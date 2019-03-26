@@ -1,0 +1,75 @@
+# Getting Started
+
+
+## Overview
+
+Rotman Research Node (RRN) is a shared Linux server for the Rotman research community. The node is equipped with 32 cores, 1T memory, and 50T storage. It is an integrated part (login node) of a High-Performance Computing (HPC) system consisting of a cluster of around 100 compute nodes. Researchers can work directly on the Rotman node, but also has the option to scale up their computation by submitting large workloads to the compute nodes on the HPC system.
+
+RRN is hosted at [Centre for Advanced Computing (CAC)](https://cac.queensu.ca/). [Rotman TD Management Data and Analytics Lab (TDMDAL)](http://www.rotman.utoronto.ca/FacultyAndResearch/EducationCentres/TDMDAL) provides 1st-tier support to users of the system.
+
+**RRN is currently under beta test. We invite you to try the system and send us your feedback.**
+
+
+## About this User Guide
+
+This User Guide focuses on use cases most relevant to Rotman researchers on the RNN. It complements the [CAC Wiki document](https://cac.queensu.ca/wiki/index.php/Main_Page), which covers the usage of the entire CAC HPC system. We encourage users with high computation needs to further read the CAC Wiki in order to take full advantage of the HPC system.
+
+
+## User Account
+
+RRN is available to all Rotman researchers. To request an account, please email TD Management Data and Analytics Lab at tdmdal@rotman.utoronto.ca. Once your account is created, you will receive an activation email together with login instructions. The process usually takes less than 1 business day.
+
+
+## Logging on to RRN
+
+You will need an SSH (Secure Shell) client to log on to RRN. For Windows users, we recommend [MobaXterm](https://mobaxterm.mobatek.net/). Mac users can use the SSH client provided by the pre-installed [Terminal](https://support.apple.com/en-ca/guide/terminal/welcome/mac) App. In addition, in order to run applications on the server with graphic user interfaces (GUI), Mac users should also install [XQuartz](https://www.xquartz.org/).
+
+To log on to RRN,
+
+1) Open a terminal window. Windows users first launch the MobaXterm app, and then click the "Start local terminal" button in the home tab. Mac users simply run the Terminal app.
+
+2) Type the following command. (Replace `yourUserName` with your user name.)
+
+```{bash eval=FALSE}
+ssh -X yourUserName@rrlogin.cac.queensu.ca
+```
+
+The `-X` option enables graphics forwarding so you can run applications with GUI.
+
+
+## Transferring Files
+
+It's most convenient to use an SFTP (Secure File Transfer Protocol) client to transfer files between your local computer and RNN. [WinSCP](https://winscp.net/eng/download.php) is a great free SFTP client for Windows users. Mac users can install [FileZilla](https://filezilla-project.org/download.php?show_all=1). Use the following information to configure your SFTP client.
+
+* File protocol: SFTP
+* Host name: `rrlogin.cac.queensu.ca`
+* User name: (your username)
+* Password: (your password)
+* Port: 22
+
+If you prefer to use command line tools, `scp` and `rsync` are good options.
+
+
+## Loading Software
+
+RNN uses [Environment Modules](https://lmod.readthedocs.io/en/latest/) to manage its software. Environment modules treat each software and its associated files as a distinct package to be loaded on demand. It resolves conflicts between multiple versions of a software package and configures the environment necessary for running a package.
+
+Below are a few commonly used module command.
+
+Description                                 | Module Command
+:-------------------------------------------| :--------------------------------- 
+List all available software packages        | `module avail`        
+Display a short description of a package    | `module spider packageName`
+Load a package                              | `module load packageName`
+Load a specific version of a package        | `module load packageName/version`
+List currently loaded packages              | `module list`
+Unload a package                            | `module unload packageName`
+Unload all packages                         | `module purge`
+
+For example, to load the Anaconda Python 3 package, type the below command.
+
+```{bash eval=FALSE}
+module load anaconda/3.5.3
+```
+
+RNN has a large collection of software tools installed. Section [Using Software] provides more details on how to setup some commonly used ones.
