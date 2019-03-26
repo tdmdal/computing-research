@@ -4,3 +4,18 @@ site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
 ---
+
+# Overview {-}
+
+## Rotman Research Node {-}
+
+Rotman Research Node (RRN) is a shared Linux server for the Rotman research community. The node is equipped with 32 cores, 1T memory, and 50T storage. It is an integrated part (login node) of a High-Performance Computing (HPC) system consisting of a cluster of around 100 compute nodes. Researchers can work directly on the Rotman node, but also has the option to scale up their computation by submitting large workloads to the compute nodes on the HPC system.
+
+RRN is hosted at [Centre for Advanced Computing (CAC)](https://cac.queensu.ca/). [Rotman TD Management Data and Analytics Lab (TDMDAL)](http://www.rotman.utoronto.ca/FacultyAndResearch/EducationCentres/TDMDAL) provides 1st-tier support to users of the system.
+
+**RRN is currently under beta test. We invite you to try the system and send us your feedback.**
+
+
+## About this User Guide {-}
+
+This User Guide focuses on use cases most relevant to Rotman researchers on the RNN. It complements the [CAC Wiki document](https://cac.queensu.ca/wiki/index.php/Main_Page), which covers the usage of the entire CAC HPC system. We encourage users with high computation needs to further read the CAC Wiki in order to take full advantage of the HPC system.
