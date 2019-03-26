@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Rotman Research Node User Guide</title>
-  <meta name="description" content="Rotman Research Node User Guide">
+  <title>3 Linux Command Quick Reference | Rotman Research Node User Guide</title>
+  <meta name="description" content="3 Linux Command Quick Reference | Rotman Research Node User Guide">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Rotman Research Node User Guide" />
+  <meta property="og:title" content="3 Linux Command Quick Reference | Rotman Research Node User Guide" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Rotman Research Node User Guide" />
+  <meta name="twitter:title" content="3 Linux Command Quick Reference | Rotman Research Node User Guide" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
+<link rel="prev" href="using-software.html">
 
-<link rel="next" href="using-software.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -130,103 +130,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Rotman Research Node User Guide</h1>
-</div>
-<div id="getting-started" class="section level1">
-<h1><span class="header-section-number">1</span> Getting Started</h1>
-<div id="overview" class="section level2">
-<h2><span class="header-section-number">1.1</span> Overview</h2>
-<p>Rotman Research Node (RRN) is a shared Linux server for the Rotman research community. The node is equipped with 32 cores, 1T memory, and 50T storage. It is an integrated part (login node) of a High-Performance Computing (HPC) system consisting of a cluster of around 100 compute nodes. Researchers can work directly on the Rotman node, but also has the option to scale up their computation by submitting large workloads to the compute nodes on the HPC system.</p>
-<p>RRN is hosted at <a href="https://cac.queensu.ca/">Centre for Advanced Computing (CAC)</a>. <a href="http://www.rotman.utoronto.ca/FacultyAndResearch/EducationCentres/TDMDAL">Rotman TD Management Data and Analytics Lab (TDMDAL)</a> provides 1st-tier support to users of the system.</p>
-<p><strong>RRN is currently under beta test. We invite you to try the system and send us your feedback.</strong></p>
-</div>
-<div id="about-this-user-guide" class="section level2">
-<h2><span class="header-section-number">1.2</span> About this User Guide</h2>
-<p>This User Guide focuses on use cases most relevant to Rotman researchers on the RNN. It complements the <a href="https://cac.queensu.ca/wiki/index.php/Main_Page">CAC Wiki document</a>, which covers the usage of the entire CAC HPC system. We encourage users with high computation needs to further read the CAC Wiki in order to take full advantage of the HPC system.</p>
-</div>
-<div id="user-account" class="section level2">
-<h2><span class="header-section-number">1.3</span> User Account</h2>
-<p>RRN is available to all Rotman researchers. To request an account, please email TD Management Data and Analytics Lab at <a href="mailto:tdmdal@rotman.utoronto.ca">tdmdal@rotman.utoronto.ca</a>. Once your account is created, you will receive an activation email together with login instructions. The process ususally takes less than 1 business day.</p>
-</div>
-<div id="logging-on-to-rrn" class="section level2">
-<h2><span class="header-section-number">1.4</span> Logging on to RRN</h2>
-<p>You will need an SSH (Secure Shell) client to log on to RRN. For Windows users, we recommend <a href="https://mobaxterm.mobatek.net/">MobaXterm</a>. Mac users can use the SSH client provided by the pre-installed <a href="https://support.apple.com/en-ca/guide/terminal/welcome/mac">Terminal</a> App. In addition, in order to run applications on the server with graphic user interfaces (GUI), Mac users should also install <a href="https://www.xquartz.org/">XQuartz</a>.</p>
-<p>To log on to RRN,</p>
+<div id="linux-command-quick-reference" class="section level1">
+<h1><span class="header-section-number">3</span> Linux Command Quick Reference</h1>
+<p>RNN runs Linux operating system with a default Bash shell. (A shell is an environment to interact with the Linux system and run other programs.) If you are not familiar with Linux command, the two tutorials below can get you started.</p>
 <ol style="list-style-type: decimal">
-<li><p>Open a terminal window. Windows users first launch the MobaXterm app, and then click the “Start local terminal” button in the home tab. Mac users simply run the Terminal app.</p></li>
-<li><p>Type the folllowing command. (Replace <code>yourUserName</code> with your user name.)</p></li>
+<li><a href="http://swcarpentry.github.io/shell-novice/">The Unix Shell</a> by Software Carpentry.</li>
+<li><a href="http://linuxcommand.org/index.php">Learning the Shell</a> by William Shotts.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> -X yourUserName@rrlogin.cac.queensu.ca</code></pre></div>
-<p>The <code>-X</code> option enables graphics forwarding so you can run applications with GUI.</p>
-</div>
-<div id="transferring-files" class="section level2">
-<h2><span class="header-section-number">1.5</span> Transferring Files</h2>
-<p>It’s most convenient to use an SFTP (Secure File Transfer Protocol) client to transfer files between your local computer and RNN. <a href="https://winscp.net/eng/download.php">WinSCP</a> is a great free SFTP client for Windows users. Mac users can install <a href="https://filezilla-project.org/download.php?show_all=1">FileZilla</a>. Use the following information to configure your SFTP client.</p>
-<ul>
-<li>File protocol: SFTP</li>
-<li>Host name: <code>rrlogin.cac.queensu.ca</code></li>
-<li>User name: (your username)</li>
-<li>Password: (your password)</li>
-<li>Port: 22</li>
-</ul>
-<p>If you prefer to use command line tools, <code>scp</code> and <code>rsync</code> are good options.</p>
-</div>
-<div id="loading-software" class="section level2">
-<h2><span class="header-section-number">1.6</span> Loading Software</h2>
-<p>RNN uses <a href="https://lmod.readthedocs.io/en/latest/">Environment Modules</a> to manage its software. Environment modules treat each software and its associated files as a distinct package to be loaded on demand. It resolves conflicts between multiple versions of a software package and configures the environment necessary for running a package.</p>
-<p>Below are a few commonly used module command.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Description</th>
-<th align="left">Module Command</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">List all available software packages</td>
-<td align="left"><code>module avail</code></td>
-</tr>
-<tr class="even">
-<td align="left">Display a short description of a package</td>
-<td align="left"><code>module spider packageName</code></td>
-</tr>
-<tr class="odd">
-<td align="left">Load a package</td>
-<td align="left"><code>module load packageName</code></td>
-</tr>
-<tr class="even">
-<td align="left">Load a specific version of a package</td>
-<td align="left"><code>module load packageName/version</code></td>
-</tr>
-<tr class="odd">
-<td align="left">List currently loaded packages</td>
-<td align="left"><code>module list</code></td>
-</tr>
-<tr class="even">
-<td align="left">Unload a package</td>
-<td align="left"><code>module unload packageName</code></td>
-</tr>
-<tr class="odd">
-<td align="left">Unload all packages</td>
-<td align="left"><code>module purge</code></td>
-</tr>
-</tbody>
-</table>
-<p>For example, to load the Anaconda Python 3 package, type the below command.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">module</span> load anaconda/3.5.3</code></pre></div>
-<p>RNN has a large collection of software tools installed. Section <a href="using-software.html#using-software">Using Software</a> provides more details on how to setup some commonly used ones.</p>
+<p>Below we also provide a quick reference to some commonly used Linux commands.</p>
+<p>todo</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="using-software.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="using-software.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
