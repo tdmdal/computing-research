@@ -2,7 +2,10 @@
 title: "Rotman Research Node User Guide"
 site: bookdown::bookdown_site
 output:
-  bookdown::gitbook: default
+  bookdown::gitbook:
+    config:
+      sharing: no
+    github-repo: tdmdal/computing-research
 ---
 
 # Overview {-}
