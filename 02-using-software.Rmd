@@ -1,5 +1,26 @@
 # Using Software
 
+## Best Practice
+
+### Interactive mode vs batch mode
+
+Most applications can run either in interactive mode or in batch mode. For small jobs, it really doesn't matter which one you choose. For medium to large jobs, you could still code and debug your work in the interactive mode, but you should run your work in batch mode once it's fully tested as probably you don't want to wait in front of the screen for your job to finish. If you use batch mode, you'll have the convenience of logging off the system and logging in later to check the result. You can do so by pre- and post-face your application's batch mode command with the Linux command `nohup` and control operator `&`.
+
+```{bash eval=FALSE}
+nohup <batch mode command> &
+```
+
+`nohup` prevents your job from being killed when you log off the system. The `&` at the end makes the command run in the background. For example, suppose you use Stata and you have a do file named `filename.do` that takes hours to run, you could run it in batch mode as below.
+
+```{bash eval=FALSE}
+nohup stata -b do filename &
+```
+
+### RNN vs compute node
+
+RNN is actually integrated with a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Since RNN is shared by many Rotman researchers, if you have a super compute-intensive job, you should consider submitting it to the compute nodes instead of running it on RNN. See [here](https://cac.queensu.ca/wiki/index.php/SLURM) to get started on how to submit jobs to compute nodes.
+
+
 ## Using Python
 
 todo
@@ -14,4 +35,52 @@ todo
 
 ## Using Stata
 
-todo
+### Setup
+
+The environment module hasn't been configured for Stata yet so you would need to manually set the path to use Stata. Type the command below in the terminal.
+
+```{bash eval=FALSE}
+export PATH=$PATH:/global/software/stata15
+```
+
+### Interactive mode without GUI
+
+To start Stata/IC in interactive mode without GUI (Stata console mode), type `stata` in the terminal.
+
+Use `stata-se` for Stata/SE and `stata-mp` for Stata/MP.
+
+### Interactive mode with GUI
+
+To start Stata/IC in interactive mode with GUI, use `xstata` (use `xstata-se` for Stata/SE and `xstata-mp` for Stata/MP). You will lose your terminal command line prompt once the Stata GUI is running.
+
+Alternatively, use `xstata &` (`xstata-se &` or `xstata-mp &`) to run the command in background and return the command line prompt.
+
+### Batch mode
+
+To run Stata/IC in batch mode, use
+
+```{bash eval=FALSE}
+stata -b do filename &
+```
+
+Stata will execute the commands in `filename.do` and will automatically save the output in `filename.log`. The `&` at the end tells Linux to run the command in the background, freeing up your command line prompt.
+
+If your code takes a long time to run, you may wish to start a batch Stata job, log off from your terminal, and log back in later to retrieve the output. To do this, preface the previous command with `nohup`.
+
+```{bash eval=FALSE}
+nohup stata -b do filename &
+```
+
+`nohup` prevents your job from being killed when you log off the system.
+
+### A note on Stata/MP
+
+We have Stata/MP 32-core installed on the system. Since RNN is a 32-core node shared by many users, we request that you set the number of processors for Stata/MP to be less than 16 when you use it on RNN. If you have a large workload that requires many cores and hours to run, your should consider submitting your job to the compute nodes on the HPC system (see [here](https://cac.queensu.ca/wiki/index.php/SLURM) to get started).
+
+Use `set processors #` to set the number of processors for Stata/MP. For example,
+
+```{stata eval=FALSE}
+set processors 12
+```
+
+Put it on the first line of your do file or run it first if you use Stata/MP interactive mode.
