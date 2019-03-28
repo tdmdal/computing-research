@@ -18,7 +18,7 @@ nohup stata -b do filename &
 
 ### RNN vs compute node
 
-RNN is actually integrated with a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Since RNN is shared by many Rotman researchers, if you have a super compute-intensive job, you should consider submitting it to the compute nodes instead of running it on RNN. See [here](https://cac.queensu.ca/wiki/index.php/SLURM) to get started on how to submit jobs to compute nodes.
+RNN is actually integrated with a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Since RNN is shared by many Rotman researchers, if you have a super compute-intensive job, you should consider submitting it to the compute nodes instead of running it on RNN. See [this CAC document](https://cac.queensu.ca/wiki/index.php/SLURM) to learn how to submit jobs to compute nodes.
 
 
 ## Using Python
@@ -29,9 +29,62 @@ todo
 
 todo
 
+
 ## Using Matlab
 
-todo
+### Setup
+
+Send a signed [MATLAB usage statement form](https://cac.queensu.ca/wp-content/uploads/2017/05/cac-matlab-statement-new.pdf) to cac.admin@queensu.ca and cc tdmdal@rotman.utoronto.ca. This will add you to the matlab group that allows access to the software. To check if you have been authorized access, type `groups` while logged on to the system. If `matlab` appears in the output, you are good to go!
+
+Type `module avail matlab` to see available Matlab versions, and then load the one you want to use. Currently, two versions of Matlab are installed (R2017a and R2018b). For example, if you want to use Matlab 2018b, type
+
+```{bash eval=FALSE}
+module load matlab/R2018b
+```
+
+### Interactive mode without GUI
+
+To start Matlab in interactive mode without GUI, type the command below.
+
+```{bash eval=FALSE}
+matlab -nodisplay -nojvm -nosplash
+```
+
+### Interactive mode with GUI
+
+To start Matlab in interactive mode with GUI, simply type `matlab` in the terminal.
+
+If you use Matlab/R2017a, you may find the Matlab GUI a bit lagging. In this case, in the folder where you start Matlab, create a file named `java.opts` and add the following line in it. This should resolve the GUI problem.
+
+```
+-Dsun.java2d.pmoffscreen=false
+
+```
+
+### Batch mode
+
+To run Matlab in batch mode, use
+
+```{bash eval=FALSE}
+matlab -nodisplay -nodesktop -nojvm -nosplash <mycode.m >output.txt
+```
+
+The `<` symbol tells the `matlab` command to take the Matlab m file `mycode.m` as input. The `>` symbol redirects the output to the `output.txt` file instead of printing it to the screen.
+
+Pre- and post-face the above command with the Linux command `nohup` and control operator `&` so that the job will run in background and won't be killed even you log off the system (see section [Interactive mode vs batch mode]).
+
+```{bash eval=FALSE}
+nohup matlab -nodisplay -nodesktop -nojvm -nosplash <mycode.m >output.txt &
+```
+
+
+### Run Matlab on compute nodes
+
+For large compute-intensive Matlab jobs, consider submitting them to the compute nodes. The following two documents on the [CAC Wiki](https://cac.queensu.ca/wiki/index.php/Main_Page) site can get you started.
+
+* [How to run jobs using a scheduler](https://cac.queensu.ca/wiki/index.php/SLURM)
+* [An example of a MATLAB job script](https://cac.queensu.ca/wiki/index.php/Software:matlab)
+
 
 ## Using Stata
 
@@ -75,7 +128,7 @@ nohup stata -b do filename &
 
 ### A note on Stata/MP
 
-We have Stata/MP 32-core installed on the system. Since RNN is a 32-core node shared by many users, we request that you set the number of processors for Stata/MP to be less than 16 when you use it on RNN. If you have a large workload that requires many cores and hours to run, your should consider submitting your job to the compute nodes on the HPC system (see [here](https://cac.queensu.ca/wiki/index.php/SLURM) to get started).
+We have Stata/MP 32-core installed on the system. Since RNN is a 32-core node shared by many users, we request that you set the number of processors for Stata/MP to be less than 16 when you use it on RNN.
 
 Use `set processors #` to set the number of processors for Stata/MP. For example,
 
@@ -83,4 +136,6 @@ Use `set processors #` to set the number of processors for Stata/MP. For example
 set processors 12
 ```
 
-Put it on the first line of your do file or run it first if you use Stata/MP interactive mode.
+Put it on the first line in your do file or run it first if you use interactive mode.
+
+If you have a large workload that requires many cores and hours to run, your should consider submitting your job to the compute nodes on the HPC system. In that case, you can request a 32-core node to take full advantage of the 32-core Stata/MP licence. (See [How to run jobs using a scheduler](https://cac.queensu.ca/wiki/index.php/SLURM) on the [CAC Wiki](https://cac.queensu.ca/wiki/index.php/Main_Page) site to get started.)

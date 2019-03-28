@@ -115,12 +115,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="using-software.html"><a href="using-software.html#using-python"><i class="fa fa-check"></i><b>2.2</b> Using Python</a></li>
 <li class="chapter" data-level="2.3" data-path="using-software.html"><a href="using-software.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="using-software.html"><a href="using-software.html#using-matlab"><i class="fa fa-check"></i><b>2.4</b> Using Matlab</a></li>
+<li class="chapter" data-level="2.4" data-path="using-software.html"><a href="using-software.html#using-matlab"><i class="fa fa-check"></i><b>2.4</b> Using Matlab</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="using-software.html"><a href="using-software.html#setup"><i class="fa fa-check"></i><b>2.4.1</b> Setup</a></li>
+<li class="chapter" data-level="2.4.2" data-path="using-software.html"><a href="using-software.html#interactive-mode-without-gui"><i class="fa fa-check"></i><b>2.4.2</b> Interactive mode without GUI</a></li>
+<li class="chapter" data-level="2.4.3" data-path="using-software.html"><a href="using-software.html#interactive-mode-with-gui"><i class="fa fa-check"></i><b>2.4.3</b> Interactive mode with GUI</a></li>
+<li class="chapter" data-level="2.4.4" data-path="using-software.html"><a href="using-software.html#batch-mode"><i class="fa fa-check"></i><b>2.4.4</b> Batch mode</a></li>
+<li class="chapter" data-level="2.4.5" data-path="using-software.html"><a href="using-software.html#run-matlab-on-compute-nodes"><i class="fa fa-check"></i><b>2.4.5</b> Run Matlab on compute nodes</a></li>
+</ul></li>
 <li class="chapter" data-level="2.5" data-path="using-software.html"><a href="using-software.html#using-stata"><i class="fa fa-check"></i><b>2.5</b> Using Stata</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="using-software.html"><a href="using-software.html#setup"><i class="fa fa-check"></i><b>2.5.1</b> Setup</a></li>
-<li class="chapter" data-level="2.5.2" data-path="using-software.html"><a href="using-software.html#interactive-mode-without-gui"><i class="fa fa-check"></i><b>2.5.2</b> Interactive mode without GUI</a></li>
-<li class="chapter" data-level="2.5.3" data-path="using-software.html"><a href="using-software.html#interactive-mode-with-gui"><i class="fa fa-check"></i><b>2.5.3</b> Interactive mode with GUI</a></li>
-<li class="chapter" data-level="2.5.4" data-path="using-software.html"><a href="using-software.html#batch-mode"><i class="fa fa-check"></i><b>2.5.4</b> Batch mode</a></li>
+<li class="chapter" data-level="2.5.1" data-path="using-software.html"><a href="using-software.html#setup-1"><i class="fa fa-check"></i><b>2.5.1</b> Setup</a></li>
+<li class="chapter" data-level="2.5.2" data-path="using-software.html"><a href="using-software.html#interactive-mode-without-gui-1"><i class="fa fa-check"></i><b>2.5.2</b> Interactive mode without GUI</a></li>
+<li class="chapter" data-level="2.5.3" data-path="using-software.html"><a href="using-software.html#interactive-mode-with-gui-1"><i class="fa fa-check"></i><b>2.5.3</b> Interactive mode with GUI</a></li>
+<li class="chapter" data-level="2.5.4" data-path="using-software.html"><a href="using-software.html#batch-mode-1"><i class="fa fa-check"></i><b>2.5.4</b> Batch mode</a></li>
 <li class="chapter" data-level="2.5.5" data-path="using-software.html"><a href="using-software.html#a-note-on-statamp"><i class="fa fa-check"></i><b>2.5.5</b> A note on Stata/MP</a></li>
 </ul></li>
 </ul></li>
@@ -155,7 +161,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="rnn-vs-compute-node" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> RNN vs compute node</h3>
-<p>RNN is actually integrated with a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Since RNN is shared by many Rotman researchers, if you have a super compute-intensive job, you should consider submitting it to the compute nodes instead of running it on RNN. See <a href="https://cac.queensu.ca/wiki/index.php/SLURM">here</a> to get started on how to submit jobs to compute nodes.</p>
+<p>RNN is actually integrated with a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Since RNN is shared by many Rotman researchers, if you have a super compute-intensive job, you should consider submitting it to the compute nodes instead of running it on RNN. See <a href="https://cac.queensu.ca/wiki/index.php/SLURM">this CAC document</a> to learn how to submit jobs to compute nodes.</p>
 </div>
 </div>
 <div id="using-python" class="section level2">
@@ -168,26 +174,59 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="using-matlab" class="section level2">
 <h2><span class="header-section-number">2.4</span> Using Matlab</h2>
-<p>todo</p>
+<div id="setup" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Setup</h3>
+<p>Send a signed <a href="https://cac.queensu.ca/wp-content/uploads/2017/05/cac-matlab-statement-new.pdf">MATLAB usage statement form</a> to <a href="mailto:cac.admin@queensu.ca">cac.admin@queensu.ca</a> and cc <a href="mailto:tdmdal@rotman.utoronto.ca">tdmdal@rotman.utoronto.ca</a>. This will add you to the matlab group that allows access to the software. To check if you have been authorized access, type <code>groups</code> while logged on to the system. If <code>matlab</code> appears in the output, you are good to go!</p>
+<p>Type <code>module avail matlab</code> to see available Matlab versions, and then load the one you want to use. Currently, two versions of Matlab are installed (R2017a and R2018b). For example, if you want to use Matlab 2018b, type</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">module</span> load matlab/R2018b</code></pre></div>
+</div>
+<div id="interactive-mode-without-gui" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Interactive mode without GUI</h3>
+<p>To start Matlab in interactive mode without GUI, type the command below.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">matlab</span> -nodisplay -nojvm -nosplash</code></pre></div>
+</div>
+<div id="interactive-mode-with-gui" class="section level3">
+<h3><span class="header-section-number">2.4.3</span> Interactive mode with GUI</h3>
+<p>To start Matlab in interactive mode with GUI, simply type <code>matlab</code> in the terminal.</p>
+<p>If you use Matlab/R2017a, you may find the Matlab GUI a bit lagging. In this case, in the folder where you start Matlab, create a file named <code>java.opts</code> and add the following line in it. This should resolve the GUI problem.</p>
+<pre><code>-Dsun.java2d.pmoffscreen=false
+</code></pre>
+</div>
+<div id="batch-mode" class="section level3">
+<h3><span class="header-section-number">2.4.4</span> Batch mode</h3>
+<p>To run Matlab in batch mode, use</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">matlab</span> -nodisplay -nodesktop -nojvm -nosplash <span class="op">&lt;</span>mycode.m <span class="op">&gt;</span>output.txt</code></pre></div>
+<p>The <code>&lt;</code> symbol tells the <code>matlab</code> command to take the Matlab m file <code>mycode.m</code> as input. The <code>&gt;</code> symbol redirects the output to the <code>output.txt</code> file instead of printing it to the screen.</p>
+<p>Pre- and post-face the above command with the Linux command <code>nohup</code> and control operator <code>&amp;</code> so that the job will run in background and won’t be killed even you log off the system (see section <a href="using-software.html#interactive-mode-vs-batch-mode">Interactive mode vs batch mode</a>).</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">nohup</span> matlab -nodisplay -nodesktop -nojvm -nosplash <span class="op">&lt;</span>mycode.m <span class="op">&gt;</span>output.txt <span class="kw">&amp;</span></code></pre></div>
+</div>
+<div id="run-matlab-on-compute-nodes" class="section level3">
+<h3><span class="header-section-number">2.4.5</span> Run Matlab on compute nodes</h3>
+<p>For large compute-intensive Matlab jobs, consider submitting them to the compute nodes. The following two documents on the <a href="https://cac.queensu.ca/wiki/index.php/Main_Page">CAC Wiki</a> site can get you started.</p>
+<ul>
+<li><a href="https://cac.queensu.ca/wiki/index.php/SLURM">How to run jobs using a scheduler</a></li>
+<li><a href="https://cac.queensu.ca/wiki/index.php/Software:matlab">An example of a MATLAB job script</a></li>
+</ul>
+</div>
 </div>
 <div id="using-stata" class="section level2">
 <h2><span class="header-section-number">2.5</span> Using Stata</h2>
-<div id="setup" class="section level3">
+<div id="setup-1" class="section level3">
 <h3><span class="header-section-number">2.5.1</span> Setup</h3>
 <p>The environment module hasn’t been configured for Stata yet so you would need to manually set the path to use Stata. Type the command below in the terminal.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">export</span> <span class="va">PATH=$PATH</span>:/global/software/stata15</code></pre></div>
 </div>
-<div id="interactive-mode-without-gui" class="section level3">
+<div id="interactive-mode-without-gui-1" class="section level3">
 <h3><span class="header-section-number">2.5.2</span> Interactive mode without GUI</h3>
 <p>To start Stata/IC in interactive mode without GUI (Stata console mode), type <code>stata</code> in the terminal.</p>
 <p>Use <code>stata-se</code> for Stata/SE and <code>stata-mp</code> for Stata/MP.</p>
 </div>
-<div id="interactive-mode-with-gui" class="section level3">
+<div id="interactive-mode-with-gui-1" class="section level3">
 <h3><span class="header-section-number">2.5.3</span> Interactive mode with GUI</h3>
 <p>To start Stata/IC in interactive mode with GUI, use <code>xstata</code> (use <code>xstata-se</code> for Stata/SE and <code>xstata-mp</code> for Stata/MP). You will lose your terminal command line prompt once the Stata GUI is running.</p>
 <p>Alternatively, use <code>xstata &amp;</code> (<code>xstata-se &amp;</code> or <code>xstata-mp &amp;</code>) to run the command in background and return the command line prompt.</p>
 </div>
-<div id="batch-mode" class="section level3">
+<div id="batch-mode-1" class="section level3">
 <h3><span class="header-section-number">2.5.4</span> Batch mode</h3>
 <p>To run Stata/IC in batch mode, use</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">stata</span> -b do filename <span class="kw">&amp;</span></code></pre></div>
@@ -198,10 +237,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="a-note-on-statamp" class="section level3">
 <h3><span class="header-section-number">2.5.5</span> A note on Stata/MP</h3>
-<p>We have Stata/MP 32-core installed on the system. Since RNN is a 32-core node shared by many users, we request that you set the number of processors for Stata/MP to be less than 16 when you use it on RNN. If you have a large workload that requires many cores and hours to run, your should consider submitting your job to the compute nodes on the HPC system (see <a href="https://cac.queensu.ca/wiki/index.php/SLURM">here</a> to get started).</p>
+<p>We have Stata/MP 32-core installed on the system. Since RNN is a 32-core node shared by many users, we request that you set the number of processors for Stata/MP to be less than 16 when you use it on RNN.</p>
 <p>Use <code>set processors #</code> to set the number of processors for Stata/MP. For example,</p>
 <pre class="stata"><code>set processors 12</code></pre>
-<p>Put it on the first line of your do file or run it first if you use Stata/MP interactive mode.</p>
+<p>Put it on the first line in your do file or run it first if you use interactive mode.</p>
+<p>If you have a large workload that requires many cores and hours to run, your should consider submitting your job to the compute nodes on the HPC system. In that case, you can request a 32-core node to take full advantage of the 32-core Stata/MP licence. (See <a href="https://cac.queensu.ca/wiki/index.php/SLURM">How to run jobs using a scheduler</a> on the <a href="https://cac.queensu.ca/wiki/index.php/Main_Page">CAC Wiki</a> site to get started.)</p>
 
 </div>
 </div>
