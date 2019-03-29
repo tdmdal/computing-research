@@ -16,7 +16,7 @@ nohup <batch mode command> &
 nohup stata -b do filename &
 ```
 
-### RRN vs compute node
+### RRN vs compute nodes
 
 RRN is actually integrated with a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Since RRN is shared by many Rotman researchers, if you have a super compute-intensive job, you should consider submitting it to the compute nodes instead of running it on RRN. See [this CAC document](https://cac.queensu.ca/wiki/index.php/SLURM) to learn how to submit jobs to compute nodes.
 
@@ -63,7 +63,15 @@ nohup python mycode.py &> mycode_log.txt &
 
 ### Installing packages
 
-The best practice to manage Python packages is to create a virtual environment for each of your Python project. In a project virtual environment, you only need to install the packages required for that specific project. In that way, you can avoid potential package conflicts between projects.
+To install a new Python package, use
+
+```{bash eval=FALSE}
+pip install --user <packageName>
+```
+
+The above command installs a package to the base environment on your `~/.local/` folder. 
+
+However, the best practice to manage Python packages is to create a virtual environment for each of your Python project. In a project virtual environment, you only need to install the packages required for that specific project. In that way, you can avoid potential package conflicts between projects.
 
 We assume you use Anaconda Python 3 distribution on RRN. Below are steps to setup a virtual environment and install new packages.
 
@@ -106,7 +114,7 @@ conda install keras
 
 Note that a new virtual environment has no packages pre-installed (except Python standard libraries).
 
-If you are not able to install a package with `conda install <pacakgeName>` (packages built and maintained by Anaconda official channel) or `conda install -c conda-forge <packageName>` (packages built and maintained by conda community),  you can still try `pip install <pacakgeName>`, although you would need to first install `pip` using `conda install pip`.
+If you are not able to find a package with `conda install <pacakgeName>` (packages built and maintained by Anaconda official channel) or `conda install -c conda-forge <packageName>` (packages built and maintained by conda community),  you can still try `pip install <pacakgeName>`, although you would need to first install `pip` using `conda install pip`.
 
 5. Return to base environment.
 
@@ -114,7 +122,7 @@ After you're done with Python, type `source deactivate` to return to the base en
 
 Next time, all you need to do is step (1) and (3) to start the virtual environment and using Python.
 
-See more on `conda` at its [official document page](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-envs).
+Refer to conda's [official document](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-envs) for more on virtual environment and package management.
 
 ### Run Python on compute nodes
 
