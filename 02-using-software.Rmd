@@ -116,7 +116,7 @@ Next time, all you need to do is step (1) and (3) to start the virtual environme
 
 See more on `conda` at its [official document page](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-envs).
 
-### Run Python on compute node
+### Run Python on compute nodes
 
 For large compute-intensive Python jobs, consider submitting them to the compute nodes (see [RRN vs compute node]). The following document on the [CAC Wiki](https://cac.queensu.ca/wiki/index.php/Main_Page) site can get you started.
 
