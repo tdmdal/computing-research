@@ -16,14 +16,106 @@ nohup <batch mode command> &
 nohup stata -b do filename &
 ```
 
-### RNN vs compute node
+### RRN vs compute node
 
-RNN is actually integrated with a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Since RNN is shared by many Rotman researchers, if you have a super compute-intensive job, you should consider submitting it to the compute nodes instead of running it on RNN. See [this CAC document](https://cac.queensu.ca/wiki/index.php/SLURM) to learn how to submit jobs to compute nodes.
+RRN is actually integrated with a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Since RRN is shared by many Rotman researchers, if you have a super compute-intensive job, you should consider submitting it to the compute nodes instead of running it on RRN. See [this CAC document](https://cac.queensu.ca/wiki/index.php/SLURM) to learn how to submit jobs to compute nodes.
 
 
 ## Using Python
 
-todo
+### Setup
+
+Different versions and distributions of Python are available on RRN including Standard Python 2 and 3 releases, Anaconda Distribution 2 and 3, and Python 2 and 3 with MPI4Py and Scipy stack. (Use `module avail` to list all available software on RRN.)
+
+We recommend you use Anaconda Distribution 3 as it comes with a collection of useful Python packages and a good package and environment manager `conda`. Load the Anaconda Python 3 as below.
+
+```{bash eval=FALSE}
+module load anaconda/3.5.3
+```
+
+See more on setting up virtual environment for Python projects below (section [Installing packages]).
+
+### Interactive mode (Python console)
+
+To use Python in interactive mode (Python console), type `python` in the terminal.
+
+### Batch mode
+
+To use Python in batch mode, use
+
+```{bash eval=FALSE}
+python mycode.py
+```
+
+To capture standard output `stdout` and standard error `stderr` (usually displayed on screen) in a log file, use
+
+```{bash eval=FALSE}
+python mycode.py &> mycode_log.txt
+```
+
+`&>` redirects standard output and error streams to a file specified. Nothing will be printed in the terminal. If the file already exists, it gets overwritten.
+
+Pre- and post-face the above command with the Linux command `nohup` and control operator `&` so that the job will run in background and won't be killed even you log off the system (see section [Interactive mode vs batch mode]).
+
+```{bash eval=FALSE}
+nohup python mycode.py &> mycode_log.txt &
+```
+
+### Installing packages
+
+The best practice to manage Python packages is to create a virtual environment for each of your Python project. In a project virtual environment, you only need to install the packages required for that specific project. In that way, you can avoid potential package conflicts between projects.
+
+We assume you use Anaconda Python 3 distribution on RRN. Below are steps to setup a virtual environment and install new packages.
+
+1. Load Anaconda Python 3 distribution.
+
+```{bash eval=FALSE}
+module load anaconda/3.5.3
+```
+
+2. Create a virtual environment
+.
+```{bash eval=FALSE}
+conda create --name myenv
+```
+
+`conda` is the package management system. `myenv` is the specified environment name. (You may want to pick your own name.)
+
+3. Activate the virtual environment.
+
+```{bash eval=FALSE}
+source activate myenv
+```
+
+Note: For conda 4.6 or later version, you can use `conda activate myenv` to activate the environment. The default conda version on RNN is 4.5.11 (use `conda --version` to see it). However, if you still want to use `conda activate myenv` (for future proof), do the following.
+
+Run the below command once, logout, and re-login. Once you login, run (1) again to load the anaconda module. This command adds a line to `.bashrc` file so that you can use `conda activate` to activate the virtual environment you just created in step (2)
+
+```{bash eval=FALSE}
+echo ". /global/software/python/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
+```
+
+4. Install packages.
+
+Now you are inside your virtual environment. You should see `(myenv)` in the terminal prompt. This is an isolated environment that you can manage the packages to be installed. For example, you can install `tensorflow` and `keras` by using `conda install <packageName>`. All package dependencies will be installed automatically. 
+
+```{bash eval=FALSE}
+conda install tensorflow
+conda install keras
+```
+
+Note that a new virtual environment has no packages pre-installed (except Python standard libraries).
+
+If you are not able to install a package with `conda install <pacakgeName>` (packages built and maintained by Anaconda official channel) or `conda install -c conda-forge <packageName>` (packages built and maintained by conda community),  you can still try `pip install <pacakgeName>`, although you would need to first install `pip` using `conda install pip`.
+
+5. Return to base environment.
+
+After you're done with Python, type `source deactivate` to return to the base environment. (If you have followed the "Note" in step 3, you can use `conda deactivate` instead.)
+
+Next time, all you need to do is step (1) and (3) to start the virtual environment and using Python.
+
+See more on `conda` at its [official document page](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-envs).
+
 
 ## Using R
 
@@ -128,7 +220,7 @@ nohup stata -b do filename &
 
 ### A note on Stata/MP
 
-We have Stata/MP 32-core installed on the system. Since RNN is a 32-core node shared by many users, we request that you set the number of processors for Stata/MP to be less than 16 when you use it on RNN.
+We have Stata/MP 32-core installed on the system. Since RRN is a 32-core node shared by many users, we request that you set the number of processors for Stata/MP to be less than 16 when you use it on RRN.
 
 Use `set processors #` to set the number of processors for Stata/MP. For example,
 
