@@ -37,7 +37,7 @@ See more on setting up virtual environment for Python projects below (section [I
 
 ### Interactive mode (Python console)
 
-To use Python in interactive mode (Python console), type `python` in the terminal.
+To use Python in interactive mode (Python console), type `python` in the terminal. Type `exit()` to exit the Python console.
 
 ### Batch mode
 
@@ -61,7 +61,7 @@ Pre- and post-face the above command with the Linux command `nohup` and control 
 nohup python mycode.py &> mycode_log.txt &
 ```
 
-### Installing packages
+### Install packages
 
 To install a new Python package, use
 
@@ -69,9 +69,9 @@ To install a new Python package, use
 pip install --user <packageName>
 ```
 
-The above command installs a package to the base environment on your `~/.local/` folder. 
+The above command installs a package to the base environment under your home directory. 
 
-However, the best practice to manage Python packages is to create a virtual environment for each of your Python project. In a project virtual environment, you only need to install the packages required for that specific project. In that way, you can avoid potential package conflicts between projects.
+However, the best practice to manage Python packages is to create a virtual environment for each of your Python project. In a project virtual environment, you only need to install packages required for the specific project. In that way, you can avoid potential package conflicts between projects.
 
 We assume you use Anaconda Python 3 distribution on RRN. Below are steps to setup a virtual environment and install new packages.
 
@@ -87,7 +87,7 @@ module load anaconda/3.5.3
 conda create --name myenv
 ```
 
-`conda` is the package management system. `myenv` is the specified environment name. (You may want to pick your own name.)
+`conda` is a package management system. `myenv` is the specified environment name. (You may want to pick your own name.)
 
 3. Activate the virtual environment.
 
@@ -126,14 +126,128 @@ Refer to conda's [official document](https://docs.conda.io/projects/conda/en/lat
 
 ### Run Python on compute nodes
 
-For large compute-intensive Python jobs, consider submitting them to the compute nodes (see [RRN vs compute node]). The following document on the [CAC Wiki](https://cac.queensu.ca/wiki/index.php/Main_Page) site can get you started.
+For large compute-intensive Python jobs, consider submitting them to the compute nodes (see [RRN vs compute nodes]). The following document on the [CAC Wiki](https://cac.queensu.ca/wiki/index.php/Main_Page) site can get you started.
 
 * [How to run jobs using a scheduler](https://cac.queensu.ca/wiki/index.php/SLURM)
 
 
 ## Using R
 
-todo
+### Setup
+
+Several versions of R are available on RRN. (Use `module avail` to list all available software on RRN.) Load the R version you prefer, for example,  R 3.4.0, and you are good to start using R.
+
+```{bash eval=FALSE}
+module load r/3.4.0
+```
+
+If you need to use RStudio, you will need to setup R in a different way. see [RStudio on RRN] for instructions.
+
+### Interactive mode (R console)
+
+To start R in interactive mode (R console), type `R` in the terminal. Type `quit()` to quit the R console.
+
+### Batch mode
+
+To use R in batch mode, use
+
+```{bash eval=FALSE}
+Rscript mycode.R
+```
+
+See [Rscript manual](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/Rscript.html) for more options. 
+
+To capture standard output `stdout` and standard error `stderr` (usually displayed on screen) in a log file, use
+
+```{bash eval=FALSE}
+Rscript mycode.R &> mycode_log.txt
+```
+
+`&>` redirects standard output and error streams to a file specified. Nothing will be printed in the terminal. If the file already exists, it gets overwritten.
+
+Pre- and post-face the above command with the Linux command `nohup` and control operator `&` so that the job will run in background and won't be killed even you log off the system (see section [Interactive mode vs batch mode]).
+
+```{bash eval=FALSE}
+nohup Rscript mycode.R &> mycode_log.txt &
+```
+
+### Install R packages
+
+In the **R console**, type the below command to list current installed packages.
+
+```{r eval=FALSE}
+installed.packages()
+```
+
+To install additional packages, use the command:
+
+```{r eval=FALSE}
+install.packages("packageName")
+```
+
+Packages will be built from the source and installed under your home directory. If you encounter problems building a package, it's likely that the default Intel compiler doesn't work well with your package. In this case, before you install the package, in **your Linux terminal** (not in the R console), load the `gcc` compiler using the below command, and then start R console and install the package again.
+
+```{bash eval=FALSE}
+module load gcc/7.3.0
+```
+
+### Run R on compute nodes
+
+For large compute-intensive R jobs, consider submitting them to the compute nodes (see [RRN vs compute nodes]).
+
+### RStudio on RRN
+
+RStudio is not installed on RRN. To install it on your own, the easiest way is to use R and RStudio from [Anaconda distribution](https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/). You can create a virtual environment using Anaconda's package management tool `conda` and install R and RStudio in it. Anaconda is mostly known for its Python distribution, but it recently start to distribute R as well.
+
+1. Load Anaconda distribution.
+
+```{bash eval=FALSE}
+module load anaconda/3.5.3
+```
+
+2. Create a virtual environment
+.
+```{bash eval=FALSE}
+conda create --name r_env
+```
+
+`conda` is a package management system. `r_env` is the specified environment name. (You may want to pick your own name.)
+
+3. Activate the virtual environment.
+
+```{bash eval=FALSE}
+source activate r_env
+```
+
+Note: For conda 4.6 or later version, you can use `conda activate r-env` to activate the environment. The default conda version on RNN is 4.5.11 (use `conda --version` to see it). However, if you still want to use `conda activate r_env` (for future proof), do the following.
+
+Run the below command once, logout, and re-login. Once you login, run (1) again to load the anaconda module. This command adds a line to `.bashrc` file so that you can use `conda activate` to activate the virtual environment you just created in step (2)
+
+```{bash eval=FALSE}
+echo ". /global/software/python/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
+```
+
+4. Install R, RStudio and R packages.
+
+Now you are inside your virtual environment. You should see `(r_env)` in the terminal prompt. This is an isolated environment that you can manage the packages to be installed. Let's install base R, some essential R packages and RStudio.
+
+```{bash eval=FALSE}
+conda install r-base r-essentials rstudio
+```
+
+Use `conda list` to display all packages installed in your virtual environment. Installing other packages is similar. (i.e. using `conda install <pacakgeName>`. Note that we use `conda` for package management instead of R itself (`install.packages()`). See this official [Anaconda document](https://docs.anaconda.com/anaconda/packages/r-language-pkg-docs/) for all R packages maintained by the Anaconda channel.
+
+If you are not able to find an R package with `conda install <pacakgeName>` (packages built and maintained by Anaconda official channel) or `conda install -c conda-forge <packageName>` (packages built and maintained by conda community),  you can still try `install.packages("packageName")` in R console as discussed in [Install R packages].
+
+Start RStudio by typing `rstudio` in the terminal. (Type `rstudio &` will start RStudio and return you the terminal prompt.)   
+
+5. Return to base environment.
+
+After you're done with R, type `source deactivate` to return to the base environment. (If you have followed the "Note" in step 3, you can use `conda deactivate` instead.)
+
+Next time, all you need to do is step (1) and (3) to start the virtual environment and using R.
+
+Refer to conda's [official document](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-envs) for more on virtual environment and package management. Note that conda's official document mainly targets Python user.
 
 
 ## Using Matlab
@@ -186,7 +300,7 @@ nohup matlab -nodisplay -nodesktop -nojvm -nosplash <mycode.m >output.txt &
 
 ### Run Matlab on compute nodes
 
-For large compute-intensive Matlab jobs, consider submitting them to the compute nodes (see [RRN vs compute node]). The following two documents on the [CAC Wiki](https://cac.queensu.ca/wiki/index.php/Main_Page) site can get you started.
+For large compute-intensive Matlab jobs, consider submitting them to the compute nodes (see [RRN vs compute nodes]). The following two documents on the [CAC Wiki](https://cac.queensu.ca/wiki/index.php/Main_Page) site can get you started.
 
 * [How to run jobs using a scheduler](https://cac.queensu.ca/wiki/index.php/SLURM)
 * [An example of a MATLAB job script](https://cac.queensu.ca/wiki/index.php/Software:matlab)
