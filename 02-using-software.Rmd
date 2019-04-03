@@ -95,7 +95,7 @@ conda create --name myenv
 source activate myenv
 ```
 
-Note: For conda 4.6 or later version, you can use `conda activate myenv` to activate the environment. The default conda version on RNN is 4.5.11 (use `conda --version` to see it). However, if you still want to use `conda activate myenv` (for future proof), do the following.
+Note: For conda 4.6 or later version, you can use `conda activate myenv` to activate the environment. The default conda version on RRN is 4.5.11 (use `conda --version` to see it). However, if you still want to use `conda activate myenv` (for future proof), do the following.
 
 Run the below command once, logout, and re-login. Once you login, run (1) again to load the anaconda module. This command adds a line to `.bashrc` file so that you can use `conda activate` to activate the virtual environment you just created in step (2)
 
@@ -219,7 +219,7 @@ conda create --name r_env
 source activate r_env
 ```
 
-Note: For conda 4.6 or later version, you can use `conda activate r-env` to activate the environment. The default conda version on RNN is 4.5.11 (use `conda --version` to see it). However, if you still want to use `conda activate r_env` (for future proof), do the following.
+Note: For conda 4.6 or later version, you can use `conda activate r-env` to activate the environment. The default conda version on RRN is 4.5.11 (use `conda --version` to see it). However, if you still want to use `conda activate r_env` (for future proof), do the following.
 
 Run the below command once, logout, and re-login. Once you login, run (1) again to load the anaconda module. This command adds a line to `.bashrc` file so that you can use `conda activate` to activate the virtual environment you just created in step (2)
 

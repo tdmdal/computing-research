@@ -24,7 +24,7 @@ The `-X` option enables graphics forwarding so you can run applications with GUI
 
 ## Transferring Files
 
-It's most convenient to use an SFTP (Secure File Transfer Protocol) client to transfer files between your local computer and RNN. [WinSCP](https://winscp.net/eng/download.php) is a great free SFTP client for Windows users. Mac users can install [FileZilla](https://filezilla-project.org/download.php?show_all=1). Use the following information to configure your SFTP client.
+It's most convenient to use an SFTP (Secure File Transfer Protocol) client to transfer files between your local computer and RRN. [WinSCP](https://winscp.net/eng/download.php) is a great free SFTP client for Windows users. Mac users can install [FileZilla](https://filezilla-project.org/download.php?show_all=1). Use the following information to configure your SFTP client.
 
 * File protocol: SFTP
 * Host name: `rrlogin.cac.queensu.ca`
@@ -37,7 +37,7 @@ If you prefer to use command line tools, `scp` and `rsync` are good options.
 
 ## Loading Software
 
-RNN uses [Environment Modules](https://lmod.readthedocs.io/en/latest/) to manage its software. Environment modules treat each software and its associated files as a distinct package to be loaded on demand. It resolves conflicts between multiple versions of a software package and configures the environment necessary for running a package.
+RRN uses [Environment Modules](https://lmod.readthedocs.io/en/latest/) to manage its software. Environment modules treat each software and its associated files as a distinct package to be loaded on demand. It resolves conflicts between multiple versions of a software package and configures the environment necessary for running a package.
 
 Below are a few commonly used module command.
 
@@ -57,4 +57,4 @@ For example, to load the Anaconda Python 3 package, type the below command.
 module load anaconda/3.5.3
 ```
 
-RNN has a large collection of software tools installed. Section [Using Software] provides more details on how to setup some commonly used ones.
+RRN has a large collection of software tools installed. Section [Using Software] provides more details on how to setup some commonly used ones.

@@ -1,10 +1,37 @@
 # Linux Command Quick Reference
 
-RNN runs Linux operating system with a default Bash shell. (A shell is an environment to interact with the Linux system and run other programs.) If you are not familiar with Linux command, the two tutorials below can get you started.
+RRN runs Linux operating system with a default Bash shell. (A shell is an environment to interact with the Linux system and run other programs.) If you are not familiar with Linux command, the two tutorials below can get you started.
 
 1. [The Unix Shell](http://swcarpentry.github.io/shell-novice/) by Software Carpentry.
 2. [Learning the Shell](http://linuxcommand.org/index.php) by William Shotts.
 
 Below we also provide a quick reference to some commonly used Linux commands.
 
-todo
+* Basics
+    + `man <commmand>`: display help manual for `<command>`, e.g., `man man`. Hit the key `q` to quit the manual display.
+    + `whoami`: display your user name.
+    + $\uparrow$ key: get the previous command you used.
+    + `TAB` key: auto-complete a command when there is no ambiguity. For example, type `whoa` and then hit the `TAB` key.
+    
+* Files and directories: basic navigation
+    + `.`: single dot is not a command. It stands for current directory.
+    + `..`: double dots stands for parent directory.
+    + `~`: tilde stands for home directory.
+    + `pwd`: print work directory, i.e. find out your current directory.
+    + `ls`: list files and directories in the current directory.
+    + `ls -alh`: `ls` with options `a`(list all files including the hidden ones) `l`(display in long list format)  and `h` (show file size in human-readable unit).
+    + `cd dirname`: change directory to `dirname`. For example, `cd ..` takes you to the parent directory.
+    + `cd` or `cd ~`: go to your home directory.
+
+* Files and directories: create, copy, rename and delete
+    + `mkdir dirname`: create a new directory (in the current directory).
+    + `rmdir dirname`: delete a directory (only works when the directory is empty).
+    + `rm -r dirname`: delete a directory including files and sub-directories inside it. Use with caution!
+    + `cat filename`: display the content of a (text) file.
+    + `more filename`: display (text) file content one screen at a time. Hit `space` for next screen, and `q` to quit.
+    + `nano filename`: create or edit a file. `nano` is a text editor pre-installed on RRN. It's easy to use and great for simple text editing. Other editors available on RRN are  `gedit`, `vim` and `emacs`.
+    + `rm filename`: delete a file.
+    + `mv oldname newname`: rename a file or directory from oldname to newname.
+    + `mv file_dir dir`: move a file or directory to another directory. For example, `mv *.txt ..` moves all files with `txt` extension to the parent directory. Asterisk `*` is a wildcard representing any sequence of characters.
+    + `cp file dir`: copy a file to another directory.
+    + `cp -r dir1 dir2`: copy a directory (`dir1`) including files and sub-directories to another directory `dir2`.
