@@ -267,7 +267,7 @@ module load matlab/R2018b
 To start Matlab in interactive mode without GUI, type the command below.
 
 ```{bash eval=FALSE}
-matlab -nodisplay -nojvm -nosplash
+matlab -nodisplay -nosplash
 ```
 
 ### Interactive mode with GUI
@@ -286,7 +286,7 @@ If you use Matlab/R2017a, you may find the Matlab GUI a bit lagging. In this cas
 To run Matlab in batch mode, use
 
 ```{bash eval=FALSE}
-matlab -nodisplay -nodesktop -nojvm -nosplash <mycode.m >output.txt
+matlab -nodisplay -nodesktop -nosplash <mycode.m >output.txt
 ```
 
 The `<` symbol tells the `matlab` command to take the Matlab m file `mycode.m` as input. The `>` symbol redirects the output to the `output.txt` file instead of printing it to the screen.
@@ -294,7 +294,7 @@ The `<` symbol tells the `matlab` command to take the Matlab m file `mycode.m` a
 Pre- and post-face the above command with the Linux command `nohup` and control operator `&` so that the job will run in background and won't be killed even you log off the system (see section [Interactive mode vs batch mode]).
 
 ```{bash eval=FALSE}
-nohup matlab -nodisplay -nodesktop -nojvm -nosplash <mycode.m >output.txt &
+nohup matlab -nodisplay -nodesktop -nosplash <mycode.m >output.txt &
 ```
 
 

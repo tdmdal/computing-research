@@ -220,7 +220,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Activate the virtual environment.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> activate myenv</code></pre></div>
-<p>Note: For conda 4.6 or later version, you can use <code>conda activate myenv</code> to activate the environment. The default conda version on RNN is 4.5.11 (use <code>conda --version</code> to see it). However, if you still want to use <code>conda activate myenv</code> (for future proof), do the following.</p>
+<p>Note: For conda 4.6 or later version, you can use <code>conda activate myenv</code> to activate the environment. The default conda version on RRN is 4.5.11 (use <code>conda --version</code> to see it). However, if you still want to use <code>conda activate myenv</code> (for future proof), do the following.</p>
 <p>Run the below command once, logout, and re-login. Once you login, run (1) again to load the anaconda module. This command adds a line to <code>.bashrc</code> file so that you can use <code>conda activate</code> to activate the virtual environment you just created in step (2)</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;. /global/software/python/anaconda3/etc/profile.d/conda.sh&quot;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</code></pre></div>
 <ol start="4" style="list-style-type: decimal">
@@ -298,7 +298,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Activate the virtual environment.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">source</span> activate r_env</code></pre></div>
-<p>Note: For conda 4.6 or later version, you can use <code>conda activate r-env</code> to activate the environment. The default conda version on RNN is 4.5.11 (use <code>conda --version</code> to see it). However, if you still want to use <code>conda activate r_env</code> (for future proof), do the following.</p>
+<p>Note: For conda 4.6 or later version, you can use <code>conda activate r-env</code> to activate the environment. The default conda version on RRN is 4.5.11 (use <code>conda --version</code> to see it). However, if you still want to use <code>conda activate r_env</code> (for future proof), do the following.</p>
 <p>Run the below command once, logout, and re-login. Once you login, run (1) again to load the anaconda module. This command adds a line to <code>.bashrc</code> file so that you can use <code>conda activate</code> to activate the virtual environment you just created in step (2)</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;. /global/software/python/anaconda3/etc/profile.d/conda.sh&quot;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</code></pre></div>
 <ol start="4" style="list-style-type: decimal">
@@ -328,7 +328,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="interactive-mode-without-gui" class="section level3">
 <h3><span class="header-section-number">2.4.2</span> Interactive mode without GUI</h3>
 <p>To start Matlab in interactive mode without GUI, type the command below.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">matlab</span> -nodisplay -nojvm -nosplash</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">matlab</span> -nodisplay -nosplash</code></pre></div>
 </div>
 <div id="interactive-mode-with-gui" class="section level3">
 <h3><span class="header-section-number">2.4.3</span> Interactive mode with GUI</h3>
@@ -340,10 +340,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="batch-mode-2" class="section level3">
 <h3><span class="header-section-number">2.4.4</span> Batch mode</h3>
 <p>To run Matlab in batch mode, use</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">matlab</span> -nodisplay -nodesktop -nojvm -nosplash <span class="op">&lt;</span>mycode.m <span class="op">&gt;</span>output.txt</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">matlab</span> -nodisplay -nodesktop -nosplash <span class="op">&lt;</span>mycode.m <span class="op">&gt;</span>output.txt</code></pre></div>
 <p>The <code>&lt;</code> symbol tells the <code>matlab</code> command to take the Matlab m file <code>mycode.m</code> as input. The <code>&gt;</code> symbol redirects the output to the <code>output.txt</code> file instead of printing it to the screen.</p>
 <p>Pre- and post-face the above command with the Linux command <code>nohup</code> and control operator <code>&amp;</code> so that the job will run in background and won’t be killed even you log off the system (see section <a href="using-software.html#interactive-mode-vs-batch-mode">Interactive mode vs batch mode</a>).</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">nohup</span> matlab -nodisplay -nodesktop -nojvm -nosplash <span class="op">&lt;</span>mycode.m <span class="op">&gt;</span>output.txt <span class="kw">&amp;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">nohup</span> matlab -nodisplay -nodesktop -nosplash <span class="op">&lt;</span>mycode.m <span class="op">&gt;</span>output.txt <span class="kw">&amp;</span></code></pre></div>
 </div>
 <div id="run-matlab-on-compute-nodes" class="section level3">
 <h3><span class="header-section-number">2.4.5</span> Run Matlab on compute nodes</h3>
@@ -432,6 +432,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
