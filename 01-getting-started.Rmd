@@ -22,6 +22,25 @@ ssh -X yourUserName@rrlogin.cac.queensu.ca
 The `-X` option enables graphics forwarding so you can run applications with GUI.
 
 
+## Directory Structure and Disk Quota
+
+You have three folders to store your data. All of them can only be accessed by you.
+
+Folder          | Path                                            | Quota       | Usage
+:---------------|:------------------------------------------------|:------------|:-------------------
+home folder     | `/global/home/yourUserName/`                    | 3T          | main storage
+project folder  | `/global/project/rotman_research/yourUserName/` | 50T shared  | additional storage
+scratch folder  | `/global/scratch/yourUserName/`                 | 5T          | temporary storage
+
+Note that your project folder shares 50T disk space with other Rotman project folders.
+
+The home folder is the landing folder when you log on to the system. The project and scratch folders can also be accessed via two symbolic links in your home folder: `rotman_research` and `scratch`. (The symbolic links are like shortcuts in Windows.)
+
+You can use the `quota` command to see your disk quota and current usage.
+
+In addition to the above folders, if you need another project folder for collaboration (i.e. share with other researchers), email us and we can help you set it up.
+
+
 ## Transferring Files
 
 It's most convenient to use an SFTP (Secure File Transfer Protocol) client to transfer files between your local computer and RRN. [WinSCP](https://winscp.net/eng/download.php) is a great free SFTP client for Windows users. Mac users can install [FileZilla](https://filezilla-project.org/download.php?show_all=1). Use the following information to configure your SFTP client.
