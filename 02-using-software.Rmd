@@ -386,5 +386,5 @@ kill programProcessID
 If the above command doesn't work, try the `kill -9` option.
 
 ```{bash eval=FALSE}
-kill -9 programPprocessID
+kill -9 programProcessID
 ```
