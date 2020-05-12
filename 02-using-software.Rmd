@@ -359,3 +359,32 @@ set processors 12
 Put it on the first line in your do file or run it first if you use interactive mode.
 
 If you have a large workload that requires many cores and hours to run, your should consider submitting your job to the compute nodes on the HPC system. In that case, you can request a 32-core node to take full advantage of the 32-core Stata/MP licence. (See [How to run jobs using a scheduler](https://cac.queensu.ca/wiki/index.php/SLURM) on the [CAC Wiki](https://cac.queensu.ca/wiki/index.php/Main_Page) site to get started.)
+
+## Managing Jobs in Batch Mode
+
+### Monitor jobs
+
+Once your programs are running in the background, you can monitor their resource usage and performance using the `htop` utility. Simply type `htop` in the terminal to start the utility. `htop` also shows you information about other programs/processes running on the system so it's also a great tool to see how busy the RRN is overall.
+
+The Linux [manual](http://man7.org/linux/man-pages/man1/htop.1.html) for `htop` is a bit hard to read. You could perhaps get started with this [visual tutorial](https://codeahoy.com/2017/01/20/hhtop-explained-visually/), or this [YouTube tutorial](https://www.youtube.com/watch?v=Qw2ZUf0hTF8).
+
+
+### Terminate jobs
+
+If you want to terminate your program running in the background, you could use `htop` as well (`F9/Kill`). Alternatively, first find your program's process id.
+
+```{bash eval=FALSE}
+ps -u yourUserName
+```
+
+Then, use the `kill` command.
+
+```{bash eval=FALSE}
+kill programProcessID
+```
+
+If the above command doesn't work, try the `kill -9` option.
+
+```{bash eval=FALSE}
+kill -9 programPprocessID
+```
