@@ -89,6 +89,12 @@ conda create --name myenv
 
 `conda` is a package management system. `myenv` is the specified environment name. (You may want to pick your own name.)
 
+Anaconda/3.5.3 comes with Python 3.6.3. If you wish to use a newer version of Python, you could create a virtual environment with a specific version of Python. For example, create a virtual environment with Python 3.8:
+
+```{bash eval=FALSE}
+conda create --name myenv python=3.8
+```
+
 3. Activate the virtual environment.
 
 ```{bash eval=FALSE}
