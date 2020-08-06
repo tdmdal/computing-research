@@ -21,6 +21,8 @@ ssh -X yourUserName@rrlogin.cac.queensu.ca
 
 The `-X` option enables graphics forwarding so you can run applications with GUI.
 
+If you forget your password, you can go to [this page](https://login.cac.queensu.ca/pwr) to reset your password.
+
 
 ## Directory Structure and Disk Quota
 
