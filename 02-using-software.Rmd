@@ -352,7 +352,7 @@ nohup stata -b do filename &
 
 `nohup` prevents your job from being killed when you log off the system.
 
-Similarly, replace `stata` with `xstata-se` for Stata/SE or `xstata-mp` for Stata/MP.
+Similarly, replace `stata` with `stata-se` for Stata/SE or `stata-mp` for Stata/MP.
 
 ### A note on Stata/MP
 
