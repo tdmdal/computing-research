@@ -241,9 +241,19 @@ Now you are inside your virtual environment. You should see `(r_env)` in the ter
 conda install r-base r-essentials rstudio
 ```
 
-Use `conda list` to display all packages installed in your virtual environment. Installing other packages is similar. (i.e. using `conda install <pacakgeName>`. Note that we use `conda` for package management instead of R itself (`install.packages()`). See this official [Anaconda document](https://docs.anaconda.com/anaconda/packages/r-language-pkg-docs/) for all R packages maintained by the Anaconda channel.
+Use `conda list` to display all packages installed in your virtual environment.
 
-If you are not able to find an R package with `conda install <pacakgeName>` (packages built and maintained by Anaconda official channel) or `conda install -c conda-forge <packageName>` (packages built and maintained by conda community),  you can still try `install.packages("packageName")` in R console as discussed in [Install R packages].
+Installing other R packages is similar. Simply use
+
+```{bash eval=FALSE}
+conda install -c r <pacakgeName>
+```
+
+Note that we use `conda` for package management instead of R itself (`install.packages()`). The advantage of using `conda` is that it takes care of the package dependency for us. This is especially helpful when a package is partially developed using languages other than R (e.g. C++).
+
+The `-c r` option means installing package from the r channel. This channel is maintained by Anaconda. See this official [Anaconda document](https://docs.anaconda.com/anaconda/packages/r-language-pkg-docs/) for all R packages maintained. Note the `r-` prefix to the usual R package name. 
+
+If you are not able to find an R package with `conda install -c r <pacakgeName>` (packages built and maintained by Anaconda official channel) or `conda install -c conda-forge <packageName>` (packages built and maintained by conda community),  you can still try `install.packages("packageName")` in R console as discussed in [Install R packages].
 
 Start RStudio by typing `rstudio` in the terminal. (Type `rstudio &` will start RStudio and return you the terminal prompt.)   
 
