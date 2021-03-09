@@ -31,6 +31,7 @@
   
 <link rel="prev" href="using-software.html"/>
 
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,24 +49,23 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -130,30 +130,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#rotman-research-node"><i class="fa fa-check"></i>Rotman Research Node</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-user-guide"><i class="fa fa-check"></i>About this User Guide</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting Started</a><ul>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting Started</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#user-account"><i class="fa fa-check"></i><b>1.1</b> User Account</a></li>
 <li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#logging-on-to-rrn"><i class="fa fa-check"></i><b>1.2</b> Logging on to RRN</a></li>
 <li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#directory-structure-and-disk-quota"><i class="fa fa-check"></i><b>1.3</b> Directory Structure and Disk Quota</a></li>
 <li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#transferring-files"><i class="fa fa-check"></i><b>1.4</b> Transferring Files</a></li>
 <li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#loading-software"><i class="fa fa-check"></i><b>1.5</b> Loading Software</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="using-software.html"><a href="using-software.html"><i class="fa fa-check"></i><b>2</b> Using Software</a><ul>
-<li class="chapter" data-level="2.1" data-path="using-software.html"><a href="using-software.html#best-practice"><i class="fa fa-check"></i><b>2.1</b> Best Practice</a><ul>
+<li class="chapter" data-level="2" data-path="using-software.html"><a href="using-software.html"><i class="fa fa-check"></i><b>2</b> Using Software</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="using-software.html"><a href="using-software.html#best-practice"><i class="fa fa-check"></i><b>2.1</b> Best Practice</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="using-software.html"><a href="using-software.html#interactive-mode-vs-batch-mode"><i class="fa fa-check"></i><b>2.1.1</b> Interactive mode vs batch mode</a></li>
 <li class="chapter" data-level="2.1.2" data-path="using-software.html"><a href="using-software.html#rrn-vs-compute-nodes"><i class="fa fa-check"></i><b>2.1.2</b> RRN vs compute nodes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="using-software.html"><a href="using-software.html#using-python"><i class="fa fa-check"></i><b>2.2</b> Using Python</a><ul>
+<li class="chapter" data-level="2.2" data-path="using-software.html"><a href="using-software.html#using-python"><i class="fa fa-check"></i><b>2.2</b> Using Python</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="using-software.html"><a href="using-software.html#setup"><i class="fa fa-check"></i><b>2.2.1</b> Setup</a></li>
 <li class="chapter" data-level="2.2.2" data-path="using-software.html"><a href="using-software.html#interactive-mode-python-console"><i class="fa fa-check"></i><b>2.2.2</b> Interactive mode (Python console)</a></li>
 <li class="chapter" data-level="2.2.3" data-path="using-software.html"><a href="using-software.html#batch-mode"><i class="fa fa-check"></i><b>2.2.3</b> Batch mode</a></li>
 <li class="chapter" data-level="2.2.4" data-path="using-software.html"><a href="using-software.html#install-packages"><i class="fa fa-check"></i><b>2.2.4</b> Install packages</a></li>
 <li class="chapter" data-level="2.2.5" data-path="using-software.html"><a href="using-software.html#run-python-on-compute-nodes"><i class="fa fa-check"></i><b>2.2.5</b> Run Python on compute nodes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="using-software.html"><a href="using-software.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a><ul>
+<li class="chapter" data-level="2.3" data-path="using-software.html"><a href="using-software.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="using-software.html"><a href="using-software.html#setup-1"><i class="fa fa-check"></i><b>2.3.1</b> Setup</a></li>
 <li class="chapter" data-level="2.3.2" data-path="using-software.html"><a href="using-software.html#interactive-mode-r-console"><i class="fa fa-check"></i><b>2.3.2</b> Interactive mode (R console)</a></li>
 <li class="chapter" data-level="2.3.3" data-path="using-software.html"><a href="using-software.html#batch-mode-1"><i class="fa fa-check"></i><b>2.3.3</b> Batch mode</a></li>
@@ -161,21 +167,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.5" data-path="using-software.html"><a href="using-software.html#run-r-on-compute-nodes"><i class="fa fa-check"></i><b>2.3.5</b> Run R on compute nodes</a></li>
 <li class="chapter" data-level="2.3.6" data-path="using-software.html"><a href="using-software.html#rstudio-on-rrn"><i class="fa fa-check"></i><b>2.3.6</b> RStudio on RRN</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="using-software.html"><a href="using-software.html#using-matlab"><i class="fa fa-check"></i><b>2.4</b> Using Matlab</a><ul>
+<li class="chapter" data-level="2.4" data-path="using-software.html"><a href="using-software.html#using-matlab"><i class="fa fa-check"></i><b>2.4</b> Using Matlab</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="using-software.html"><a href="using-software.html#setup-2"><i class="fa fa-check"></i><b>2.4.1</b> Setup</a></li>
 <li class="chapter" data-level="2.4.2" data-path="using-software.html"><a href="using-software.html#interactive-mode-without-gui"><i class="fa fa-check"></i><b>2.4.2</b> Interactive mode without GUI</a></li>
 <li class="chapter" data-level="2.4.3" data-path="using-software.html"><a href="using-software.html#interactive-mode-with-gui"><i class="fa fa-check"></i><b>2.4.3</b> Interactive mode with GUI</a></li>
 <li class="chapter" data-level="2.4.4" data-path="using-software.html"><a href="using-software.html#batch-mode-2"><i class="fa fa-check"></i><b>2.4.4</b> Batch mode</a></li>
 <li class="chapter" data-level="2.4.5" data-path="using-software.html"><a href="using-software.html#run-matlab-on-compute-nodes"><i class="fa fa-check"></i><b>2.4.5</b> Run Matlab on compute nodes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="using-software.html"><a href="using-software.html#using-stata"><i class="fa fa-check"></i><b>2.5</b> Using Stata</a><ul>
+<li class="chapter" data-level="2.5" data-path="using-software.html"><a href="using-software.html#using-stata"><i class="fa fa-check"></i><b>2.5</b> Using Stata</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="using-software.html"><a href="using-software.html#setup-3"><i class="fa fa-check"></i><b>2.5.1</b> Setup</a></li>
 <li class="chapter" data-level="2.5.2" data-path="using-software.html"><a href="using-software.html#interactive-mode-without-gui-1"><i class="fa fa-check"></i><b>2.5.2</b> Interactive mode without GUI</a></li>
 <li class="chapter" data-level="2.5.3" data-path="using-software.html"><a href="using-software.html#interactive-mode-with-gui-1"><i class="fa fa-check"></i><b>2.5.3</b> Interactive mode with GUI</a></li>
 <li class="chapter" data-level="2.5.4" data-path="using-software.html"><a href="using-software.html#batch-mode-3"><i class="fa fa-check"></i><b>2.5.4</b> Batch mode</a></li>
 <li class="chapter" data-level="2.5.5" data-path="using-software.html"><a href="using-software.html#a-note-on-statamp"><i class="fa fa-check"></i><b>2.5.5</b> A note on Stata/MP</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="using-software.html"><a href="using-software.html#managing-jobs-in-batch-mode"><i class="fa fa-check"></i><b>2.6</b> Managing Jobs in Batch Mode</a><ul>
+<li class="chapter" data-level="2.6" data-path="using-software.html"><a href="using-software.html#managing-jobs-in-batch-mode"><i class="fa fa-check"></i><b>2.6</b> Managing Jobs in Batch Mode</a>
+<ul>
 <li class="chapter" data-level="2.6.1" data-path="using-software.html"><a href="using-software.html#monitor-jobs"><i class="fa fa-check"></i><b>2.6.1</b> Monitor jobs</a></li>
 <li class="chapter" data-level="2.6.2" data-path="using-software.html"><a href="using-software.html#terminate-jobs"><i class="fa fa-check"></i><b>2.6.2</b> Terminate jobs</a></li>
 </ul></li>
@@ -198,7 +207,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="linux-command-quick-reference" class="section level1">
+<div id="linux-command-quick-reference" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Linux Command Quick Reference</h1>
 <p>RRN runs Linux operating system with a default Bash shell. (A shell is an environment to interact with the Linux system and run other programs.) If you are not familiar with Linux command, the two tutorials below can get you started.</p>
 <ol style="list-style-type: decimal">
