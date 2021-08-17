@@ -115,11 +115,10 @@ echo ". /global/software/python/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
 
 4. Install packages.
 
-Now you are inside your virtual environment. You should see `(myenv)` in the terminal prompt. This is an isolated environment that you can manage the packages to be installed. For example, you can install `tensorflow` and `keras` by using `conda install <packageName>`. All package dependencies will be installed automatically. 
+Now you are inside your virtual environment. You should see `(myenv)` in the terminal prompt. This is an isolated environment that you can manage the packages to be installed. For example, you can install `tensorflow` by using `conda install <packageName>`. All package dependencies will be installed automatically. 
 
 ```{bash eval=FALSE}
 conda install tensorflow
-conda install keras
 ```
 
 Note that a new virtual environment has no packages pre-installed (except Python standard libraries).

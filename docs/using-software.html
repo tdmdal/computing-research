@@ -278,9 +278,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" style="list-style-type: decimal">
 <li>Install packages.</li>
 </ol>
-<p>Now you are inside your virtual environment. You should see <code>(myenv)</code> in the terminal prompt. This is an isolated environment that you can manage the packages to be installed. For example, you can install <code>tensorflow</code> and <code>keras</code> by using <code>conda install &lt;packageName&gt;</code>. All package dependencies will be installed automatically.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="using-software.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install tensorflow</span>
-<span id="cb15-2"><a href="using-software.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install keras</span></code></pre></div>
+<p>Now you are inside your virtual environment. You should see <code>(myenv)</code> in the terminal prompt. This is an isolated environment that you can manage the packages to be installed. For example, you can install <code>tensorflow</code> by using <code>conda install &lt;packageName&gt;</code>. All package dependencies will be installed automatically.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="using-software.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install tensorflow</span></code></pre></div>
 <p>Note that a new virtual environment has no packages pre-installed (except Python standard libraries).</p>
 <p>If you are not able to find a package with <code>conda install &lt;pacakgeName&gt;</code> (packages built and maintained by Anaconda official channel) or <code>conda install -c conda-forge &lt;packageName&gt;</code> (packages built and maintained by conda community), you can still try <code>pip install &lt;pacakgeName&gt;</code>, although you would need to first install <code>pip</code> using <code>conda install pip</code>.</p>
 <ol start="5" style="list-style-type: decimal">
