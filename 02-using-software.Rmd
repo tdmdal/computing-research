@@ -18,7 +18,11 @@ nohup stata -b do filename &
 
 ### RRN vs compute nodes
 
-RRN is actually integrated with a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Since RRN is shared by many Rotman researchers, if you have a super compute-intensive job, you should consider submitting it to the compute nodes instead of running it on RRN. See [this CAC document](https://cac.queensu.ca/wiki/index.php/SLURM) to learn how to submit jobs to compute nodes.
+RRN is actually integrated with a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Currently, Rotman users have access to 8 compute nodes via a "standard" partition (a partition is just a logical set of compute nodes). Each compute node has 24 CPUs and 240G memory.
+
+Since RRN is shared by many Rotman researchers, if you have a very large compute-intensive job, you should consider submitting it to the compute nodes instead of running it on RRN. Although the compute nodes are also shared, once you obtain the requested resources (CPUs, memory, etc.) from the compute nodes, they are exclusive resources for your during your computation.
+
+See [this CAC document](https://cac.queensu.ca/wiki/index.php/SLURM) to learn how to submit jobs to compute nodes.
 
 
 ## Using Python
