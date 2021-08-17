@@ -41,7 +41,7 @@ Note that your project folder shares 50T disk space with other Rotman project fo
 
 The home folder is the landing folder when you log on to the system. The project and scratch folders can also be accessed via two symbolic links in your home folder: `rotman_research` and `scratch`. (The symbolic links are like shortcuts in Windows.)
 
-You can use the `quota` command to see your disk quota and current usage.
+You can use the `myquota` command to see your disk quota and current usage.
 
 In addition to the above folders, if you need another project folder for collaboration (i.e. share with other researchers), email us and we can help you set it up.
 
