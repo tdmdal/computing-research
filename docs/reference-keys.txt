@@ -1,6 +1,7 @@
 getting-started
-user-account
+requesting-an-account
 logging-on-to-rrn
+resetting-password
 directory-structure-and-disk-quota
 transferring-files
 loading-software

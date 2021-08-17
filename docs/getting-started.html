@@ -137,11 +137,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting Started</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#user-account"><i class="fa fa-check"></i><b>1.1</b> User Account</a></li>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#requesting-an-account"><i class="fa fa-check"></i><b>1.1</b> Requesting an Account</a></li>
 <li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#logging-on-to-rrn"><i class="fa fa-check"></i><b>1.2</b> Logging on to RRN</a></li>
-<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#directory-structure-and-disk-quota"><i class="fa fa-check"></i><b>1.3</b> Directory Structure and Disk Quota</a></li>
-<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#transferring-files"><i class="fa fa-check"></i><b>1.4</b> Transferring Files</a></li>
-<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#loading-software"><i class="fa fa-check"></i><b>1.5</b> Loading Software</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#resetting-password"><i class="fa fa-check"></i><b>1.3</b> Resetting Password</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#directory-structure-and-disk-quota"><i class="fa fa-check"></i><b>1.4</b> Directory Structure and Disk Quota</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#transferring-files"><i class="fa fa-check"></i><b>1.5</b> Transferring Files</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#loading-software"><i class="fa fa-check"></i><b>1.6</b> Loading Software</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="using-software.html"><a href="using-software.html"><i class="fa fa-check"></i><b>2</b> Using Software</a>
 <ul>
@@ -209,8 +210,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="getting-started" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Getting Started</h1>
-<div id="user-account" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> User Account</h2>
+<div id="requesting-an-account" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Requesting an Account</h2>
 <p>RRN is available to all Rotman researchers. To request an account, please email TD Management Data and Analytics Lab at <a href="mailto:tdmdal@rotman.utoronto.ca" class="email">tdmdal@rotman.utoronto.ca</a>. Once your account is created, you will receive an activation email together with login instructions. The process usually takes less than 1 business day.</p>
 </div>
 <div id="logging-on-to-rrn" class="section level2" number="1.2">
@@ -223,10 +224,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="getting-started.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-X</span> yourUserName@rrlogin.cac.queensu.ca</span></code></pre></div>
 <p>The <code>-X</code> option enables graphics forwarding so you can run applications with GUI.</p>
+</div>
+<div id="resetting-password" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Resetting Password</h2>
 <p>If you forget your password, you can go to <a href="https://login.cac.queensu.ca/pwr">this page</a> to reset your password.</p>
 </div>
-<div id="directory-structure-and-disk-quota" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Directory Structure and Disk Quota</h2>
+<div id="directory-structure-and-disk-quota" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Directory Structure and Disk Quota</h2>
 <p>You have three folders to store your data. All of them can only be accessed by you.</p>
 <table>
 <colgroup>
@@ -269,8 +273,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You can use the <code>quota</code> command to see your disk quota and current usage.</p>
 <p>In addition to the above folders, if you need another project folder for collaboration (i.e. share with other researchers), email us and we can help you set it up.</p>
 </div>
-<div id="transferring-files" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Transferring Files</h2>
+<div id="transferring-files" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Transferring Files</h2>
 <p>It’s most convenient to use an SFTP (Secure File Transfer Protocol) client to transfer files between your local computer and RRN. <a href="https://winscp.net/eng/download.php">WinSCP</a> is a great free SFTP client for Windows users. Mac users can install <a href="https://filezilla-project.org/download.php?show_all=1">FileZilla</a>. Use the following information to configure your SFTP client.</p>
 <ul>
 <li>File protocol: SFTP</li>
@@ -281,8 +285,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>If you prefer to use command line tools, <code>scp</code> and <code>rsync</code> are good options.</p>
 </div>
-<div id="loading-software" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Loading Software</h2>
+<div id="loading-software" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Loading Software</h2>
 <p>RRN uses <a href="https://lmod.readthedocs.io/en/latest/">Environment Modules</a> to manage its software. Environment modules treat each software and its associated files as a distinct package to be loaded on demand. It resolves conflicts between multiple versions of a software package and configures the environment necessary for running a package.</p>
 <p>Below are a few commonly used module command.</p>
 <table>

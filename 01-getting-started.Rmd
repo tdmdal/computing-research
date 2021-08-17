@@ -1,6 +1,6 @@
 # Getting Started
 
-## User Account
+## Requesting an Account
 
 RRN is available to all Rotman researchers. To request an account, please email TD Management Data and Analytics Lab at tdmdal@rotman.utoronto.ca. Once your account is created, you will receive an activation email together with login instructions. The process usually takes less than 1 business day.
 
@@ -20,6 +20,9 @@ ssh -X yourUserName@rrlogin.cac.queensu.ca
 ```
 
 The `-X` option enables graphics forwarding so you can run applications with GUI.
+
+
+## Resetting Password
 
 If you forget your password, you can go to [this page](https://login.cac.queensu.ca/pwr) to reset your password.
 
