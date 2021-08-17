@@ -206,7 +206,7 @@ For large compute-intensive R jobs, consider submitting them to the compute node
 
 ### RStudio on RRN
 
-RStudio is not installed on RRN. To install it on your own, the easiest way is to use R and RStudio from [Anaconda distribution](https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/). You can create a virtual environment using Anaconda's package management tool `conda` and install R and RStudio in it. Anaconda is mostly known for its Python distribution, but it recently start to distribute R as well.
+RStudio is not installed on RRN as its GUI experience on the server isn't that good. (In general, we suggest you use command line on RRN.) Nevertheless, to install RStudio on your own, the easiest way is to use R and RStudio from the [Anaconda distribution](https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/). You can create a virtual environment using Anaconda's package management tool `conda` and install R and RStudio in it. Anaconda is mostly known for its Python distribution, but it recently start to distribute R as well.
 
 1. Load Anaconda distribution.
 
