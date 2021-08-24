@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Linux Command Quick Reference | Rotman Research Node User Guide</title>
-  <meta name="description" content="A Linux Command Quick Reference | Rotman Research Node User Guide" />
+  <title>Appendix | Rotman Research Node User Guide</title>
+  <meta name="description" content="Appendix | Rotman Research Node User Guide" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Linux Command Quick Reference | Rotman Research Node User Guide" />
+  <meta property="og:title" content="Appendix | Rotman Research Node User Guide" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Linux Command Quick Reference | Rotman Research Node User Guide" />
+  <meta name="twitter:title" content="Appendix | Rotman Research Node User Guide" />
   
   
   
@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="using-software.html"/>
-
+<link rel="next" href="linux-command-quick-reference.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -189,9 +189,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.6.1" data-path="using-software.html"><a href="using-software.html#monitor-jobs"><i class="fa fa-check"></i><b>2.6.1</b> Monitor jobs</a></li>
 <li class="chapter" data-level="2.6.2" data-path="using-software.html"><a href="using-software.html#terminate-jobs"><i class="fa fa-check"></i><b>2.6.2</b> Terminate jobs</a></li>
 </ul></li>
+<li class="chapter" data-level="2.7" data-path="using-software.html"><a href="using-software.html#running-jobs-on-compute-nodes"><i class="fa fa-check"></i><b>2.7</b> Running Jobs on Compute Nodes</a></li>
 </ul></li>
-<li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="linux-command-quick-reference.html"><a href="linux-command-quick-reference.html"><i class="fa fa-check"></i><b>A</b> Linux Command Quick Reference</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a></li>
+<li class="chapter" data-level="3" data-path="linux-command-quick-reference.html"><a href="linux-command-quick-reference.html"><i class="fa fa-check"></i><b>3</b> Linux Command Quick Reference</a></li>
 </ul>
 
       </nav>
@@ -209,57 +210,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="linux-command-quick-reference" class="section level1" number="3">
-<h1><span class="header-section-number">A</span> Linux Command Quick Reference</h1>
-<p>RRN runs Linux operating system with a default Bash shell. (A shell is an environment to interact with the Linux system and run other programs.) If you are not familiar with Linux command, the two tutorials below can get you started.</p>
-<ol style="list-style-type: decimal">
-<li><a href="http://swcarpentry.github.io/shell-novice/">The Unix Shell</a> by Software Carpentry.</li>
-<li><a href="http://linuxcommand.org/index.php">Learning the Shell</a> by William Shotts.</li>
-</ol>
-<p>Below we also provide a quick reference to some commonly used Linux commands.</p>
-<ul>
-<li>Basics
-<ul>
-<li><code>man &lt;commmand&gt;</code>: display help manual for <code>&lt;command&gt;</code>, e.g., <code>man man</code>. Hit the key <code>q</code> to quit the manual display.</li>
-<li><code>whoami</code>: display your user name.</li>
-<li><span class="math inline">\(\uparrow\)</span> key: get the previous command you used.</li>
-<li><code>TAB</code> key: auto-complete a command when there is no ambiguity. For example, type <code>whoa</code> and then hit the <code>TAB</code> key.</li>
-</ul></li>
-<li>Files and directories: basic navigation
-<ul>
-<li><code>.</code>: single dot is not a command. It stands for current directory.</li>
-<li><code>..</code>: double dots stands for parent directory.</li>
-<li><code>~</code>: tilde stands for home directory.</li>
-<li><code>pwd</code>: print work directory, i.e. find out your current directory.</li>
-<li><code>ls</code>: list files and directories in the current directory.</li>
-<li><code>ls -alh</code>: <code>ls</code> with options <code>a</code>(list all files including the hidden ones) <code>l</code>(display in long list format) and <code>h</code> (show file size in human-readable unit).</li>
-<li><code>cd dirname</code>: change directory to <code>dirname</code>. For example, <code>cd ..</code> takes you to the parent directory.</li>
-<li><code>cd</code> or <code>cd ~</code>: go to your home directory.</li>
-</ul></li>
-<li>Files and directories: create, copy, rename and delete
-<ul>
-<li><code>mkdir dirname</code>: create a new directory (in the current directory).</li>
-<li><code>rmdir dirname</code>: delete a directory (only works when the directory is empty).</li>
-<li><code>rm -r dirname</code>: delete a directory including files and sub-directories inside it. Use with caution!</li>
-<li><code>cat filename</code>: display the content of a (text) file.</li>
-<li><code>more filename</code>: display (text) file content one screen at a time. Hit <code>space</code> for next screen, and <code>q</code> to quit.</li>
-<li><code>nano filename</code>: create or edit a file. <code>nano</code> is a text editor pre-installed on RRN. It’s easy to use and great for simple text editing. Other editors available on RRN are <code>gedit</code>, <code>vim</code> and <code>emacs</code>.</li>
-<li><code>rm filename</code>: delete a file.</li>
-<li><code>mv oldname newname</code>: rename a file or directory from oldname to newname.</li>
-<li><code>mv file_dir dir</code>: move a file or directory to another directory. For example, <code>mv *.txt ..</code> moves all files with <code>txt</code> extension to the parent directory. Asterisk <code>*</code> is a wildcard representing any sequence of characters.</li>
-<li><code>cp file dir</code>: copy a file to another directory.</li>
-<li><code>cp -r dir1 dir2</code>: copy a directory (<code>dir1</code>) including files and sub-directories to another directory <code>dir2</code>.</li>
-</ul></li>
-</ul>
-
+<div id="appendix" class="section level1 unnumbered">
+<h1>Appendix</h1>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="using-software.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="using-software.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linux-command-quick-reference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
