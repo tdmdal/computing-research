@@ -231,9 +231,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="rrn-vs-compute-nodes" class="section level3" number="2.1.2">
 <h3><span class="header-section-number">2.1.2</span> RRN vs compute nodes</h3>
-<p>RRN is actually integrated with a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Currently, Rotman users have access to 8 compute nodes via a “standard” partition (a partition is just a logical set of compute nodes). Each compute node has 24 CPUs and 240G memory.</p>
+<p>RRN is part of a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Currently, Rotman users have access to 8 compute nodes via a “standard” partition (a partition is just a logical set of compute nodes). Each compute node has 24 CPUs and 240G memory.</p>
 <p>Since RRN is shared by many Rotman researchers, if you have a very large compute-intensive job, you should consider submitting it to the compute nodes instead of running it on RRN. Although the compute nodes are also shared, once you obtain the requested resources (CPUs, memory, etc.) from the compute nodes, they are exclusive resources for you during your computation.</p>
-<p>See <a href="https://cac.queensu.ca/wiki/index.php/SLURM">this CAC document</a> to learn how to submit jobs to compute nodes.</p>
+<p>See <a href="running-jobs-on-compute-nodes.html#running-jobs-on-compute-nodes">Running Jobs on Compute Nodes</a> to learn how to submit jobs to compute nodes.</p>
 </div>
 </div>
 <div id="using-python" class="section level2" number="2.2">
@@ -301,10 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="run-python-on-compute-nodes" class="section level3" number="2.2.5">
 <h3><span class="header-section-number">2.2.5</span> Run Python on compute nodes</h3>
-<p>For large compute-intensive Python jobs, consider submitting them to the compute nodes (see <a href="using-software.html#rrn-vs-compute-nodes">RRN vs compute nodes</a>). The following document on the <a href="https://cac.queensu.ca/wiki/index.php/Main_Page">CAC Wiki</a> site can get you started.</p>
-<ul>
-<li><a href="https://cac.queensu.ca/wiki/index.php/SLURM">How to run jobs using a scheduler</a></li>
-</ul>
+<p>For large compute-intensive Python jobs, consider submitting them to the compute nodes. See <a href="running-jobs-on-compute-nodes.html#running-jobs-on-compute-nodes">Running Jobs on Compute Nodes</a> to get started.</p>
 </div>
 </div>
 <div id="using-r" class="section level2" number="2.3">
@@ -341,7 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="run-r-on-compute-nodes" class="section level3" number="2.3.5">
 <h3><span class="header-section-number">2.3.5</span> Run R on compute nodes</h3>
-<p>For large compute-intensive R jobs, consider submitting them to the compute nodes (see <a href="using-software.html#rrn-vs-compute-nodes">RRN vs compute nodes</a>).</p>
+<p>For large compute-intensive R jobs, consider submitting them to the compute nodes. See <a href="running-jobs-on-compute-nodes.html#running-jobs-on-compute-nodes">Running Jobs on Compute Nodes</a> to get started.</p>
 </div>
 <div id="rstudio-on-rrn" class="section level3" number="2.3.6">
 <h3><span class="header-section-number">2.3.6</span> RStudio on RRN</h3>
@@ -413,11 +410,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="run-matlab-on-compute-nodes" class="section level3" number="2.4.5">
 <h3><span class="header-section-number">2.4.5</span> Run Matlab on compute nodes</h3>
-<p>For large compute-intensive Matlab jobs, consider submitting them to the compute nodes (see <a href="using-software.html#rrn-vs-compute-nodes">RRN vs compute nodes</a>). The following two documents on the <a href="https://cac.queensu.ca/wiki/index.php/Main_Page">CAC Wiki</a> site can get you started.</p>
-<ul>
-<li><a href="https://cac.queensu.ca/wiki/index.php/SLURM">How to run jobs using a scheduler</a></li>
-<li><a href="https://cac.queensu.ca/wiki/index.php/Software:matlab">An example of a MATLAB job script</a></li>
-</ul>
+<p>For large compute-intensive Matlab jobs, consider submitting them to the compute nodes. See <a href="running-jobs-on-compute-nodes.html#running-jobs-on-compute-nodes">Running Jobs on Compute Nodes</a> to get started.</p>
 </div>
 </div>
 <div id="using-stata" class="section level2" number="2.5">
@@ -453,7 +446,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Use <code>set processors #</code> to set the number of processors for Stata/MP. For example,</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb37-1"><a href="using-software.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> processors 12</span></code></pre></div>
 <p>Put it on the first line in your do file or run it first if you use interactive mode.</p>
-<p>If you have a large workload that requires many cores and hours to run, your should consider submitting your job to the compute nodes on the HPC system. In that case, you can request a 32-core node to take full advantage of the 32-core Stata/MP licence. (See <a href="https://cac.queensu.ca/wiki/index.php/SLURM">How to run jobs using a scheduler</a> on the <a href="https://cac.queensu.ca/wiki/index.php/Main_Page">CAC Wiki</a> site to get started.)</p>
+<p>If you have a large workload that requires many cores and hours to run, your should consider submitting your job to a compute node on the HPC system. In that way, you can request more CPUs to take full advantage of the 32-core Stata/MP licence. (See <a href="running-jobs-on-compute-nodes.html#running-jobs-on-compute-nodes">Running Jobs on Compute Nodes</a> to get started.)</p>
 </div>
 </div>
 <div id="managing-jobs-in-batch-mode" class="section level2" number="2.6">

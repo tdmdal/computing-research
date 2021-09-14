@@ -21,4 +21,4 @@ RRN is hosted at [Centre for Advanced Computing (CAC)](https://cac.queensu.ca/).
 
 ## About this User Guide {-}
 
-This User Guide focuses on use cases most relevant to Rotman researchers on the RNN. It complements the [CAC Wiki document](https://cac.queensu.ca/wiki/index.php/Main_Page), which covers the usage of the entire CAC HPC system. We encourage users with high computation needs to further read the CAC Wiki in order to take full advantage of the HPC system.
+This User Guide focuses on use cases most relevant to Rotman researchers. It complements the [CAC Wiki document](https://cac.queensu.ca/wiki/index.php/Main_Page), which covers the usage of the entire CAC HPC system in details. We encourage users with high computation needs to further read the CAC Wiki in order to take full advantage of the HPC system.

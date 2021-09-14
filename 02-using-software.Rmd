@@ -18,11 +18,11 @@ nohup stata -b do filename &
 
 ### RRN vs compute nodes
 
-RRN is actually integrated with a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Currently, Rotman users have access to 8 compute nodes via a "standard" partition (a partition is just a logical set of compute nodes). Each compute node has 24 CPUs and 240G memory.
+RRN is part of a High-Performance Computing (HPC) system. The HPC system has a cluster of around 100 compute nodes and hundreds of CPUs. Currently, Rotman users have access to 8 compute nodes via a "standard" partition (a partition is just a logical set of compute nodes). Each compute node has 24 CPUs and 240G memory.
 
 Since RRN is shared by many Rotman researchers, if you have a very large compute-intensive job, you should consider submitting it to the compute nodes instead of running it on RRN. Although the compute nodes are also shared, once you obtain the requested resources (CPUs, memory, etc.) from the compute nodes, they are exclusive resources for you during your computation.
 
-See [this CAC document](https://cac.queensu.ca/wiki/index.php/SLURM) to learn how to submit jobs to compute nodes.
+See [Running Jobs on Compute Nodes] to learn how to submit jobs to compute nodes.
 
 
 ## Using Python
@@ -135,9 +135,7 @@ Refer to conda's [official document](https://docs.conda.io/projects/conda/en/lat
 
 ### Run Python on compute nodes
 
-For large compute-intensive Python jobs, consider submitting them to the compute nodes (see [RRN vs compute nodes]). The following document on the [CAC Wiki](https://cac.queensu.ca/wiki/index.php/Main_Page) site can get you started.
-
-* [How to run jobs using a scheduler](https://cac.queensu.ca/wiki/index.php/SLURM)
+For large compute-intensive Python jobs, consider submitting them to the compute nodes. See [Running Jobs on Compute Nodes] to get started.
 
 
 ## Using R
@@ -202,7 +200,7 @@ module load gcc/7.3.0
 
 ### Run R on compute nodes
 
-For large compute-intensive R jobs, consider submitting them to the compute nodes (see [RRN vs compute nodes]).
+For large compute-intensive R jobs, consider submitting them to the compute nodes. See [Running Jobs on Compute Nodes] to get started.
 
 ### RStudio on RRN
 
@@ -319,10 +317,7 @@ nohup matlab -nodisplay -nodesktop -nosplash <mycode.m >output.txt &
 
 ### Run Matlab on compute nodes
 
-For large compute-intensive Matlab jobs, consider submitting them to the compute nodes (see [RRN vs compute nodes]). The following two documents on the [CAC Wiki](https://cac.queensu.ca/wiki/index.php/Main_Page) site can get you started.
-
-* [How to run jobs using a scheduler](https://cac.queensu.ca/wiki/index.php/SLURM)
-* [An example of a MATLAB job script](https://cac.queensu.ca/wiki/index.php/Software:matlab)
+For large compute-intensive Matlab jobs, consider submitting them to the compute nodes. See [Running Jobs on Compute Nodes] to get started.
 
 
 ## Using Stata
@@ -379,7 +374,7 @@ set processors 12
 
 Put it on the first line in your do file or run it first if you use interactive mode.
 
-If you have a large workload that requires many cores and hours to run, your should consider submitting your job to the compute nodes on the HPC system. In that case, you can request a 32-core node to take full advantage of the 32-core Stata/MP licence. (See [How to run jobs using a scheduler](https://cac.queensu.ca/wiki/index.php/SLURM) on the [CAC Wiki](https://cac.queensu.ca/wiki/index.php/Main_Page) site to get started.)
+If you have a large workload that requires many cores and hours to run, your should consider submitting your job to a compute node on the HPC system. In that way, you can request more CPUs to take full advantage of the 32-core Stata/MP licence. (See [Running Jobs on Compute Nodes] to get started.)
 
 ## Managing Jobs in Batch Mode
 
