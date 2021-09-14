@@ -1,0 +1,126 @@
+# Running Jobs on Compute Nodes
+
+## Compute Nodes
+
+Thus far, this guide has described how to run your code/jobs on RRN itself. As explained in the section [RRN vs compute nodes], if you have very large compute-intensive jobs (e.g., jobs that need more than 16 CPUs and more than 12hrs of run time), it is recommended to submit them to compute nodes. Resources on RRN (a login node) are always shared. As a result, when the RRN is busy, everyone gets less resources and your code runs slower. One the other hand, you could request resources on compute nodes, and once granted, they are exclusively for your job during its computation.
+
+Rotman users have access to 8 compute nodes via a "standard" partition (a partition is just a logical set of compute nodes). Each compute node has 24 CPUs and 240G memory.
+
+In this section, we briefly discuss how to submit jobs to compute nodes. For a more detailed document on how to use compute nodes, see [How to Run Jobs Using a Scheduler](https://cac.queensu.ca/wiki/index.php/SLURM) on the [CAC Wiki](https://cac.queensu.ca/wiki/index.php/Main_Page) website.
+
+## Job Submission Script
+
+Resources on compute nodes are managed by a workload management system called [Slurm (Simple Linux Utility for Resource Manager)](https://slurm.schedmd.com/overview.html). In order to request resources on compute nodes and submit a job, you will need to write a job submission script. The script is a [Bash shell][Linux Command Quick Reference] script that contains a set of SLURM directives (or commands) describing resource requests and other submissions options.
+
+Below is a sample script for submitting a Python job. (You could name a job submission script as you like, for example, `job.sh`.)
+
+```{css, echo = FALSE}
+pre.numberSource code > span > a:first-child::before {
+  left: -0.1em;
+}
+```
+
+```{abc, eval=FALSE, attr.source='.numberLines'}
+#!/bin/bash
+
+#SBATCH --job-name=project_abc    # create a job name
+#SBATCH --partition=standard      # specify job partition
+#SBATCH --mail-type=ALL           # email you when the job starts, stops, etc.
+#SBATCH --mail-user=your_email    # specify your email
+#SBATCH --output=STD.out		  # save standard output to STD.out
+#SBATCH --error=STD.err           # save std. error output to STD.out
+#SBATCH -c 4                      # request 4 CPUs
+#SBATCH --time=30:00              # set total run time limit to 30mins (days-hrs:mins:secs)
+#SBATCH --mem=5000                # request 5G memory
+
+module load anaconda/3.5.3        # load python module
+python python_test.py             # run python code
+
+```
+
+The first line in the above script tells the system which shell to use when running the script.
+
+The `#SBATCH` lines (line 2 to 11) are SLURM commands specifying options for scheduling the job. See the comment on each line (starting with the second `#` sign) for what those options are. Adjust them to fit your need.
+
+**An important note:** under the current cluster configuration, each job is restricted to run on a single node, i.e., a single parallel job can only take advantage of the memory and multiple CPUs on a single node. As a result, do not request more than 24 CPUs and 240G memory as that's the resource capacity for each compute node in the standard partition. In fact, since the Operating System on a node would need resources as well, the maximum CPUs and memory you request (if needed) should be slightly lower than the full capacity (e.g., 23 CPUs and 220G memory). 
+
+Line 13 loads the Python module. If you have a Python virtual environment setup for your code/project, you would also activate the environment here (after loading the Python module).  
+
+Line 14 runs the python code (`python_test.py`). Note that you do not need to use `nohup` or `&` to run your code as you would normally do when running code in batch mode on RRN itself.
+
+You would simply adjust line 13 and 14 if you use other software (i.e., not Python). Below are a few examples.
+
+For R,
+
+```{bash eval=FALSE, attr.source='.numberLines startFrom="13"'}
+module load r/3.4.0
+Rscript mycode.R
+```
+
+For Matlab,
+
+```{bash eval=FALSE, attr.source='.numberLines startFrom="13"'}
+module load matlab/R2018b
+matlab -nodesktop -nosplash -nodisplay <matlab_test.m
+```
+
+For Stata,
+
+```{bash eval=FALSE, attr.source='.numberLines startFrom="13"'}
+module load stata15
+stata -b do filename
+```
+
+## Submitting Jobs to Compute Nodes
+
+To submit your job, use the `sbatch` command. A job ID will be returned if it's successful.
+
+```{bash eval=FALSE}
+sbatch job.sh       # job.sh is the name of the job script 
+```
+
+Your job may wait in a queue for some time until the requested resources are available for you.
+
+Sometimes, you may want to check the current availability of resources on compute nodes. The below `sinfo` commands could be useful.
+
+List all compute nodes available in the standard partition and their resources (total CPUs, memory, etc.)
+
+```{bash eval=FALSE}
+sinfo -p standard --Node --long 
+```
+
+List information on standard partition per node A/I/O/T (Allocated/Idle/Other/Total), CPU A/I/O/T, and total and free memory.
+
+```{bash eval=FALSE}
+sinfo -p standard --Node -o"%8N %14F %13C %6m %e" 
+```
+
+## Managing Jobs on Compute Nodes
+
+Show status of jobs submitted.
+
+```{bash eval=FALSE}
+squeue --user <your_user_name>
+squeue --job <job_id>
+squeue --start --job <job_id>   # get an estimation for when a job will run
+```
+
+Cancel jobs.
+
+```{bash eval=FALSE}
+scancel <job_id>                # kill a job with a job ID <job_id>
+scancel -u <your_user_name>     # kill all jobs for user <your_user_name> 
+```
+
+
+## Best Practice
+
+Debug your code well before submitting it to run on compute nodes. You could debug a less resource-intensive version of your code on your own computer or on RRN. You could also request a small interactive session on a compute node to debug your code. To do so, use the `salloc` command.
+
+```{bash eval=FALSE}
+salloc -c 4 --mem=6g      # start a 4-CPU 6G memory interactive session 
+```
+
+When debugging your code, monitor CPU and memory usage so you could estimate how many CPUs and memory you would need to request when running your code on compute nodes. You may request a bit more resources than what your code will actually need. However, don't request excessive resources. Note that the more resources you request, the longer queuing time (wait time before the code actually runs) you may experience as the compute nodes are also shared and may not have the requested resources available at the time of your request.
+
+ 

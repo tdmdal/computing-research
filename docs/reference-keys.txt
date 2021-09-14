@@ -37,4 +37,10 @@ a-note-on-statamp
 managing-jobs-in-batch-mode
 monitor-jobs
 terminate-jobs
+running-jobs-on-compute-nodes
+compute-nodes
+job-submission-script
+submitting-jobs-to-compute-nodes
+managing-jobs-on-compute-nodes
+best-practice-1
 linux-command-quick-reference
