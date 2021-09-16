@@ -12,7 +12,7 @@ In this section, we briefly discuss how to submit jobs to compute nodes. For a m
 
 Resources on compute nodes are managed by a workload management system called [Slurm (Simple Linux Utility for Resource Manager)](https://slurm.schedmd.com/overview.html). In order to request resources on compute nodes and submit a job, you will need to write a job submission script. The script is a [Bash shell][Linux Command Quick Reference] script that contains a set of SLURM directives (or commands) describing resource requests and other submissions options.
 
-Below is a sample script for submitting a Python job. (You could name a job submission script as you like, for example, `job.sh`.)
+Below is a sample script for submitting a Python job. You could name the script as you like (e.g.,`job.sh`), and store it in the same directory as your Python script.
 
 ```{css, echo = FALSE}
 pre.numberSource code > span > a:first-child::before {

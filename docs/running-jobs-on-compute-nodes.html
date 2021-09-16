@@ -229,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="job-submission-script" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Job Submission Script</h2>
 <p>Resources on compute nodes are managed by a workload management system called <a href="https://slurm.schedmd.com/overview.html">Slurm (Simple Linux Utility for Resource Manager)</a>. In order to request resources on compute nodes and submit a job, you will need to write a job submission script. The script is a <a href="linux-command-quick-reference.html#linux-command-quick-reference">Bash shell</a> script that contains a set of SLURM directives (or commands) describing resource requests and other submissions options.</p>
-<p>Below is a sample script for submitting a Python job. (You could name a job submission script as you like, for example, <code>job.sh</code>.)</p>
+<p>Below is a sample script for submitting a Python job. You could name the script as you like (e.g.,<code>job.sh</code>), and store it in the same directory as your Python script.</p>
 <style type="text/css">
 pre.numberSource code > span > a:first-child::before {
   left: -0.1em;
