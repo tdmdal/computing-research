@@ -363,8 +363,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" style="list-style-type: decimal">
 <li>Install R, RStudio and R packages.</li>
 </ol>
-<p>Now you are inside your virtual environment. You should see <code>(r_env)</code> in the terminal prompt. This is an isolated environment that you can manage the packages to be installed. Let’s install base R, some essential R packages and RStudio.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="using-software.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install r-base r-essentials rstudio</span></code></pre></div>
+<p>Now you are inside your virtual environment. You should see <code>(r_env)</code> in the terminal prompt. This is an isolated environment that you can manage the packages to be installed. Let’s install base R, some essential R packages and RStudio. Note that first you would need to install <code>pip</code>, a Python package manager.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="using-software.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install pip</span>
+<span id="cb27-2"><a href="using-software.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install r-base r-essentials rstudio</span></code></pre></div>
 <p>Use <code>conda list</code> to display all packages installed in your virtual environment.</p>
 <p>Installing other R packages is similar. Simply use</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="using-software.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> r <span class="op">&lt;</span>pacakgeName<span class="op">&gt;</span></span></code></pre></div>

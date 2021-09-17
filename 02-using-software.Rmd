@@ -236,9 +236,10 @@ echo ". /global/software/python/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
 
 4. Install R, RStudio and R packages.
 
-Now you are inside your virtual environment. You should see `(r_env)` in the terminal prompt. This is an isolated environment that you can manage the packages to be installed. Let's install base R, some essential R packages and RStudio.
+Now you are inside your virtual environment. You should see `(r_env)` in the terminal prompt. This is an isolated environment that you can manage the packages to be installed. Let's install base R, some essential R packages and RStudio. Note that first you would need to install `pip`, a Python package manager.
 
 ```{bash eval=FALSE}
+conda install pip
 conda install r-base r-essentials rstudio
 ```
 
