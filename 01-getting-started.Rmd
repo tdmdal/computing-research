@@ -24,7 +24,7 @@ The `-X` option enables graphics forwarding so you can run applications with GUI
 
 ## Resetting Password
 
-If you forget your password, you can go to [this page](https://login.cac.queensu.ca/pwr) to reset your password.
+If you forget your password, you can go to [this page](https://login.cac.queensu.ca/pwr) to reset it. You would need to provide your username, which starts with "pc_", and the email address you used when signing up RRN, which most likely is your Rotman email address.
 
 
 ## Directory Structure and Disk Quota
