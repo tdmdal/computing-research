@@ -312,8 +312,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.3</span> Using R</h2>
 <div id="setup-1" class="section level3" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Setup</h3>
-<p>Several versions of R are available on RRN. (Use <code>module avail</code> to list all available software on RRN.) Load the R version you prefer, for example, R 3.4.0, and you are good to start using R.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="using-software.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load r/3.4.0</span></code></pre></div>
+<p>Several versions of R are available on RRN. (Use <code>module avail</code> to list all available software on RRN.) Load the R version you prefer, for example, R 4.1.0, and you are good to start using R.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="using-software.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load StdEnv/2020</span>
+<span id="cb17-2"><a href="using-software.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load r/4.1.0</span></code></pre></div>
+<p>StdEnv/2020 is a software environment that offers more recent software tools. (Use <code>module avail</code> after <code>module load StdEnv/2020</code> to list all available software under StdEnv/2020.)</p>
 <p>If you need to use RStudio, you will need to setup R in a different way. see <a href="using-software.html#rstudio-on-rrn">RStudio on RRN</a> for instructions.</p>
 </div>
 <div id="interactive-mode-r-console" class="section level3" number="2.3.2">
@@ -346,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="rstudio-on-rrn" class="section level3" number="2.3.6">
 <h3><span class="header-section-number">2.3.6</span> RStudio on RRN</h3>
-<p>RStudio is not installed on RRN as its GUI experience on the server isn’t that good. (In general, we suggest you use command line on RRN.) Nevertheless, to install RStudio on your own, the easiest way is to use R and RStudio from the <a href="https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/">Anaconda distribution</a>. You can create a virtual environment using Anaconda’s package management tool <code>conda</code> and install R and RStudio in it. Anaconda is mostly known for its Python distribution, but it recently start to distribute R as well.</p>
+<p>RStudio is not installed on RRN as its GUI experience on the server isn’t that good. (In general, we suggest you use command line on RRN.) Nevertheless, to install RStudio on your own, the easiest way is to use R and RStudio from the <a href="https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/">Anaconda distribution</a>. You can create a virtual environment using Anaconda’s package management tool <code>conda</code> and install R and RStudio in it. Anaconda is mostly known for its Python distribution, but it recently started to distribute R as well.</p>
 <ol style="list-style-type: decimal">
 <li>Load Anaconda distribution.</li>
 </ol>

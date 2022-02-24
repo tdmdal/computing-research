@@ -151,11 +151,14 @@ For large compute-intensive Python jobs, consider submitting them to the compute
 
 ### Setup
 
-Several versions of R are available on RRN. (Use `module avail` to list all available software on RRN.) Load the R version you prefer, for example,  R 3.4.0, and you are good to start using R.
+Several versions of R are available on RRN. (Use `module avail` to list all available software on RRN.) Load the R version you prefer, for example, R 4.1.0, and you are good to start using R.
 
 ```{bash eval=FALSE}
-module load r/3.4.0
+module load StdEnv/2020
+module load r/4.1.0
 ```
+
+StdEnv/2020 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2020` to list all available software under StdEnv/2020.)
 
 If you need to use RStudio, you will need to setup R in a different way. see [RStudio on RRN] for instructions.
 
@@ -213,7 +216,7 @@ For large compute-intensive R jobs, consider submitting them to the compute node
 
 ### RStudio on RRN
 
-RStudio is not installed on RRN as its GUI experience on the server isn't that good. (In general, we suggest you use command line on RRN.) Nevertheless, to install RStudio on your own, the easiest way is to use R and RStudio from the [Anaconda distribution](https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/). You can create a virtual environment using Anaconda's package management tool `conda` and install R and RStudio in it. Anaconda is mostly known for its Python distribution, but it recently start to distribute R as well.
+RStudio is not installed on RRN as its GUI experience on the server isn't that good. (In general, we suggest you use command line on RRN.) Nevertheless, to install RStudio on your own, the easiest way is to use R and RStudio from the [Anaconda distribution](https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/). You can create a virtual environment using Anaconda's package management tool `conda` and install R and RStudio in it. Anaconda is mostly known for its Python distribution, but it recently started to distribute R as well.
 
 1. Load Anaconda distribution.
 
