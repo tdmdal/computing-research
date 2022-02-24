@@ -37,7 +37,16 @@ We recommend you use Anaconda Distribution 3 as it comes with a collection of us
 module load anaconda/3.5.3
 ```
 
-See more on setting up virtual environment for Python projects below (section [Installing packages]).
+See more on setting up a Python virtual environment below (section [Install packages]). A virtual environment allows you to install a desired version of Python and manage packages for a specific Python project.
+
+If you prefer to use a simpler Python distribution (as opposed to Anaconda 3), you could load one of the standard Python distributions. For example, load the Python 3.9.6 standard distribution as below.
+
+```{bash eval=FALSE}
+module load StdEnv/2020
+module load python/3.9.6
+```
+
+StdEnv/2020 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2020` to list all available software under StdEnv/2020.) The standard Python distribution also comes with its own tool to create and manage virtual environment.
 
 ### Interactive mode (Python console)
 
