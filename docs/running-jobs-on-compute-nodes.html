@@ -275,7 +275,7 @@ pre.numberSource code > span > a:first-child::before {
 <p>Sometimes, you may want to check the current availability of resources on compute nodes. The below <code>sinfo</code> commands could be useful.</p>
 <p>List all compute nodes available in the standard partition and their resources (total CPUs, memory, etc.)</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="running-jobs-on-compute-nodes.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sinfo</span> <span class="at">-p</span> standard <span class="at">--Node</span> <span class="at">--long</span> </span></code></pre></div>
-<p>List information on standard partition per node A/I/O/T (Allocated/Idle/Other/Total), CPU A/I/O/T, and total and free memory.</p>
+<p>List current resource availability of each compute node in the standard partition, including node A/I/O/T (Allocated/Idle/Other/Total), CPU A/I/O/T, and total and free memory.</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="running-jobs-on-compute-nodes.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sinfo</span> <span class="at">-p</span> standard <span class="at">--Node</span> <span class="at">-o</span><span class="st">&quot;%8N %14F %13C %6m %e&quot;</span> </span></code></pre></div>
 </div>
 <div id="managing-jobs-on-compute-nodes" class="section level2" number="3.4">

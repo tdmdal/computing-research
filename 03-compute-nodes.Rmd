@@ -95,7 +95,7 @@ List all compute nodes available in the standard partition and their resources (
 sinfo -p standard --Node --long 
 ```
 
-List information on standard partition per node A/I/O/T (Allocated/Idle/Other/Total), CPU A/I/O/T, and total and free memory.
+List current resource availability of each compute node in the standard partition, including node A/I/O/T (Allocated/Idle/Other/Total), CPU A/I/O/T, and total and free memory.
 
 ```{bash eval=FALSE}
 sinfo -p standard --Node -o"%8N %14F %13C %6m %e" 
