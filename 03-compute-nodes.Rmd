@@ -64,7 +64,13 @@ module load matlab/R2018b
 matlab -nodesktop -nosplash -nodisplay <matlab_test.m
 ```
 
-For Stata,
+For Stata 17,
+
+```{bash eval=FALSE, attr.source='.numberLines startFrom="13"'}
+stata -b do filename
+```
+
+For Stata 15,
 
 ```{bash eval=FALSE, attr.source='.numberLines startFrom="13"'}
 module load stata15

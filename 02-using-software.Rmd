@@ -337,7 +337,9 @@ For large compute-intensive Matlab jobs, consider submitting them to the compute
 
 ### Setup
 
-Load the Stata module to setup its environment. Type the command below in the terminal.
+The Stata 17 environment has been set up for you so you do not need to do anything. 
+
+If you want to use an older version of Stata, Stata 15, load the Stata15 module to setup the environment. Type the command below in the terminal.
 
 ```{bash eval=FALSE}
 module load stata15
