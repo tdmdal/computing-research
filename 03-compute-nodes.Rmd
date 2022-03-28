@@ -46,7 +46,7 @@ The `#SBATCH` lines (line 2 to 11) are SLURM commands specifying options for sch
 
 Line 13 loads the Python module. If you have a Python virtual environment setup for your code/project, you would also activate the environment here (after loading the Python module).  
 
-Line 14 runs the python code (`python_test.py`). Note that you do not need to use `nohup` or `&` to run your code as you would normally do when running code in batch mode on RRN itself.
+Line 14 runs the Python code (`python_test.py`). Note that you do not need to use `nohup` or `&` to run your code as you would normally do when running code in batch mode on RRN itself.
 
 You would simply adjust line 13 and 14 if you use other software (i.e., not Python). Below are a few examples.
 
