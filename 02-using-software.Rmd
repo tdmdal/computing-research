@@ -27,7 +27,7 @@ See [Running Jobs on Compute Nodes] to learn how to submit jobs to compute nodes
 
 ## Using Python
 
-### Setup
+### Setup {#python-setup}
 
 Different versions and distributions of Python are available on RRN including Standard Python 2 and 3 releases, Anaconda Distribution 2 and 3, and Python 2 and 3 with MPI4Py and Scipy stack. (Use `module avail` to list all available software on RRN.)
 
