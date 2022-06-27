@@ -10,7 +10,7 @@ Most applications can run either in interactive mode or in batch mode. For small
 nohup <batch mode command> &
 ```
 
-`nohup` prevents your job from being killed when you log off the system. The `&` at the end makes the command run in the background. For example, suppose you use Stata and you have a do file named `filename.do` that takes hours to run, you could run it in batch mode as below.
+`nohup` (no hangup) prevents your job from being killed when you log off the system. The `&` at the end makes the command run in the background. For example, suppose you use Stata and you have a do file named `filename.do` that takes hours to run, you could run it in batch mode as below.
 
 ```{bash eval=FALSE}
 nohup stata -b do filename &
