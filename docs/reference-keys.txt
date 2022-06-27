@@ -34,6 +34,12 @@ interactive-mode-without-gui-1
 interactive-mode-with-gui-1
 batch-mode-3
 a-note-on-statamp
+using-sas
+setup-4
+interactive-mode-without-gui-2
+interactive-mode-with-gui-2
+batch-mode-4
+run-sas-on-compute-nodes
 managing-jobs-in-batch-mode
 monitor-jobs
 terminate-jobs

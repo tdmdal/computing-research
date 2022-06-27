@@ -185,10 +185,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.4" data-path="using-software.html"><a href="using-software.html#batch-mode-3"><i class="fa fa-check"></i><b>2.5.4</b> Batch mode</a></li>
 <li class="chapter" data-level="2.5.5" data-path="using-software.html"><a href="using-software.html#a-note-on-statamp"><i class="fa fa-check"></i><b>2.5.5</b> A note on Stata/MP</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="using-software.html"><a href="using-software.html#managing-jobs-in-batch-mode"><i class="fa fa-check"></i><b>2.6</b> Managing Jobs in Batch Mode</a>
+<li class="chapter" data-level="2.6" data-path="using-software.html"><a href="using-software.html#using-sas"><i class="fa fa-check"></i><b>2.6</b> Using SAS</a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="using-software.html"><a href="using-software.html#monitor-jobs"><i class="fa fa-check"></i><b>2.6.1</b> Monitor jobs</a></li>
-<li class="chapter" data-level="2.6.2" data-path="using-software.html"><a href="using-software.html#terminate-jobs"><i class="fa fa-check"></i><b>2.6.2</b> Terminate jobs</a></li>
+<li class="chapter" data-level="2.6.1" data-path="using-software.html"><a href="using-software.html#setup-4"><i class="fa fa-check"></i><b>2.6.1</b> Setup</a></li>
+<li class="chapter" data-level="2.6.2" data-path="using-software.html"><a href="using-software.html#interactive-mode-without-gui-2"><i class="fa fa-check"></i><b>2.6.2</b> Interactive mode without GUI</a></li>
+<li class="chapter" data-level="2.6.3" data-path="using-software.html"><a href="using-software.html#interactive-mode-with-gui-2"><i class="fa fa-check"></i><b>2.6.3</b> Interactive mode with GUI</a></li>
+<li class="chapter" data-level="2.6.4" data-path="using-software.html"><a href="using-software.html#batch-mode-4"><i class="fa fa-check"></i><b>2.6.4</b> Batch mode</a></li>
+<li class="chapter" data-level="2.6.5" data-path="using-software.html"><a href="using-software.html#run-sas-on-compute-nodes"><i class="fa fa-check"></i><b>2.6.5</b> Run SAS on compute nodes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="using-software.html"><a href="using-software.html#managing-jobs-in-batch-mode"><i class="fa fa-check"></i><b>2.7</b> Managing Jobs in Batch Mode</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="using-software.html"><a href="using-software.html#monitor-jobs"><i class="fa fa-check"></i><b>2.7.1</b> Monitor jobs</a></li>
+<li class="chapter" data-level="2.7.2" data-path="using-software.html"><a href="using-software.html#terminate-jobs"><i class="fa fa-check"></i><b>2.7.2</b> Terminate jobs</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="running-jobs-on-compute-nodes.html"><a href="running-jobs-on-compute-nodes.html"><i class="fa fa-check"></i><b>3</b> Running Jobs on Compute Nodes</a>
@@ -226,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.1.1</span> Interactive mode vs batch mode</h3>
 <p>Most applications can run either in interactive mode or in batch mode. For small jobs, it really doesn’t matter which one you choose. For medium to large jobs, you could still code and debug your work in the interactive mode, but you should run your work in batch mode once it’s fully tested as probably you don’t want to wait in front of the screen for your job to finish. If you use batch mode, you’ll have the convenience of logging off the system and logging in later to check the result. You can do so by pre- and post-face your application’s batch mode command with the Linux command <code>nohup</code> and control operator <code>&amp;</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="using-software.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> <span class="op">&lt;</span>batch mode command<span class="op">&gt;</span> <span class="kw">&amp;</span></span></code></pre></div>
-<p><code>nohup</code> prevents your job from being killed when you log off the system. The <code>&amp;</code> at the end makes the command run in the background. For example, suppose you use Stata and you have a do file named <code>filename.do</code> that takes hours to run, you could run it in batch mode as below.</p>
+<p><code>nohup</code> (no hangup) prevents your job from being killed when you log off the system. The <code>&amp;</code> at the end makes the command run in the background. For example, suppose you use Stata and you have a do file named <code>filename.do</code> that takes hours to run, you could run it in batch mode as below.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="using-software.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> stata <span class="at">-b</span> do filename <span class="kw">&amp;</span></span></code></pre></div>
 </div>
 <div id="rrn-vs-compute-nodes" class="section level3" number="2.1.2">
@@ -442,7 +450,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.5.4</span> Batch mode</h3>
 <p>To run Stata/IC in batch mode, use</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="using-software.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">stata</span> <span class="at">-b</span> do filename <span class="kw">&amp;</span></span></code></pre></div>
-<p>Stata will execute the commands in <code>filename.do</code> and will automatically save the output in <code>filename.log</code>. The <code>&amp;</code> at the end tells Linux to run the command in the background, freeing up your command line prompt.</p>
+<p>Stata will execute the code in <code>filename.do</code> and will automatically save the output in <code>filename.log</code>. The <code>&amp;</code> at the end tells Linux to run the command in the background, freeing up your command line prompt.</p>
 <p>If your code takes a long time to run, you may wish to start a batch Stata job, log off from your terminal, and log back in later to retrieve the output. To do this, preface the previous command with <code>nohup</code>.</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="using-software.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> stata <span class="at">-b</span> do filename <span class="kw">&amp;</span></span></code></pre></div>
 <p><code>nohup</code> prevents your job from being killed when you log off the system.</p>
@@ -457,21 +465,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you have a large workload that requires many cores and hours to run, your should consider submitting your job to a compute node on the HPC system. In that way, you can request more CPUs to take full advantage of the 32-core Stata/MP licence. (See <a href="running-jobs-on-compute-nodes.html#running-jobs-on-compute-nodes">Running Jobs on Compute Nodes</a> to get started.)</p>
 </div>
 </div>
-<div id="managing-jobs-in-batch-mode" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> Managing Jobs in Batch Mode</h2>
-<div id="monitor-jobs" class="section level3" number="2.6.1">
-<h3><span class="header-section-number">2.6.1</span> Monitor jobs</h3>
+<div id="using-sas" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Using SAS</h2>
+<div id="setup-4" class="section level3" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Setup</h3>
+<p>The SAS 9.4 environment has been set up for you so you do not need to do anything.</p>
+</div>
+<div id="interactive-mode-without-gui-2" class="section level3" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Interactive mode without GUI</h3>
+<p>To start SAS in interactive mode without GUI (i.e. in SAS command line mode), type <code>sas -nodms</code> in the terminal.</p>
+<p>To exit SAS command line, use <code>endsas;</code>. Note the command ends with a semicolon.</p>
+</div>
+<div id="interactive-mode-with-gui-2" class="section level3" number="2.6.3">
+<h3><span class="header-section-number">2.6.3</span> Interactive mode with GUI</h3>
+<p>To start SAS in interactive mode with GUI, use <code>sas</code>. You will lose your terminal command line prompt once the SAS GUI is running.</p>
+<p>Alternatively, use <code>sas &amp;</code> to run the command in background and return the command line prompt.</p>
+<p>The SAS GUI consists of a few SAS windows, Session Management, Explorer, Program Editor, Log, Result, and Output. To end the SAS session and close all the windows, click the “Terminate” button in the Session Management window.</p>
+</div>
+<div id="batch-mode-4" class="section level3" number="2.6.4">
+<h3><span class="header-section-number">2.6.4</span> Batch mode</h3>
+<p>To run SAS in batch mode, use</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="using-software.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sas</span> mycode.sas <span class="kw">&amp;</span></span></code></pre></div>
+<p>SAS will execute the code in <code>mycode.sas</code> and will automatically save the SAS console output in <code>mycode.log</code>. The <code>&amp;</code> at the end tells Linux to run the command in the background, freeing up your command line prompt.</p>
+<p>If your code takes a long time to run, you may wish to start a batch SAS job, log off from the system, and log back in later to check the output. To do this, preface the previous command with <code>nohup</code>.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="using-software.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> sas mycode.sas <span class="kw">&amp;</span></span></code></pre></div>
+<p><code>nohup</code> prevents your job from being terminated when you log off the system.</p>
+</div>
+<div id="run-sas-on-compute-nodes" class="section level3" number="2.6.5">
+<h3><span class="header-section-number">2.6.5</span> Run SAS on compute nodes</h3>
+<p>For large compute-intensive SAS jobs, consider submitting them to the compute nodes. See <a href="running-jobs-on-compute-nodes.html#running-jobs-on-compute-nodes">Running Jobs on Compute Nodes</a> to get started.</p>
+</div>
+</div>
+<div id="managing-jobs-in-batch-mode" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Managing Jobs in Batch Mode</h2>
+<div id="monitor-jobs" class="section level3" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> Monitor jobs</h3>
 <p>Once your programs are running in the background, you can monitor their resource usage and performance using the <code>htop</code> utility. Simply type <code>htop</code> in the terminal to start the utility. <code>htop</code> also shows you information about other programs/processes running on the system so it’s also a great tool to see how busy the RRN is overall.</p>
 <p>The Linux <a href="http://man7.org/linux/man-pages/man1/htop.1.html">manual</a> for <code>htop</code> is a bit hard to read. You could perhaps get started with this <a href="https://codeahoy.com/2017/01/20/hhtop-explained-visually/">visual tutorial</a>, or this <a href="https://www.youtube.com/watch?v=Qw2ZUf0hTF8">YouTube tutorial</a>.</p>
 </div>
-<div id="terminate-jobs" class="section level3" number="2.6.2">
-<h3><span class="header-section-number">2.6.2</span> Terminate jobs</h3>
+<div id="terminate-jobs" class="section level3" number="2.7.2">
+<h3><span class="header-section-number">2.7.2</span> Terminate jobs</h3>
 <p>If you want to terminate your program running in the background, you could use <code>htop</code> as well (<code>F9/Kill</code>). Alternatively, first find your program’s process id.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="using-software.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span> <span class="at">-u</span> yourUserName</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="using-software.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span> <span class="at">-u</span> yourUserName</span></code></pre></div>
 <p>Then, use the <code>kill</code> command.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="using-software.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">kill</span> programProcessID</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="using-software.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">kill</span> programProcessID</span></code></pre></div>
 <p>If the above command doesn’t work, try the <code>kill -9</code> option.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="using-software.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">kill</span> <span class="at">-9</span> programProcessID</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="using-software.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">kill</span> <span class="at">-9</span> programProcessID</span></code></pre></div>
 
 </div>
 </div>

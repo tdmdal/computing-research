@@ -365,7 +365,7 @@ To run Stata/IC in batch mode, use
 stata -b do filename &
 ```
 
-Stata will execute the commands in `filename.do` and will automatically save the output in `filename.log`. The `&` at the end tells Linux to run the command in the background, freeing up your command line prompt.
+Stata will execute the code in `filename.do` and will automatically save the output in `filename.log`. The `&` at the end tells Linux to run the command in the background, freeing up your command line prompt.
 
 If your code takes a long time to run, you may wish to start a batch Stata job, log off from your terminal, and log back in later to retrieve the output. To do this, preface the previous command with `nohup`.
 
@@ -390,6 +390,50 @@ set processors 12
 Put it on the first line in your do file or run it first if you use interactive mode.
 
 If you have a large workload that requires many cores and hours to run, your should consider submitting your job to a compute node on the HPC system. In that way, you can request more CPUs to take full advantage of the 32-core Stata/MP licence. (See [Running Jobs on Compute Nodes] to get started.)
+
+
+## Using SAS
+
+### Setup
+
+The SAS 9.4 environment has been set up for you so you do not need to do anything. 
+
+### Interactive mode without GUI
+
+To start SAS in interactive mode without GUI (i.e. in SAS command line mode), type `sas -nodms` in the terminal.
+
+To exit SAS command line, use `endsas;`. Note the command ends with a semicolon.
+
+### Interactive mode with GUI
+
+To start SAS in interactive mode with GUI, use `sas`. You will lose your terminal command line prompt once the SAS GUI is running.
+
+Alternatively, use `sas &` to run the command in background and return the command line prompt.
+
+The SAS GUI consists of a few SAS windows, Session Management, Explorer, Program Editor, Log, Result, and Output. To end the SAS session and close all the windows, click the "Terminate" button in the Session Management window.
+
+### Batch mode
+
+To run SAS in batch mode, use
+
+```{bash eval=FALSE}
+sas mycode.sas &
+```
+
+SAS will execute the code in `mycode.sas` and will automatically save the SAS console output in `mycode.log`. The `&` at the end tells Linux to run the command in the background, freeing up your command line prompt.
+
+If your code takes a long time to run, you may wish to start a batch SAS job, log off from the system, and log back in later to check the output. To do this, preface the previous command with `nohup`.
+
+```{bash eval=FALSE}
+nohup sas mycode.sas &
+```
+
+`nohup` prevents your job from being terminated when you log off the system.
+
+### Run SAS on compute nodes
+
+For large compute-intensive SAS jobs, consider submitting them to the compute nodes. See [Running Jobs on Compute Nodes] to get started.
+
 
 ## Managing Jobs in Batch Mode
 

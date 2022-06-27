@@ -185,10 +185,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.4" data-path="using-software.html"><a href="using-software.html#batch-mode-3"><i class="fa fa-check"></i><b>2.5.4</b> Batch mode</a></li>
 <li class="chapter" data-level="2.5.5" data-path="using-software.html"><a href="using-software.html#a-note-on-statamp"><i class="fa fa-check"></i><b>2.5.5</b> A note on Stata/MP</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="using-software.html"><a href="using-software.html#managing-jobs-in-batch-mode"><i class="fa fa-check"></i><b>2.6</b> Managing Jobs in Batch Mode</a>
+<li class="chapter" data-level="2.6" data-path="using-software.html"><a href="using-software.html#using-sas"><i class="fa fa-check"></i><b>2.6</b> Using SAS</a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="using-software.html"><a href="using-software.html#monitor-jobs"><i class="fa fa-check"></i><b>2.6.1</b> Monitor jobs</a></li>
-<li class="chapter" data-level="2.6.2" data-path="using-software.html"><a href="using-software.html#terminate-jobs"><i class="fa fa-check"></i><b>2.6.2</b> Terminate jobs</a></li>
+<li class="chapter" data-level="2.6.1" data-path="using-software.html"><a href="using-software.html#setup-4"><i class="fa fa-check"></i><b>2.6.1</b> Setup</a></li>
+<li class="chapter" data-level="2.6.2" data-path="using-software.html"><a href="using-software.html#interactive-mode-without-gui-2"><i class="fa fa-check"></i><b>2.6.2</b> Interactive mode without GUI</a></li>
+<li class="chapter" data-level="2.6.3" data-path="using-software.html"><a href="using-software.html#interactive-mode-with-gui-2"><i class="fa fa-check"></i><b>2.6.3</b> Interactive mode with GUI</a></li>
+<li class="chapter" data-level="2.6.4" data-path="using-software.html"><a href="using-software.html#batch-mode-4"><i class="fa fa-check"></i><b>2.6.4</b> Batch mode</a></li>
+<li class="chapter" data-level="2.6.5" data-path="using-software.html"><a href="using-software.html#run-sas-on-compute-nodes"><i class="fa fa-check"></i><b>2.6.5</b> Run SAS on compute nodes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="using-software.html"><a href="using-software.html#managing-jobs-in-batch-mode"><i class="fa fa-check"></i><b>2.7</b> Managing Jobs in Batch Mode</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="using-software.html"><a href="using-software.html#monitor-jobs"><i class="fa fa-check"></i><b>2.7.1</b> Monitor jobs</a></li>
+<li class="chapter" data-level="2.7.2" data-path="using-software.html"><a href="using-software.html#terminate-jobs"><i class="fa fa-check"></i><b>2.7.2</b> Terminate jobs</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="running-jobs-on-compute-nodes.html"><a href="running-jobs-on-compute-nodes.html"><i class="fa fa-check"></i><b>3</b> Running Jobs on Compute Nodes</a>
@@ -235,20 +243,20 @@ pre.numberSource code > span > a:first-child::before {
   left: -0.1em;
 }
 </style>
-<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource abc numberLines"><code class="sourceCode abc"><span id="cb42-1"><a href="running-jobs-on-compute-nodes.html#cb42-1"></a>#!/bin/bash</span>
-<span id="cb42-2"><a href="running-jobs-on-compute-nodes.html#cb42-2"></a></span>
-<span id="cb42-3"><a href="running-jobs-on-compute-nodes.html#cb42-3"></a>#SBATCH --job-name=project_abc    # create a job name</span>
-<span id="cb42-4"><a href="running-jobs-on-compute-nodes.html#cb42-4"></a>#SBATCH --partition=standard      # specify job partition</span>
-<span id="cb42-5"><a href="running-jobs-on-compute-nodes.html#cb42-5"></a>#SBATCH --mail-type=ALL           # email you when the job starts, stops, etc.</span>
-<span id="cb42-6"><a href="running-jobs-on-compute-nodes.html#cb42-6"></a>#SBATCH --mail-user=your_email    # specify your email</span>
-<span id="cb42-7"><a href="running-jobs-on-compute-nodes.html#cb42-7"></a>#SBATCH --output=STD.out          # save standard output to STD.out</span>
-<span id="cb42-8"><a href="running-jobs-on-compute-nodes.html#cb42-8"></a>#SBATCH --error=STD.err           # save std. error output to STD.out</span>
-<span id="cb42-9"><a href="running-jobs-on-compute-nodes.html#cb42-9"></a>#SBATCH -c 4                      # request 4 CPUs</span>
-<span id="cb42-10"><a href="running-jobs-on-compute-nodes.html#cb42-10"></a>#SBATCH --time=30<span class="ch">:00</span>              # set total run time limit to 30mins <span class="dt">(</span>days-hrs<span class="ch">:mins:secs</span><span class="dt">)</span></span>
-<span id="cb42-11"><a href="running-jobs-on-compute-nodes.html#cb42-11"></a>#SBATCH --mem=5000                # request 5G memory</span>
-<span id="cb42-12"><a href="running-jobs-on-compute-nodes.html#cb42-12"></a></span>
-<span id="cb42-13"><a href="running-jobs-on-compute-nodes.html#cb42-13"></a>module load anaconda/3.5.3        # load python module</span>
-<span id="cb42-14"><a href="running-jobs-on-compute-nodes.html#cb42-14"></a>python python_test.py             # run python code</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource abc numberLines"><code class="sourceCode abc"><span id="cb44-1"><a href="running-jobs-on-compute-nodes.html#cb44-1"></a>#!/bin/bash</span>
+<span id="cb44-2"><a href="running-jobs-on-compute-nodes.html#cb44-2"></a></span>
+<span id="cb44-3"><a href="running-jobs-on-compute-nodes.html#cb44-3"></a>#SBATCH --job-name=project_abc    # create a job name</span>
+<span id="cb44-4"><a href="running-jobs-on-compute-nodes.html#cb44-4"></a>#SBATCH --partition=standard      # specify job partition</span>
+<span id="cb44-5"><a href="running-jobs-on-compute-nodes.html#cb44-5"></a>#SBATCH --mail-type=ALL           # email you when the job starts, stops, etc.</span>
+<span id="cb44-6"><a href="running-jobs-on-compute-nodes.html#cb44-6"></a>#SBATCH --mail-user=your_email    # specify your email</span>
+<span id="cb44-7"><a href="running-jobs-on-compute-nodes.html#cb44-7"></a>#SBATCH --output=STD.out          # save standard output to STD.out</span>
+<span id="cb44-8"><a href="running-jobs-on-compute-nodes.html#cb44-8"></a>#SBATCH --error=STD.err           # save std. error output to STD.out</span>
+<span id="cb44-9"><a href="running-jobs-on-compute-nodes.html#cb44-9"></a>#SBATCH -c 4                      # request 4 CPUs</span>
+<span id="cb44-10"><a href="running-jobs-on-compute-nodes.html#cb44-10"></a>#SBATCH --time=30<span class="ch">:00</span>              # set total run time limit to 30mins <span class="dt">(</span>days-hrs<span class="ch">:mins:secs</span><span class="dt">)</span></span>
+<span id="cb44-11"><a href="running-jobs-on-compute-nodes.html#cb44-11"></a>#SBATCH --mem=5000                # request 5G memory</span>
+<span id="cb44-12"><a href="running-jobs-on-compute-nodes.html#cb44-12"></a></span>
+<span id="cb44-13"><a href="running-jobs-on-compute-nodes.html#cb44-13"></a>module load anaconda/3.5.3        # load python module</span>
+<span id="cb44-14"><a href="running-jobs-on-compute-nodes.html#cb44-14"></a>python python_test.py             # run python code</span></code></pre></div>
 <p>The first line in the above script tells the system which shell to use when running the script.</p>
 <p>The <code>#SBATCH</code> lines (line 2 to 11) are SLURM commands specifying options for scheduling the job. See the comment on each line (starting with the second <code>#</code> sign) for what those options are. Adjust them to fit your need.</p>
 <p><strong>An important note:</strong> under the current cluster configuration, each job is restricted to run on a single node, i.e., a single parallel job can only take advantage of the memory and multiple CPUs on a single node. As a result, do not request more than 24 CPUs and 240G memory as that’s the resource capacity for each compute node in the standard partition. In fact, since the Operating System on a node would need resources as well, the maximum CPUs and memory you request (if needed) should be slightly lower than the full capacity (e.g., 23 CPUs and 220G memory).</p>
@@ -256,42 +264,42 @@ pre.numberSource code > span > a:first-child::before {
 <p>Line 14 runs the Python code (<code>python_test.py</code>). Note that you do not need to use <code>nohup</code> or <code>&amp;</code> to run your code as you would normally do when running code in batch mode on RRN itself.</p>
 <p>You would simply adjust line 13 and 14 if you use other software (i.e., not Python). Below are a few examples.</p>
 <p>For R,</p>
-<div class="sourceCode" id="cb43" startFrom="13"><pre class="sourceCode numberSource bash numberLines"><code class="sourceCode bash" style="counter-reset: source-line 12;"><span id="cb43-13"><a href="running-jobs-on-compute-nodes.html#cb43-13"></a><span class="ex">module</span> load r/3.4.0</span>
-<span id="cb43-14"><a href="running-jobs-on-compute-nodes.html#cb43-14"></a><span class="ex">Rscript</span> mycode.R</span></code></pre></div>
+<div class="sourceCode" id="cb45" startFrom="13"><pre class="sourceCode numberSource bash numberLines"><code class="sourceCode bash" style="counter-reset: source-line 12;"><span id="cb45-13"><a href="running-jobs-on-compute-nodes.html#cb45-13"></a><span class="ex">module</span> load r/3.4.0</span>
+<span id="cb45-14"><a href="running-jobs-on-compute-nodes.html#cb45-14"></a><span class="ex">Rscript</span> mycode.R</span></code></pre></div>
 <p>For Matlab,</p>
-<div class="sourceCode" id="cb44" startFrom="13"><pre class="sourceCode numberSource bash numberLines"><code class="sourceCode bash" style="counter-reset: source-line 12;"><span id="cb44-13"><a href="running-jobs-on-compute-nodes.html#cb44-13"></a><span class="ex">module</span> load matlab/R2018b</span>
-<span id="cb44-14"><a href="running-jobs-on-compute-nodes.html#cb44-14"></a><span class="ex">matlab</span> <span class="at">-nodesktop</span> <span class="at">-nosplash</span> <span class="at">-nodisplay</span> <span class="op">&lt;</span>matlab_test.m</span></code></pre></div>
+<div class="sourceCode" id="cb46" startFrom="13"><pre class="sourceCode numberSource bash numberLines"><code class="sourceCode bash" style="counter-reset: source-line 12;"><span id="cb46-13"><a href="running-jobs-on-compute-nodes.html#cb46-13"></a><span class="ex">module</span> load matlab/R2018b</span>
+<span id="cb46-14"><a href="running-jobs-on-compute-nodes.html#cb46-14"></a><span class="ex">matlab</span> <span class="at">-nodesktop</span> <span class="at">-nosplash</span> <span class="at">-nodisplay</span> <span class="op">&lt;</span>matlab_test.m</span></code></pre></div>
 <p>For Stata 17,</p>
-<div class="sourceCode" id="cb45" startFrom="13"><pre class="sourceCode numberSource bash numberLines"><code class="sourceCode bash" style="counter-reset: source-line 12;"><span id="cb45-13"><a href="running-jobs-on-compute-nodes.html#cb45-13"></a><span class="ex">stata</span> <span class="at">-b</span> do filename</span></code></pre></div>
+<div class="sourceCode" id="cb47" startFrom="13"><pre class="sourceCode numberSource bash numberLines"><code class="sourceCode bash" style="counter-reset: source-line 12;"><span id="cb47-13"><a href="running-jobs-on-compute-nodes.html#cb47-13"></a><span class="ex">stata</span> <span class="at">-b</span> do filename</span></code></pre></div>
 <p>For Stata 15,</p>
-<div class="sourceCode" id="cb46" startFrom="13"><pre class="sourceCode numberSource bash numberLines"><code class="sourceCode bash" style="counter-reset: source-line 12;"><span id="cb46-13"><a href="running-jobs-on-compute-nodes.html#cb46-13"></a><span class="ex">module</span> load stata15</span>
-<span id="cb46-14"><a href="running-jobs-on-compute-nodes.html#cb46-14"></a><span class="ex">stata</span> <span class="at">-b</span> do filename</span></code></pre></div>
+<div class="sourceCode" id="cb48" startFrom="13"><pre class="sourceCode numberSource bash numberLines"><code class="sourceCode bash" style="counter-reset: source-line 12;"><span id="cb48-13"><a href="running-jobs-on-compute-nodes.html#cb48-13"></a><span class="ex">module</span> load stata15</span>
+<span id="cb48-14"><a href="running-jobs-on-compute-nodes.html#cb48-14"></a><span class="ex">stata</span> <span class="at">-b</span> do filename</span></code></pre></div>
 </div>
 <div id="submitting-jobs-to-compute-nodes" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Submitting Jobs to Compute Nodes</h2>
 <p>To submit your job, use the <code>sbatch</code> command. A job ID will be returned if it’s successful.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="running-jobs-on-compute-nodes.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job.sh       <span class="co"># job.sh is the name of the job script </span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="running-jobs-on-compute-nodes.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job.sh       <span class="co"># job.sh is the name of the job script </span></span></code></pre></div>
 <p>Your job may wait in a queue for some time until the requested resources are available for you.</p>
 <p>Sometimes, you may want to check the current availability of resources on compute nodes. The below <code>sinfo</code> commands could be useful.</p>
 <p>List all compute nodes available in the standard partition and their resources (total CPUs, memory, etc.)</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="running-jobs-on-compute-nodes.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sinfo</span> <span class="at">-p</span> standard <span class="at">--Node</span> <span class="at">--long</span> </span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="running-jobs-on-compute-nodes.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sinfo</span> <span class="at">-p</span> standard <span class="at">--Node</span> <span class="at">--long</span> </span></code></pre></div>
 <p>List current resource availability of each compute node in the standard partition, including node A/I/O/T (Allocated/Idle/Other/Total), CPU A/I/O/T, and total and free memory.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="running-jobs-on-compute-nodes.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sinfo</span> <span class="at">-p</span> standard <span class="at">--Node</span> <span class="at">-o</span><span class="st">&quot;%8N %14F %13C %6m %e&quot;</span> </span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="running-jobs-on-compute-nodes.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sinfo</span> <span class="at">-p</span> standard <span class="at">--Node</span> <span class="at">-o</span><span class="st">&quot;%8N %14F %13C %6m %e&quot;</span> </span></code></pre></div>
 </div>
 <div id="managing-jobs-on-compute-nodes" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Managing Jobs on Compute Nodes</h2>
 <p>Show status of jobs submitted.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="running-jobs-on-compute-nodes.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">--user</span> <span class="op">&lt;</span>your_user_name<span class="op">&gt;</span></span>
-<span id="cb50-2"><a href="running-jobs-on-compute-nodes.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">--job</span> <span class="op">&lt;</span>job_id<span class="op">&gt;</span></span>
-<span id="cb50-3"><a href="running-jobs-on-compute-nodes.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">--start</span> <span class="at">--job</span> <span class="op">&lt;</span>job_id<span class="op">&gt;</span>   # get an estimation for when a job will run</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="running-jobs-on-compute-nodes.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">--user</span> <span class="op">&lt;</span>your_user_name<span class="op">&gt;</span></span>
+<span id="cb52-2"><a href="running-jobs-on-compute-nodes.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">--job</span> <span class="op">&lt;</span>job_id<span class="op">&gt;</span></span>
+<span id="cb52-3"><a href="running-jobs-on-compute-nodes.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">--start</span> <span class="at">--job</span> <span class="op">&lt;</span>job_id<span class="op">&gt;</span>   # get an estimation for when a job will run</span></code></pre></div>
 <p>Cancel jobs.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="running-jobs-on-compute-nodes.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="ex">scancel</span> <span class="op">&lt;</span>job_id<span class="op">&gt;</span>                # kill a job with a job ID <span class="op">&lt;</span>job_id<span class="op">&gt;</span></span>
-<span id="cb51-2"><a href="running-jobs-on-compute-nodes.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="ex">scancel</span> <span class="at">-u</span> <span class="op">&lt;</span>your_user_name<span class="op">&gt;</span>     # kill all jobs for user <span class="op">&lt;</span>your_user_name<span class="op">&gt;</span> </span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb53-1"><a href="running-jobs-on-compute-nodes.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="ex">scancel</span> <span class="op">&lt;</span>job_id<span class="op">&gt;</span>                # kill a job with a job ID <span class="op">&lt;</span>job_id<span class="op">&gt;</span></span>
+<span id="cb53-2"><a href="running-jobs-on-compute-nodes.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="ex">scancel</span> <span class="at">-u</span> <span class="op">&lt;</span>your_user_name<span class="op">&gt;</span>     # kill all jobs for user <span class="op">&lt;</span>your_user_name<span class="op">&gt;</span> </span></code></pre></div>
 </div>
 <div id="best-practice-1" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Best Practice</h2>
 <p>Debug your code well before submitting it to run on compute nodes. You could debug a less resource-intensive version of your code on your own computer or on RRN. You could also request a small interactive session on a compute node to debug your code. To do so, use the <code>salloc</code> command.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="running-jobs-on-compute-nodes.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="ex">salloc</span> <span class="at">-c</span> 4 <span class="at">--mem</span><span class="op">=</span>6g      <span class="co"># start a 4-CPU 6G memory interactive session </span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="running-jobs-on-compute-nodes.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="ex">salloc</span> <span class="at">-c</span> 4 <span class="at">--mem</span><span class="op">=</span>6g      <span class="co"># start a 4-CPU 6G memory interactive session </span></span></code></pre></div>
 <p>When debugging your code, monitor CPU and memory usage so you could estimate how many CPUs and memory you would need to request when running your code on compute nodes. You may request a bit more resources than what your code will actually need. However, don’t request excessive resources. Note that the more resources you request, the longer queuing time (wait time before the code actually runs) you may experience as the compute nodes are also shared and may not have the requested resources available at the time of your request.</p>
 
 </div>
