@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Rotman Research Node User Guide</title>
   <meta name="description" content="Rotman Research Node User Guide" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Rotman Research Node User Guide" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -31,8 +30,7 @@
   
 
 <link rel="next" href="getting-started.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,8 +47,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -91,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -104,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -118,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 </head>
 
@@ -229,16 +232,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Rotman Research Node User Guide</h1>
 </div>
-<div id="overview" class="section level1 unnumbered">
-<h1>Overview</h1>
-<div id="rotman-research-node" class="section level2 unnumbered">
-<h2>Rotman Research Node</h2>
+<div id="overview" class="section level1 unnumbered hasAnchor">
+<h1>Overview<a href="index.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="rotman-research-node" class="section level2 unnumbered hasAnchor">
+<h2>Rotman Research Node<a href="index.html#rotman-research-node" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Rotman Research Node (RRN) is a shared Linux server for the Rotman research community. The node is equipped with 32 cores, 1T memory, and 50T storage. It is an integrated part (login node) of a High-Performance Computing (HPC) system consisting of a cluster of around 100 compute nodes. Researchers can work directly on the Rotman node, but also has the option to scale up their computation by submitting large workloads to the compute nodes on the HPC system. Currently, default Rotman users have access to 8 compute nodes via a “standard” partition (a partition is a logical set of compute nodes). Each compute node has 24 CPUs and 240G memory. These compute nodes are also shared by researchers from another university.</p>
 <p>RRN is hosted at <a href="https://cac.queensu.ca/">Centre for Advanced Computing (CAC)</a>. <a href="http://www.rotman.utoronto.ca/FacultyAndResearch/EducationCentres/TDMDAL">Rotman TD Management Data and Analytics Lab (TDMDAL)</a> provides 1st-tier user support. Email <a href="mailto:tdmdal@rotman.utoronto.ca" class="email">tdmdal@rotman.utoronto.ca</a> if you have any questions about the system.</p>
 <p><strong>RRN is currently under beta test. We invite you to try the system and send us your feedback.</strong></p>
 </div>
-<div id="about-this-user-guide" class="section level2 unnumbered">
-<h2>About this User Guide</h2>
+<div id="about-this-user-guide" class="section level2 unnumbered hasAnchor">
+<h2>About this User Guide<a href="index.html#about-this-user-guide" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This User Guide focuses on use cases most relevant to Rotman researchers. It complements the <a href="https://cac.queensu.ca/wiki/index.php/Main_Page">CAC Wiki document</a>, which covers the usage of the entire CAC HPC system in details. We encourage users with high computation needs to further read the CAC Wiki in order to take full advantage of the HPC system.</p>
 
 </div>
@@ -299,7 +302,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

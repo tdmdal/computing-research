@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Getting Started | Rotman Research Node User Guide</title>
   <meta name="description" content="1 Getting Started | Rotman Research Node User Guide" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Getting Started | Rotman Research Node User Guide" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -31,8 +30,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="using-software.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,8 +47,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -91,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -104,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -118,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 </head>
 
@@ -226,29 +229,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Getting Started</h1>
-<div id="requesting-an-account" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Requesting an Account</h2>
+<div id="getting-started" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Getting Started<a href="getting-started.html#getting-started" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="requesting-an-account" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Requesting an Account<a href="getting-started.html#requesting-an-account" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>RRN is available to all Rotman researchers. To request an account, please email TD Management Data and Analytics Lab at <a href="mailto:tdmdal@rotman.utoronto.ca" class="email">tdmdal@rotman.utoronto.ca</a>. Once your account is created, you will receive an activation email together with login instructions. The process usually takes less than 1 business day.</p>
 </div>
-<div id="logging-on-to-rrn" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Logging on to RRN</h2>
+<div id="logging-on-to-rrn" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Logging on to RRN<a href="getting-started.html#logging-on-to-rrn" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You will need an SSH (Secure Shell) client to log on to RRN. For Windows users, we recommend <a href="https://mobaxterm.mobatek.net/">MobaXterm</a>. Mac users can use the SSH client provided by the pre-installed <a href="https://support.apple.com/en-ca/guide/terminal/welcome/mac">Terminal</a> App. In addition, in order to run applications on the server with graphic user interfaces (GUI), Mac users should also install <a href="https://www.xquartz.org/">XQuartz</a>.</p>
 <p>To log on to RRN,</p>
 <ol style="list-style-type: decimal">
 <li><p>Open a terminal window. Windows users first launch the MobaXterm app, and then click the “Start local terminal” button in the home tab. Mac users simply run the Terminal app.</p></li>
 <li><p>Type the following command. (Replace <code>yourUserName</code> with your user name.)</p></li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="getting-started.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-X</span> yourUserName@rrlogin.cac.queensu.ca</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="getting-started.html#cb1-1" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-X</span> yourUserName@rrlogin.cac.queensu.ca</span></code></pre></div>
 <p>The <code>-X</code> option enables graphics forwarding so you can run applications with GUI.</p>
 </div>
-<div id="resetting-password" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Resetting Password</h2>
+<div id="resetting-password" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Resetting Password<a href="getting-started.html#resetting-password" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If you forget your password, you can go to <a href="https://login.cac.queensu.ca/pwr">this page</a> to reset it. You would need to provide your username, which starts with “pc_”, and the email address you used when signing up RRN, which most likely is your Rotman email address.</p>
 </div>
-<div id="directory-structure-and-disk-quota" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Directory Structure and Disk Quota</h2>
+<div id="directory-structure-and-disk-quota" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Directory Structure and Disk Quota<a href="getting-started.html#directory-structure-and-disk-quota" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You have three folders to store your data. All of them can only be accessed by you.</p>
 <table>
 <colgroup>
@@ -291,8 +294,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You can use the <code>myquota</code> command to see your disk quota and current usage.</p>
 <p>In addition to the above folders, if you need another project folder for collaboration (i.e. share with other researchers), email us and we can help you set it up.</p>
 </div>
-<div id="transferring-files" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Transferring Files</h2>
+<div id="transferring-files" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Transferring Files<a href="getting-started.html#transferring-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>It’s most convenient to use an SFTP (Secure File Transfer Protocol) client to transfer files between your local computer and RRN. <a href="https://winscp.net/eng/download.php">WinSCP</a> is a great free SFTP client for Windows users. Mac users can install <a href="https://filezilla-project.org/download.php?show_all=1">FileZilla</a>. Use the following information to configure your SFTP client.</p>
 <ul>
 <li>File protocol: SFTP</li>
@@ -303,8 +306,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>If you prefer to use command line tools, <code>scp</code> and <code>rsync</code> are good options.</p>
 </div>
-<div id="loading-software" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Loading Software</h2>
+<div id="loading-software" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Loading Software<a href="getting-started.html#loading-software" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>RRN uses <a href="https://lmod.readthedocs.io/en/latest/">Environment Modules</a> to manage its software. Environment modules treat each software and its associated files as a distinct package to be loaded on demand. It resolves conflicts between multiple versions of a software package and configures the environment necessary for running a package.</p>
 <p>Below are a few commonly used module command.</p>
 <table>
@@ -350,7 +353,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>For example, to load the Anaconda Python 3 package, type the below command.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="getting-started.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load anaconda/3.5.3</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="getting-started.html#cb2-1" tabindex="-1"></a><span class="ex">module</span> load anaconda/3.5.3</span></code></pre></div>
 <p>RRN has a large collection of software tools installed. Section <a href="using-software.html#using-software">Using Software</a> provides more details on how to setup some commonly used ones.</p>
 
 </div>
@@ -411,7 +414,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -33,7 +33,9 @@ pre.numberSource code > span > a:first-child::before {
 #SBATCH --time=30:00              # set total run time limit to 30mins (days-hrs:mins:secs)
 #SBATCH --mem=5000                # request 5G memory
 
-module load anaconda/3.5.3        # load python module
+module load StdEnv/2020           # load StdEnv/2020 software environment
+module load python/3.11.5         # load python module
+source ~/myenv/bin/activate        # load my python virtual environment
 python python_test.py             # run python code
 
 ```
@@ -44,36 +46,38 @@ The `#SBATCH` lines (line 2 to 11) are SLURM commands specifying options for sch
 
 **An important note:** under the current cluster configuration, each job is restricted to run on a single node, i.e., a single parallel job can only take advantage of the memory and multiple CPUs on a single node. As a result, do not request more than 24 CPUs and 240G memory as that's the resource capacity for each compute node in the standard partition. In fact, since the Operating System on a node would need resources as well, the maximum CPUs and memory you request (if needed) should be slightly lower than the full capacity (e.g., 23 CPUs and 220G memory). 
 
-Line 13 loads the Python module. In general, you will load the Python module that you have setup for your project (see the section on [Python Setup](#python-setup) for more details). In this example, we load the Anaconda Python module. If you have a Python virtual environment setup for your code/project, you would also activate the environment here (after loading the Python module).  
+Line 13 and 14 load the StdEnv/2020 software environment and the Python module. In general, you will load the Python module that you have setup for your project (see the section on [Python Setup](#python-setup) for more details). In this example, we load the Python 3.11.5 module. If you have a Python virtual environment setup for your code/project, you would also activate the environment here (after loading the Python module). In the example, line 15 loads the `myenv` virtual environment.
 
-Line 14 runs the Python code (`python_test.py`). Note that you do not need to use `nohup` or `&` to run your code as you would normally do when running code in batch mode on RRN itself.
+Line 16 runs the Python code (`python_test.py`). Note that you do not need to use `nohup` or `&` to run your code as you would normally do when running code in batch mode on RRN itself.
 
-You would simply adjust line 13 and 14 if you use other software (i.e., not Python). Below are a few examples.
+You would simply adjust line 13 to 16 if you use other software (i.e., not Python). Below are a few examples.
 
 For R,
 
 ```{bash eval=FALSE, attr.source='.numberLines startFrom="13"'}
-module load r/3.4.0
+module load StdEnv/2020
+module load r/4.2.1
 Rscript mycode.R
 ```
 
 For Matlab,
 
 ```{bash eval=FALSE, attr.source='.numberLines startFrom="13"'}
-module load matlab/R2018b
+module load StdEnv/2020
+module load matlab/R2023a
 matlab -nodesktop -nosplash -nodisplay <matlab_test.m
 ```
 
-For Stata 17,
+For Stata 18,
 
 ```{bash eval=FALSE, attr.source='.numberLines startFrom="13"'}
 stata -b do filename
 ```
 
-For Stata 15,
+For Stata 17,
 
 ```{bash eval=FALSE, attr.source='.numberLines startFrom="13"'}
-module load stata15
+module load stata17
 stata -b do filename
 ```
 

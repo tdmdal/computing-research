@@ -29,24 +29,18 @@ See [Running Jobs on Compute Nodes] to learn how to submit jobs to compute nodes
 
 ### Setup {#python-setup}
 
-Different versions and distributions of Python are available on RRN including Standard Python 2 and 3 releases, Anaconda Distribution 2 and 3, and Python 2 and 3 with MPI4Py and Scipy stack. (Use `module avail` to list all available software on RRN.)
+Different versions and distributions of Python are available on RRN including Standard Python 2 and 3 releases and Anaconda Distribution 2 and 3. (Use `module avail` to list all available software on RRN.)
 
-We recommend you use Anaconda Distribution 3 as it comes with a collection of useful Python packages and a good package and environment manager `conda`. Load the Anaconda Python 3 as below.
-
-```{bash eval=FALSE}
-module load anaconda/3.5.3
-```
-
-See more on setting up a Python virtual environment below (section [Install packages]). A virtual environment allows you to install a desired version of Python and manage packages for a specific Python project.
-
-If you prefer to use a simpler Python distribution (as opposed to Anaconda 3), you could load one of the standard Python distributions. For example, load the Python 3.9.6 standard distribution as below.
+We recommend that you use Standard Python 3 release. For example, load the Python 3.11.5 standard distribution as below.
 
 ```{bash eval=FALSE}
 module load StdEnv/2020
-module load python/3.9.6
+module load python/3.11.5
 ```
 
-StdEnv/2020 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2020` to list all available software under StdEnv/2020.) The standard Python distribution also comes with its own tool to create and manage virtual environment.
+StdEnv/2020 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2020` to list all available software under StdEnv/2020.) 
+
+Note: see more on setting up a Python virtual environment below (section [Install packages]). A virtual environment allows you to install and manage packages for a specific Python project (and hence avoid package version conflict between projects). The standard Python distribution comes with a tool to create and manage virtual environment.
 
 ### Interactive mode (Python console)
 
@@ -84,63 +78,57 @@ pip install --user <packageName>
 
 The above command installs a package to the base environment under your home directory. 
 
-However, the best practice to manage Python packages is to create a virtual environment for each of your Python project. In a project virtual environment, you only need to install packages required for the specific project. In that way, you can avoid potential package conflicts between projects.
+However, the best practice to manage Python packages is to create a virtual environment for each of your Python project. Within a project virtual environment, you only need to install packages required for the specific project. In that way, you isolate package requirement for each project and avoid potential package conflict between projects.
 
-We assume you use Anaconda Python 3 distribution on RRN. Below are steps to setup a virtual environment and install new packages.
+We assume that you use a Standard Python 3 release on RRN. Below are steps to setup a virtual environment and install new packages.
 
-1. Load Anaconda Python 3 distribution.
-
-```{bash eval=FALSE}
-module load anaconda/3.5.3
-```
-
-2. Create a virtual environment
-.
-```{bash eval=FALSE}
-conda create --name myenv
-```
-
-`conda` is a package management system. `myenv` is the specified environment name. (You may want to pick your own name.)
-
-Anaconda/3.5.3 comes with Python 3.6.3. If you wish to use a newer version of Python, you could create a virtual environment with a specific version of Python. For example, create a virtual environment with Python 3.8:
+1. Load a standard Python 3 distribution.
 
 ```{bash eval=FALSE}
-conda create --name myenv python=3.8
+module load StdEnv/2020
+module load python/3.11.5
 ```
+
+2. Create a virtual environment. (Make sure that you are currently in your home directory, or otherwise use the `cd` command to return to your home directory. This ensures the virtual environment folder created by the below command will be under your home directly.)
+
+```{bash eval=FALSE}
+virtualenv --no-download myenv
+```
+
+`virtualenv` is a tool to create isolated Python virtual environments. `myenv` is the specified environment name. (You may want to pick your own name.) A folder named `myenv` will be created under your home directory. Packages related to this environment will all be installed/managed there. The `--no-download` option disables download of the latest pip/setuptools/wheel tools from PyPI (Python package repository) as these tools are installed directly from our system. (The system manages its own set of Python packages/wheels for optimal performance on specific hardware.)
 
 3. Activate the virtual environment.
 
 ```{bash eval=FALSE}
-source activate myenv
-```
-
-Note: For conda 4.6 or later version, you can use `conda activate myenv` to activate the environment. The default conda version on RRN is 4.5.11 (use `conda --version` to see it). However, if you still want to use `conda activate myenv` (for future proof), do the following.
-
-Run the below command once, logout, and re-login. Once you login, run (1) again to load the anaconda module. This command adds a line to `.bashrc` file so that you can use `conda activate` to activate the virtual environment you just created in step (2)
-
-```{bash eval=FALSE}
-echo ". /global/software/python/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
+source ~/myenv/bin/activate
 ```
 
 4. Install packages.
 
-Now you are inside your virtual environment. You should see `(myenv)` in the terminal prompt. This is an isolated environment that you can manage the packages to be installed. For example, you can install `tensorflow` by using `conda install <packageName>`. All package dependencies will be installed automatically. 
+Now you are inside your virtual environment. You should see `(myenv)` in the terminal prompt. This is an isolated Python environment that you can manage the packages to be installed using the standard tool `pip`. For example, `pip list` displays all packages currently installed in the environment. `pip install <packageName>` installs a new package, and its dependencies. As an example. we install the scikit-learn library below.
 
 ```{bash eval=FALSE}
-conda install tensorflow
+pip install scikit-learn
 ```
 
-Note that a new virtual environment has no packages pre-installed (except Python standard libraries).
-
-If you are not able to find a package with `conda install <pacakgeName>` (packages built and maintained by Anaconda official channel) or `conda install -c conda-forge <packageName>` (packages built and maintained by conda community),  you can still try `pip install <pacakgeName>`, although you would need to first install `pip` using `conda install pip`.
+Note that a newly created virtual environment has no packages pre-installed (except a few necessary tools for installing new packages).
 
 5. Return to base environment.
 
-After you're done with Python, type `source deactivate` to return to the base environment. (If you have followed the "Note" in step 3, you can use `conda deactivate` instead.)
+After you're done with Python, type `deactivate` to return to the base environment.
 
-Next time, all you need to do is step (1) and (3) to start the virtual environment and using Python.
+Next time, all you need to do is step (1) and step (3) to start the virtual environment and using Python.
 
-Refer to conda's [official document](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-envs) for more on virtual environment and package management.
+If you don't need a virtual environment anymore, and want to completely delete it, do the following.
+
+
+```{bash eval=FALSE}
+rm -r ~/myenv
+```
+
+Recall that a virtual environment is maintained in a folder under your home directory. The above command removes (`rm`) everything recursively (`-r`) under the `~/myenv` folder and the folder itself. *Use it cautiously*.
+
+Lastly, if you run into any problem installing a Python package, let us know. As mentioned above, the system manages its own set of Python packages/wheels for optimal performance on specific hardware. Certain restrictions and rules are set on the system, so there might be some packages have installation issues.
 
 ### Run Python on compute nodes
 
@@ -151,11 +139,11 @@ For large compute-intensive Python jobs, consider submitting them to the compute
 
 ### Setup
 
-Several versions of R are available on RRN. (Use `module avail` to list all available software on RRN.) Load the R version you prefer, for example, R 4.1.0, and you are good to start using R.
+Several versions of R are available on RRN. (Use `module avail` to list all available software on RRN.) Load the R version you prefer, for example, R 4.2.1, and you are good to start using R.
 
 ```{bash eval=FALSE}
 module load StdEnv/2020
-module load r/4.1.0
+module load r/4.2.1
 ```
 
 StdEnv/2020 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2020` to list all available software under StdEnv/2020.)
@@ -216,7 +204,7 @@ For large compute-intensive R jobs, consider submitting them to the compute node
 
 ### RStudio on RRN
 
-RStudio is not installed on RRN as its GUI experience on the server isn't that good. (In general, we suggest you use command line on RRN.) Nevertheless, to install RStudio on your own, the easiest way is to use R and RStudio from the [Anaconda distribution](https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/). You can create a virtual environment using Anaconda's package management tool `conda` and install R and RStudio in it. Anaconda is mostly known for its Python distribution, but it recently started to distribute R as well.
+RStudio is not installed on RRN as its GUI experience on the server isn't that good. In general, we do *NOT* recommend using RStudio on RRN, and we suggest you use R in command line (either in interactive or batch mode). Nevertheless, to install RStudio on your own, the easiest way is to use R and RStudio from the [Anaconda distribution](https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/). You can create a virtual environment using Anaconda's package management tool `conda` and install R and RStudio in it. Anaconda is mostly known for its Python distribution, but it recently started to distribute R as well.
 
 1. Load Anaconda distribution.
 
@@ -286,11 +274,14 @@ Refer to conda's [official document](https://docs.conda.io/projects/conda/en/lat
 
 Send a signed [MATLAB usage statement form](https://cac.queensu.ca/wp-content/uploads/2017/05/cac-matlab-statement-new.pdf) to cac.admin@queensu.ca and cc tdmdal@rotman.utoronto.ca. This will add you to the matlab group that allows access to the software. To check if you have been authorized access, type `groups` while logged on to the system. If `matlab` appears in the output, you are good to go!
 
-Type `module avail matlab` to see available Matlab versions, and then load the one you want to use. Currently, two versions of Matlab are installed (R2017a and R2018b). For example, if you want to use Matlab 2018b, type
+Type `module avail matlab` to see available Matlab versions, and then load the one you want to use. For example, if you want to use Matlab R2023a, type
 
 ```{bash eval=FALSE}
-module load matlab/R2018b
+module load StdEnv/2020
+module load matlab/R2023a
 ```
+
+StdEnv/2020 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2020` to list all available software under StdEnv/2020.)
 
 ### Interactive mode without GUI
 
@@ -337,12 +328,12 @@ For large compute-intensive Matlab jobs, consider submitting them to the compute
 
 ### Setup
 
-The Stata 17 environment has been set up for you so you do not need to do anything. 
+The Stata 18 environment has been set up for you so you do not need to do anything. 
 
-If you want to use an older version of Stata, Stata 15, load the Stata15 module to setup the environment. Type the command below in the terminal.
+If you want to use an older version of Stata, Stata 17, load the Stata17 module to setup the environment. Type the command below in the terminal.
 
 ```{bash eval=FALSE}
-module load stata15
+module load stata17
 ```
 
 ### Interactive mode without GUI
