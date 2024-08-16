@@ -34,10 +34,10 @@ You have three folders to store your data. All of them can only be accessed by y
 Folder          | Path                                            | Quota       | Usage
 :---------------|:------------------------------------------------|:------------|:-------------------
 home folder     | `/global/home/yourUserName/`                    | 3T          | main storage
-project folder  | `/global/project/rotman_research/yourUserName/` | 50T shared  | additional storage
+project folder  | `/global/project/rotman_research/yourUserName/` | 25T shared  | additional storage
 scratch folder  | `/global/scratch/yourUserName/`                 | 5T          | temporary storage
 
-Note that your project folder shares 50T disk space with other Rotman project folders.
+Note that your project folder shares 25T disk space with other Rotman project folders.
 
 The home folder is the landing folder when you log on to the system. The project and scratch folders can also be accessed via two symbolic links in your home folder: `rotman_research` and `scratch`. (The symbolic links are like shortcuts in Windows.)
 
@@ -75,10 +75,13 @@ List currently loaded packages              | `module list`
 Unload a package                            | `module unload packageName`
 Unload all packages                         | `module purge`
 
-For example, to load the Anaconda Python 3 package, type the below command.
+For example, to load the Python 3.11 package, type the below command.
 
 ```{bash eval=FALSE}
-module load anaconda/3.5.3
+module load StdEnv/2023
+module load python/3.11.5
 ```
+
+StdEnv/2023 is a software environment that offers more recent software tools. python/3.11.5 is a version of Python offered under StdEnv/2023.
 
 RRN has a large collection of software tools installed. Section [Using Software] provides more details on how to setup some commonly used ones.

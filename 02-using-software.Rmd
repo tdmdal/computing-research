@@ -34,11 +34,11 @@ Different versions and distributions of Python are available on RRN including St
 We recommend that you use Standard Python 3 release. For example, load the Python 3.11.5 standard distribution as below.
 
 ```{bash eval=FALSE}
-module load StdEnv/2020
+module load StdEnv/2023
 module load python/3.11.5
 ```
 
-StdEnv/2020 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2020` to list all available software under StdEnv/2020.) 
+StdEnv/2023 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2023` to list all available software under StdEnv/2023.) 
 
 Note: see more on setting up a Python virtual environment below (section [Install packages]). A virtual environment allows you to install and manage packages for a specific Python project (and hence avoid package version conflict between projects). The standard Python distribution comes with a tool to create and manage virtual environment.
 
@@ -85,7 +85,7 @@ We assume that you use a Standard Python 3 release on RRN. Below are steps to se
 1. Load a standard Python 3 distribution.
 
 ```{bash eval=FALSE}
-module load StdEnv/2020
+module load StdEnv/2023
 module load python/3.11.5
 ```
 
@@ -128,7 +128,7 @@ rm -r ~/myenv
 
 Recall that a virtual environment is maintained in a folder under your home directory. The above command removes (`rm`) everything recursively (`-r`) under the `~/myenv` folder and the folder itself. *Use it cautiously*.
 
-Lastly, if you run into any problem installing a Python package, let us know. As mentioned above, the system manages its own set of Python packages/wheels for optimal performance on specific hardware. Certain restrictions and rules are set on the system, so there might be some packages have installation issues.
+Lastly, if you run into any problem installing a Python package, let us know. As mentioned above, the system manages its own set of Python packages/wheels for optimal performance on specific hardware. Certain restrictions and rules are set on the system, so some packages might have installation issues.
 
 ### Run Python on compute nodes
 
@@ -139,14 +139,14 @@ For large compute-intensive Python jobs, consider submitting them to the compute
 
 ### Setup
 
-Several versions of R are available on RRN. (Use `module avail` to list all available software on RRN.) Load the R version you prefer, for example, R 4.2.1, and you are good to start using R.
+Several versions of R are available on RRN. (Use `module avail` to list all available software on RRN.) Load the R version you prefer, for example, R 4.4.0, and you are good to start using R.
 
 ```{bash eval=FALSE}
-module load StdEnv/2020
-module load r/4.2.1
+module load StdEnv/2023
+module load r/4.4.0
 ```
 
-StdEnv/2020 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2020` to list all available software under StdEnv/2020.)
+StdEnv/2023 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2023` to list all available software under StdEnv/2023.)
 
 If you need to use RStudio, you will need to setup R in a different way. see [RStudio on RRN] for instructions.
 
@@ -192,11 +192,14 @@ To install additional packages, use the command:
 install.packages("packageName")
 ```
 
-Packages will be built from the source and installed under your home directory. If you encounter problems building a package, it's likely that the default Intel compiler doesn't work well with your package. In this case, before you install the package, in **your Linux terminal** (not in the R console), load the `gcc` compiler using the below command, and then start R console and install the package again.
+Packages will be built/compiled from the source and installed under your home directory. If you encounter problems building a package, it's likely that the package requires certain libraries/dependencies during the compilation. In this case, before you install the package, in **your Linux terminal** (not in the R console), load the relevant libraries. For example, a popular R package for handling geo-spatial data `sf` requires a few external libraries for compilation. (You can find what those external libraries are at [`sf` CRAN site](https://cran.r-project.org/web/packages/sf/index.html).) Therefore, you would load those libraries using the below command in the terminal, and then start R console and install the package. Once installed, you do not need to load those libraries again next time when using `sf`.
 
 ```{bash eval=FALSE}
-module load gcc/7.3.0
+module load gdal/3.9.1
+module load udunits/2.2.28
 ```
+
+In fact the R `sf` package requires more than just `gdal` and `udunits` for compilation. However, the other dependencies are already installed and set up on the RRN, so you do not need to load them. If you encounter a package that requires a library that is not installed on RRN, please let us know.
 
 ### Run R on compute nodes
 
@@ -277,11 +280,11 @@ Send a signed [MATLAB usage statement form](https://cac.queensu.ca/wp-content/up
 Type `module avail matlab` to see available Matlab versions, and then load the one you want to use. For example, if you want to use Matlab R2023a, type
 
 ```{bash eval=FALSE}
-module load StdEnv/2020
+module load StdEnv/2023
 module load matlab/R2023a
 ```
 
-StdEnv/2020 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2020` to list all available software under StdEnv/2020.)
+StdEnv/2023 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2023` to list all available software under StdEnv/2023.)
 
 ### Interactive mode without GUI
 
