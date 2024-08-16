@@ -148,8 +148,6 @@ module load r/4.4.0
 
 StdEnv/2023 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2023` to list all available software under StdEnv/2023.)
 
-If you need to use RStudio, you will need to setup R in a different way. see [RStudio on RRN] for instructions.
-
 ### Interactive mode (R console)
 
 To start R in interactive mode (R console), type `R` in the terminal. Type `quit()` to quit the R console.
@@ -204,71 +202,6 @@ In fact the R `sf` package requires more than just `gdal` and `udunits` for comp
 ### Run R on compute nodes
 
 For large compute-intensive R jobs, consider submitting them to the compute nodes. See [Running Jobs on Compute Nodes] to get started.
-
-### RStudio on RRN
-
-RStudio is not installed on RRN as its GUI experience on the server isn't that good. In general, we do *NOT* recommend using RStudio on RRN, and we suggest you use R in command line (either in interactive or batch mode). Nevertheless, to install RStudio on your own, the easiest way is to use R and RStudio from the [Anaconda distribution](https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/). You can create a virtual environment using Anaconda's package management tool `conda` and install R and RStudio in it. Anaconda is mostly known for its Python distribution, but it recently started to distribute R as well.
-
-1. Load Anaconda distribution.
-
-```{bash eval=FALSE}
-module load anaconda/3.5.3
-```
-
-2. Create a virtual environment
-.
-```{bash eval=FALSE}
-conda create --name r_env
-```
-
-`conda` is a package management system. `r_env` is the specified environment name. (You may want to pick your own name.)
-
-3. Activate the virtual environment.
-
-```{bash eval=FALSE}
-source activate r_env
-```
-
-Note: For conda 4.6 or later version, you can use `conda activate r-env` to activate the environment. The default conda version on RRN is 4.5.11 (use `conda --version` to see it). However, if you still want to use `conda activate r_env` (for future proof), do the following.
-
-Run the below command once, logout, and re-login. Once you login, run (1) again to load the anaconda module. This command adds a line to `.bashrc` file so that you can use `conda activate` to activate the virtual environment you just created in step (2)
-
-```{bash eval=FALSE}
-echo ". /global/software/python/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
-```
-
-4. Install R, RStudio and R packages.
-
-Now you are inside your virtual environment. You should see `(r_env)` in the terminal prompt. This is an isolated environment that you can manage the packages to be installed. Let's install base R, some essential R packages and RStudio. Note that first you would need to install `pip`, a Python package manager.
-
-```{bash eval=FALSE}
-conda install pip
-conda install r-base r-essentials rstudio
-```
-
-Use `conda list` to display all packages installed in your virtual environment.
-
-Installing other R packages is similar. Simply use
-
-```{bash eval=FALSE}
-conda install -c r <pacakgeName>
-```
-
-Note that we use `conda` for package management instead of R itself (`install.packages()`). The advantage of using `conda` is that it takes care of the package dependency for us. This is especially helpful when a package is partially developed using languages other than R (e.g. C++).
-
-The `-c r` option means installing package from the r channel. This channel is maintained by Anaconda. See this official [Anaconda document](https://docs.anaconda.com/anaconda/packages/r-language-pkg-docs/) for all R packages maintained. Note the `r-` prefix to the usual R package name. 
-
-If you are not able to find an R package with `conda install -c r <pacakgeName>` (packages built and maintained by Anaconda official channel) or `conda install -c conda-forge <packageName>` (packages built and maintained by conda community),  you can still try `install.packages("packageName")` in R console as discussed in [Install R packages].
-
-Start RStudio by typing `rstudio` in the terminal. (Type `rstudio &` will start RStudio and return you the terminal prompt.)   
-
-5. Return to base environment.
-
-After you're done with R, type `source deactivate` to return to the base environment. (If you have followed the "Note" in step 3, you can use `conda deactivate` instead.)
-
-Next time, all you need to do is step (1) and (3) to start the virtual environment and using R.
-
-Refer to conda's [official document](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-envs) for more on virtual environment and package management. Note that conda's official document mainly targets Python user.
 
 
 ## Using Matlab

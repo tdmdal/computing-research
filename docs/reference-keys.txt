@@ -21,7 +21,6 @@ interactive-mode-r-console
 batch-mode-1
 install-r-packages
 run-r-on-compute-nodes
-rstudio-on-rrn
 using-matlab
 setup-1
 interactive-mode-without-gui

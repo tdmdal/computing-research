@@ -170,7 +170,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.3" data-path="using-software.html"><a href="using-software.html#batch-mode-1"><i class="fa fa-check"></i><b>2.3.3</b> Batch mode</a></li>
 <li class="chapter" data-level="2.3.4" data-path="using-software.html"><a href="using-software.html#install-r-packages"><i class="fa fa-check"></i><b>2.3.4</b> Install R packages</a></li>
 <li class="chapter" data-level="2.3.5" data-path="using-software.html"><a href="using-software.html#run-r-on-compute-nodes"><i class="fa fa-check"></i><b>2.3.5</b> Run R on compute nodes</a></li>
-<li class="chapter" data-level="2.3.6" data-path="using-software.html"><a href="using-software.html#rstudio-on-rrn"><i class="fa fa-check"></i><b>2.3.6</b> RStudio on RRN</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="using-software.html"><a href="using-software.html#using-matlab"><i class="fa fa-check"></i><b>2.4</b> Using Matlab</a>
 <ul>
@@ -322,7 +321,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="using-software.html#cb15-1" tabindex="-1"></a><span class="ex">module</span> load StdEnv/2023</span>
 <span id="cb15-2"><a href="using-software.html#cb15-2" tabindex="-1"></a><span class="ex">module</span> load r/4.4.0</span></code></pre></div>
 <p>StdEnv/2023 is a software environment that offers more recent software tools. (Use <code>module avail</code> after <code>module load StdEnv/2023</code> to list all available software under StdEnv/2023.)</p>
-<p>If you need to use RStudio, you will need to setup R in a different way. see <a href="using-software.html#rstudio-on-rrn">RStudio on RRN</a> for instructions.</p>
 </div>
 <div id="interactive-mode-r-console" class="section level3 hasAnchor" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Interactive mode (R console)<a href="using-software.html#interactive-mode-r-console" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -354,46 +352,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.3.5</span> Run R on compute nodes<a href="using-software.html#run-r-on-compute-nodes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For large compute-intensive R jobs, consider submitting them to the compute nodes. See <a href="running-jobs-on-compute-nodes.html#running-jobs-on-compute-nodes">Running Jobs on Compute Nodes</a> to get started.</p>
 </div>
-<div id="rstudio-on-rrn" class="section level3 hasAnchor" number="2.3.6">
-<h3><span class="header-section-number">2.3.6</span> RStudio on RRN<a href="using-software.html#rstudio-on-rrn" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>RStudio is not installed on RRN as its GUI experience on the server isn’t that good. In general, we do <em>NOT</em> recommend using RStudio on RRN, and we suggest you use R in command line (either in interactive or batch mode). Nevertheless, to install RStudio on your own, the easiest way is to use R and RStudio from the <a href="https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/">Anaconda distribution</a>. You can create a virtual environment using Anaconda’s package management tool <code>conda</code> and install R and RStudio in it. Anaconda is mostly known for its Python distribution, but it recently started to distribute R as well.</p>
-<ol style="list-style-type: decimal">
-<li>Load Anaconda distribution.</li>
-</ol>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="using-software.html#cb22-1" tabindex="-1"></a><span class="ex">module</span> load anaconda/3.5.3</span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li>Create a virtual environment
-.</li>
-</ol>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="using-software.html#cb23-1" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> r_env</span></code></pre></div>
-<p><code>conda</code> is a package management system. <code>r_env</code> is the specified environment name. (You may want to pick your own name.)</p>
-<ol start="3" style="list-style-type: decimal">
-<li>Activate the virtual environment.</li>
-</ol>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="using-software.html#cb24-1" tabindex="-1"></a><span class="bu">source</span> activate r_env</span></code></pre></div>
-<p>Note: For conda 4.6 or later version, you can use <code>conda activate r-env</code> to activate the environment. The default conda version on RRN is 4.5.11 (use <code>conda --version</code> to see it). However, if you still want to use <code>conda activate r_env</code> (for future proof), do the following.</p>
-<p>Run the below command once, logout, and re-login. Once you login, run (1) again to load the anaconda module. This command adds a line to <code>.bashrc</code> file so that you can use <code>conda activate</code> to activate the virtual environment you just created in step (2)</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="using-software.html#cb25-1" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;. /global/software/python/anaconda3/etc/profile.d/conda.sh&quot;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span></code></pre></div>
-<ol start="4" style="list-style-type: decimal">
-<li>Install R, RStudio and R packages.</li>
-</ol>
-<p>Now you are inside your virtual environment. You should see <code>(r_env)</code> in the terminal prompt. This is an isolated environment that you can manage the packages to be installed. Let’s install base R, some essential R packages and RStudio. Note that first you would need to install <code>pip</code>, a Python package manager.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="using-software.html#cb26-1" tabindex="-1"></a><span class="ex">conda</span> install pip</span>
-<span id="cb26-2"><a href="using-software.html#cb26-2" tabindex="-1"></a><span class="ex">conda</span> install r-base r-essentials rstudio</span></code></pre></div>
-<p>Use <code>conda list</code> to display all packages installed in your virtual environment.</p>
-<p>Installing other R packages is similar. Simply use</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="using-software.html#cb27-1" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> r <span class="op">&lt;</span>pacakgeName<span class="op">&gt;</span></span></code></pre></div>
-<p>Note that we use <code>conda</code> for package management instead of R itself (<code>install.packages()</code>). The advantage of using <code>conda</code> is that it takes care of the package dependency for us. This is especially helpful when a package is partially developed using languages other than R (e.g. C++).</p>
-<p>The <code>-c r</code> option means installing package from the r channel. This channel is maintained by Anaconda. See this official <a href="https://docs.anaconda.com/anaconda/packages/r-language-pkg-docs/">Anaconda document</a> for all R packages maintained. Note the <code>r-</code> prefix to the usual R package name.</p>
-<p>If you are not able to find an R package with <code>conda install -c r &lt;pacakgeName&gt;</code> (packages built and maintained by Anaconda official channel) or <code>conda install -c conda-forge &lt;packageName&gt;</code> (packages built and maintained by conda community), you can still try <code>install.packages("packageName")</code> in R console as discussed in <a href="using-software.html#install-r-packages">Install R packages</a>.</p>
-<p>Start RStudio by typing <code>rstudio</code> in the terminal. (Type <code>rstudio &amp;</code> will start RStudio and return you the terminal prompt.)</p>
-<ol start="5" style="list-style-type: decimal">
-<li>Return to base environment.</li>
-</ol>
-<p>After you’re done with R, type <code>source deactivate</code> to return to the base environment. (If you have followed the “Note” in step 3, you can use <code>conda deactivate</code> instead.)</p>
-<p>Next time, all you need to do is step (1) and (3) to start the virtual environment and using R.</p>
-<p>Refer to conda’s <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-envs">official document</a> for more on virtual environment and package management. Note that conda’s official document mainly targets Python user.</p>
-</div>
 </div>
 <div id="using-matlab" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> Using Matlab<a href="using-software.html#using-matlab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -401,14 +359,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.4.1</span> Setup<a href="using-software.html#setup-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Send a signed <a href="https://cac.queensu.ca/wp-content/uploads/2017/05/cac-matlab-statement-new.pdf">MATLAB usage statement form</a> to <a href="mailto:cac.admin@queensu.ca" class="email">cac.admin@queensu.ca</a> and cc <a href="mailto:tdmdal@rotman.utoronto.ca" class="email">tdmdal@rotman.utoronto.ca</a>. This will add you to the matlab group that allows access to the software. To check if you have been authorized access, type <code>groups</code> while logged on to the system. If <code>matlab</code> appears in the output, you are good to go!</p>
 <p>Type <code>module avail matlab</code> to see available Matlab versions, and then load the one you want to use. For example, if you want to use Matlab R2023a, type</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="using-software.html#cb28-1" tabindex="-1"></a><span class="ex">module</span> load StdEnv/2023</span>
-<span id="cb28-2"><a href="using-software.html#cb28-2" tabindex="-1"></a><span class="ex">module</span> load matlab/R2023a</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="using-software.html#cb22-1" tabindex="-1"></a><span class="ex">module</span> load StdEnv/2023</span>
+<span id="cb22-2"><a href="using-software.html#cb22-2" tabindex="-1"></a><span class="ex">module</span> load matlab/R2023a</span></code></pre></div>
 <p>StdEnv/2023 is a software environment that offers more recent software tools. (Use <code>module avail</code> after <code>module load StdEnv/2023</code> to list all available software under StdEnv/2023.)</p>
 </div>
 <div id="interactive-mode-without-gui" class="section level3 hasAnchor" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> Interactive mode without GUI<a href="using-software.html#interactive-mode-without-gui" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To start Matlab in interactive mode without GUI, type the command below.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="using-software.html#cb29-1" tabindex="-1"></a><span class="ex">matlab</span> <span class="at">-nodisplay</span> <span class="at">-nosplash</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="using-software.html#cb23-1" tabindex="-1"></a><span class="ex">matlab</span> <span class="at">-nodisplay</span> <span class="at">-nosplash</span></span></code></pre></div>
 </div>
 <div id="interactive-mode-with-gui" class="section level3 hasAnchor" number="2.4.3">
 <h3><span class="header-section-number">2.4.3</span> Interactive mode with GUI<a href="using-software.html#interactive-mode-with-gui" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -420,10 +378,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="batch-mode-2" class="section level3 hasAnchor" number="2.4.4">
 <h3><span class="header-section-number">2.4.4</span> Batch mode<a href="using-software.html#batch-mode-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To run Matlab in batch mode, use</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="using-software.html#cb31-1" tabindex="-1"></a><span class="ex">matlab</span> <span class="at">-nodisplay</span> <span class="at">-nodesktop</span> <span class="at">-nosplash</span> <span class="op">&lt;</span>mycode.m <span class="op">&gt;</span>output.txt</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="using-software.html#cb25-1" tabindex="-1"></a><span class="ex">matlab</span> <span class="at">-nodisplay</span> <span class="at">-nodesktop</span> <span class="at">-nosplash</span> <span class="op">&lt;</span>mycode.m <span class="op">&gt;</span>output.txt</span></code></pre></div>
 <p>The <code>&lt;</code> symbol tells the <code>matlab</code> command to take the Matlab m file <code>mycode.m</code> as input. The <code>&gt;</code> symbol redirects the output to the <code>output.txt</code> file instead of printing it to the screen.</p>
 <p>Pre- and post-face the above command with the Linux command <code>nohup</code> and control operator <code>&amp;</code> so that the job will run in background and won’t be killed even you log off the system (see section <a href="using-software.html#interactive-mode-vs-batch-mode">Interactive mode vs batch mode</a>).</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="using-software.html#cb32-1" tabindex="-1"></a><span class="fu">nohup</span> matlab <span class="at">-nodisplay</span> <span class="at">-nodesktop</span> <span class="at">-nosplash</span> <span class="op">&lt;</span>mycode.m <span class="op">&gt;</span>output.txt <span class="kw">&amp;</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="using-software.html#cb26-1" tabindex="-1"></a><span class="fu">nohup</span> matlab <span class="at">-nodisplay</span> <span class="at">-nodesktop</span> <span class="at">-nosplash</span> <span class="op">&lt;</span>mycode.m <span class="op">&gt;</span>output.txt <span class="kw">&amp;</span></span></code></pre></div>
 </div>
 <div id="run-matlab-on-compute-nodes" class="section level3 hasAnchor" number="2.4.5">
 <h3><span class="header-section-number">2.4.5</span> Run Matlab on compute nodes<a href="using-software.html#run-matlab-on-compute-nodes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -436,7 +394,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.5.1</span> Setup<a href="using-software.html#setup-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Stata 18 environment has been set up for you so you do not need to do anything.</p>
 <p>If you want to use an older version of Stata, Stata 17, load the Stata17 module to setup the environment. Type the command below in the terminal.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="using-software.html#cb33-1" tabindex="-1"></a><span class="ex">module</span> load stata17</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="using-software.html#cb27-1" tabindex="-1"></a><span class="ex">module</span> load stata17</span></code></pre></div>
 </div>
 <div id="interactive-mode-without-gui-1" class="section level3 hasAnchor" number="2.5.2">
 <h3><span class="header-section-number">2.5.2</span> Interactive mode without GUI<a href="using-software.html#interactive-mode-without-gui-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -451,10 +409,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="batch-mode-3" class="section level3 hasAnchor" number="2.5.4">
 <h3><span class="header-section-number">2.5.4</span> Batch mode<a href="using-software.html#batch-mode-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To run Stata/IC in batch mode, use</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="using-software.html#cb34-1" tabindex="-1"></a><span class="ex">stata</span> <span class="at">-b</span> do filename <span class="kw">&amp;</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="using-software.html#cb28-1" tabindex="-1"></a><span class="ex">stata</span> <span class="at">-b</span> do filename <span class="kw">&amp;</span></span></code></pre></div>
 <p>Stata will execute the code in <code>filename.do</code> and will automatically save the output in <code>filename.log</code>. The <code>&amp;</code> at the end tells Linux to run the command in the background, freeing up your command line prompt.</p>
 <p>If your code takes a long time to run, you may wish to start a batch Stata job, log off from your terminal, and log back in later to retrieve the output. To do this, preface the previous command with <code>nohup</code>.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="using-software.html#cb35-1" tabindex="-1"></a><span class="fu">nohup</span> stata <span class="at">-b</span> do filename <span class="kw">&amp;</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="using-software.html#cb29-1" tabindex="-1"></a><span class="fu">nohup</span> stata <span class="at">-b</span> do filename <span class="kw">&amp;</span></span></code></pre></div>
 <p><code>nohup</code> prevents your job from being killed when you log off the system.</p>
 <p>Similarly, replace <code>stata</code> with <code>stata-se</code> for Stata/SE or <code>stata-mp</code> for Stata/MP.</p>
 </div>
@@ -462,7 +420,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.5.5</span> A note on Stata/MP<a href="using-software.html#a-note-on-statamp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We have Stata/MP 32-core installed on the system. Since RRN is a 32-core node shared by many users, we request that you set the number of processors for Stata/MP to be less than 16 when you use it on RRN.</p>
 <p>Use <code>set processors #</code> to set the number of processors for Stata/MP. For example,</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb36-1"><a href="using-software.html#cb36-1" tabindex="-1"></a><span class="kw">set</span> processors 12</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb30-1"><a href="using-software.html#cb30-1" tabindex="-1"></a><span class="kw">set</span> processors 12</span></code></pre></div>
 <p>Put it on the first line in your do file or run it first if you use interactive mode.</p>
 <p>If you have a large workload that requires many cores and hours to run, your should consider submitting your job to a compute node on the HPC system. In that way, you can request more CPUs to take full advantage of the 32-core Stata/MP licence. (See <a href="running-jobs-on-compute-nodes.html#running-jobs-on-compute-nodes">Running Jobs on Compute Nodes</a> to get started.)</p>
 </div>
@@ -487,10 +445,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="batch-mode-4" class="section level3 hasAnchor" number="2.6.4">
 <h3><span class="header-section-number">2.6.4</span> Batch mode<a href="using-software.html#batch-mode-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To run SAS in batch mode, use</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="using-software.html#cb37-1" tabindex="-1"></a><span class="ex">sas</span> mycode.sas <span class="kw">&amp;</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="using-software.html#cb31-1" tabindex="-1"></a><span class="ex">sas</span> mycode.sas <span class="kw">&amp;</span></span></code></pre></div>
 <p>SAS will execute the code in <code>mycode.sas</code> and will automatically save the SAS console output in <code>mycode.log</code>. The <code>&amp;</code> at the end tells Linux to run the command in the background, freeing up your command line prompt.</p>
 <p>If your code takes a long time to run, you may wish to start a batch SAS job, log off from the system, and log back in later to check the output. To do this, preface the previous command with <code>nohup</code>.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb38-1"><a href="using-software.html#cb38-1" tabindex="-1"></a><span class="fu">nohup</span> sas mycode.sas <span class="kw">&amp;</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="using-software.html#cb32-1" tabindex="-1"></a><span class="fu">nohup</span> sas mycode.sas <span class="kw">&amp;</span></span></code></pre></div>
 <p><code>nohup</code> prevents your job from being terminated when you log off the system.</p>
 </div>
 <div id="run-sas-on-compute-nodes" class="section level3 hasAnchor" number="2.6.5">
@@ -508,11 +466,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="terminate-jobs" class="section level3 hasAnchor" number="2.7.2">
 <h3><span class="header-section-number">2.7.2</span> Terminate jobs<a href="using-software.html#terminate-jobs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you want to terminate your program running in the background, you could use <code>htop</code> as well (<code>F9/Kill</code>). Alternatively, first find your program’s process id.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="using-software.html#cb39-1" tabindex="-1"></a><span class="fu">ps</span> <span class="at">-u</span> yourUserName</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="using-software.html#cb33-1" tabindex="-1"></a><span class="fu">ps</span> <span class="at">-u</span> yourUserName</span></code></pre></div>
 <p>Then, use the <code>kill</code> command.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="using-software.html#cb40-1" tabindex="-1"></a><span class="bu">kill</span> programProcessID</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="using-software.html#cb34-1" tabindex="-1"></a><span class="bu">kill</span> programProcessID</span></code></pre></div>
 <p>If the above command doesn’t work, try the <code>kill -9</code> option.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="using-software.html#cb41-1" tabindex="-1"></a><span class="bu">kill</span> <span class="at">-9</span> programProcessID</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="using-software.html#cb35-1" tabindex="-1"></a><span class="bu">kill</span> <span class="at">-9</span> programProcessID</span></code></pre></div>
 
 </div>
 </div>
