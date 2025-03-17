@@ -64,7 +64,7 @@ For Matlab,
 
 ```{bash eval=FALSE, attr.source='.numberLines startFrom="13"'}
 module load StdEnv/2023
-module load matlab/R2023a
+module load matlab/R2024b
 matlab -nodesktop -nosplash -nodisplay <matlab_test.m
 ```
 

@@ -64,7 +64,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -357,10 +357,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.4</span> Using Matlab<a href="using-software.html#using-matlab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="setup-1" class="section level3 hasAnchor" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> Setup<a href="using-software.html#setup-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Send a signed <a href="https://cac.queensu.ca/wp-content/uploads/2017/05/cac-matlab-statement-new.pdf">MATLAB usage statement form</a> to <a href="mailto:cac.admin@queensu.ca" class="email">cac.admin@queensu.ca</a> and cc <a href="mailto:tdmdal@rotman.utoronto.ca" class="email">tdmdal@rotman.utoronto.ca</a>. This will add you to the matlab group that allows access to the software. To check if you have been authorized access, type <code>groups</code> while logged on to the system. If <code>matlab</code> appears in the output, you are good to go!</p>
-<p>Type <code>module avail matlab</code> to see available Matlab versions, and then load the one you want to use. For example, if you want to use Matlab R2023a, type</p>
+<p>Send a signed <a href="https://info.cac.queensu.ca/wiki/files/2017/05/cac-matlab-statement.pdf">MATLAB usage statement form</a> to <a href="mailto:cac.admin@queensu.ca" class="email">cac.admin@queensu.ca</a> and cc <a href="mailto:tdmdal@rotman.utoronto.ca" class="email">tdmdal@rotman.utoronto.ca</a>. This will add you to the matlab group that allows access to the software. To check if you have been authorized access, type <code>groups</code> while logged on to the system. If <code>matlab</code> appears in the output, you are good to go!</p>
+<p>Type <code>module avail matlab</code> to see available Matlab versions, and then load the one you want to use. For example, if you want to use Matlab R2024b, type</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="using-software.html#cb22-1" tabindex="-1"></a><span class="ex">module</span> load StdEnv/2023</span>
-<span id="cb22-2"><a href="using-software.html#cb22-2" tabindex="-1"></a><span class="ex">module</span> load matlab/R2023a</span></code></pre></div>
+<span id="cb22-2"><a href="using-software.html#cb22-2" tabindex="-1"></a><span class="ex">module</span> load matlab/R2024b</span></code></pre></div>
 <p>StdEnv/2023 is a software environment that offers more recent software tools. (Use <code>module avail</code> after <code>module load StdEnv/2023</code> to list all available software under StdEnv/2023.)</p>
 </div>
 <div id="interactive-mode-without-gui" class="section level3 hasAnchor" number="2.4.2">
@@ -495,32 +495,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": false,
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/tdmdal/computing-research/edit/master/02-using-software.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": false,
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/tdmdal/computing-research/edit/master/02-using-software.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

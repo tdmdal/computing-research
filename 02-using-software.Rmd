@@ -208,13 +208,13 @@ For large compute-intensive R jobs, consider submitting them to the compute node
 
 ### Setup
 
-Send a signed [MATLAB usage statement form](https://cac.queensu.ca/wp-content/uploads/2017/05/cac-matlab-statement-new.pdf) to cac.admin@queensu.ca and cc tdmdal@rotman.utoronto.ca. This will add you to the matlab group that allows access to the software. To check if you have been authorized access, type `groups` while logged on to the system. If `matlab` appears in the output, you are good to go!
+Send a signed [MATLAB usage statement form](https://info.cac.queensu.ca/wiki/files/2017/05/cac-matlab-statement.pdf) to cac.admin@queensu.ca and cc tdmdal@rotman.utoronto.ca. This will add you to the matlab group that allows access to the software. To check if you have been authorized access, type `groups` while logged on to the system. If `matlab` appears in the output, you are good to go!
 
-Type `module avail matlab` to see available Matlab versions, and then load the one you want to use. For example, if you want to use Matlab R2023a, type
+Type `module avail matlab` to see available Matlab versions, and then load the one you want to use. For example, if you want to use Matlab R2024b, type
 
 ```{bash eval=FALSE}
 module load StdEnv/2023
-module load matlab/R2023a
+module load matlab/R2024b
 ```
 
 StdEnv/2023 is a software environment that offers more recent software tools. (Use `module avail` after `module load StdEnv/2023` to list all available software under StdEnv/2023.)

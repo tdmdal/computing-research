@@ -64,7 +64,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -273,7 +273,7 @@ pre.numberSource code > span > a:first-child::before {
 <span id="cb37-15"><a href="running-jobs-on-compute-nodes.html#cb37-15"></a><span class="ex">Rscript</span> mycode.R</span></code></pre></div>
 <p>For Matlab,</p>
 <div class="sourceCode" id="cb38" startFrom="13"><pre class="sourceCode numberSource bash numberLines"><code class="sourceCode bash" style="counter-reset: source-line 12;"><span id="cb38-13"><a href="running-jobs-on-compute-nodes.html#cb38-13"></a><span class="ex">module</span> load StdEnv/2023</span>
-<span id="cb38-14"><a href="running-jobs-on-compute-nodes.html#cb38-14"></a><span class="ex">module</span> load matlab/R2023a</span>
+<span id="cb38-14"><a href="running-jobs-on-compute-nodes.html#cb38-14"></a><span class="ex">module</span> load matlab/R2024b</span>
 <span id="cb38-15"><a href="running-jobs-on-compute-nodes.html#cb38-15"></a><span class="ex">matlab</span> <span class="at">-nodesktop</span> <span class="at">-nosplash</span> <span class="at">-nodisplay</span> <span class="op">&lt;</span>matlab_test.m</span></code></pre></div>
 <p>For Stata 18,</p>
 <div class="sourceCode" id="cb39" startFrom="13"><pre class="sourceCode numberSource bash numberLines"><code class="sourceCode bash" style="counter-reset: source-line 12;"><span id="cb39-13"><a href="running-jobs-on-compute-nodes.html#cb39-13"></a><span class="ex">stata</span> <span class="at">-b</span> do filename</span></code></pre></div>
@@ -335,32 +335,32 @@ pre.numberSource code > span > a:first-child::before {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": false,
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/tdmdal/computing-research/edit/master/03-compute-nodes.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": false,
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/tdmdal/computing-research/edit/master/03-compute-nodes.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>
